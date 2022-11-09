@@ -14,6 +14,7 @@ import ChannelSettings from '../ChannelSettings';
 import MessageSearchPannel from '../MessageSearch';
 
 import './index.scss';
+import Thread from '../Thread';
 
 export default function App(props) {
   const {
@@ -31,7 +32,7 @@ export default function App(props) {
     config = {},
     isReactionEnabled,
     isMentionEnabled,
-    replyType,
+    // replyType,
     isMessageGroupingEnabled,
     colorSet,
     stringSet,
@@ -46,11 +47,14 @@ export default function App(props) {
     isTypingIndicatorEnabledOnChannelList,
     isMessageReceiptStatusEnabledOnChannelList,
   } = props;
-  const [currentChannelUrl, setCurrentChannelUrl] = useState(null);
+  const replyType = 'THREAD'
+  const [currentChannel, setCurrentChannel] = useState(null);
   const [showSettings, setShowSettings] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const [showThread, setShowThread] = useState(false);
   const [highlightedMessage, setHighlightedMessage] = useState(null);
   const [startingPoint, setStartingPoint] = useState(null);
+  const [threadTargetMessage, setThreadTargetMessage] = useState(null);
 
   return (
     <Sendbird
@@ -76,6 +80,7 @@ export default function App(props) {
       isMentionEnabled={isMentionEnabled}
       isTypingIndicatorEnabledOnChannelList={isTypingIndicatorEnabledOnChannelList}
       isMessageReceiptStatusEnabledOnChannelList={isMessageReceiptStatusEnabledOnChannelList}
+      replyType={replyType}
     >
       <div className="sendbird-app__wrap">
         <div className="sendbird-app__channellist-wrap">
@@ -87,9 +92,9 @@ export default function App(props) {
               setStartingPoint(null);
               setHighlightedMessage(null);
               if (channel?.url) {
-                setCurrentChannelUrl(channel.url);
+                setCurrentChannel(channel);
               } else {
-                setCurrentChannelUrl('');
+                setCurrentChannel(null);
               }
             }}
           />
@@ -102,14 +107,31 @@ export default function App(props) {
           `}
         >
           <Channel
-            channelUrl={currentChannelUrl}
+            channelUrl={currentChannel?.url || ''}
             onChatHeaderActionClick={() => {
               setShowSearch(false);
+              setShowThread(false);
               setShowSettings(!showSettings);
             }}
             onSearchClick={() => {
               setShowSettings(false);
+              setShowThread(false);
               setShowSearch(!showSearch);
+            }}
+            onReplyInThread={({ message }) => { // parent message
+              setShowSettings(false);
+              setShowSearch(false);
+              setThreadTargetMessage({
+                createdAt: message?.createdAt,
+                parentMessageId: message?.messageId,
+              }); // as UserMessage
+              setShowThread(true);
+            }}
+            onQuoteMessageClick={({ message }) => { // thread message
+              setShowSettings(false);
+              setShowSearch(false);
+              setThreadTargetMessage(message);
+              setShowThread(true);
             }}
             showSearchIcon={showSearchIcon}
             startingPoint={startingPoint}
@@ -123,7 +145,7 @@ export default function App(props) {
           <div className="sendbird-app__settingspanel-wrap">
             <ChannelSettings
               className="sendbird-channel-settings"
-              channelUrl={currentChannelUrl}
+              channelUrl={currentChannel?.url || ''}
               onCloseClick={() => {
                 setShowSettings(false);
               }}
@@ -133,7 +155,7 @@ export default function App(props) {
         {showSearch && (
           <div className="sendbird-app__searchpanel-wrap">
             <MessageSearchPannel
-              channelUrl={currentChannelUrl}
+              channelUrl={currentChannel?.url || ''}
               onResultClick={(message) => {
                 if (message.messageId === highlightedMessage) {
                   setHighlightedMessage(null);
@@ -150,6 +172,20 @@ export default function App(props) {
               }}
             />
           </div>
+        )}
+        {showThread && (
+          <Thread
+            className="sendbird-app__thread"
+            channelUrl={currentChannel?.url || ''}
+            message={threadTargetMessage}
+            onHeaderActionClick={() => {
+              setShowThread(false);
+            }}
+            onMoveToParentMessage={({ message }) => {
+              setHighlightedMessage(message?.messageId);
+            }}
+            isMessageGroupingEnabled={isMessageGroupingEnabled}
+          />
         )}
       </div>
     </Sendbird>
