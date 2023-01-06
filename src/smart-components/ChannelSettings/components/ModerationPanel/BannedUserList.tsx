@@ -18,6 +18,7 @@ import ContextMenu, { MenuItem, MenuItems } from '../../../../ui/ContextMenu';
 import UserListItem from '../UserListItem';
 import BannedUsersModal from './BannedUsersModal';
 import { useChannelSettingsContext } from '../../context/ChannelSettingsProvider';
+import { useLocalization } from '../../../../lib/LocalizationContext';
 
 export const BannedMemberList = (): ReactElement => {
   const [members, setMembers] = useState([]);
@@ -25,6 +26,7 @@ export const BannedMemberList = (): ReactElement => {
   const [showModal, setShowModal] = useState(false);
 
   const { channel } = useChannelSettingsContext();
+  const { stringSet } = useLocalization();
 
   useEffect(() => {
     if (!channel) {
@@ -91,7 +93,7 @@ export const BannedMemberList = (): ReactElement => {
                           })
                         }}
                       >
-                        Unban
+                        {stringSet.CHANNEL_SETTING__UNBAN}
                       </MenuItem>
                     </MenuItems>
                   )}
@@ -108,7 +110,7 @@ export const BannedMemberList = (): ReactElement => {
             type={LabelTypography.SUBTITLE_2}
             color={LabelColors.ONBACKGROUND_3}
           >
-            No banned members yet
+            {stringSet.CHANNEL_SETTING__NO_BANNED}
           </Label>
         )
       }
@@ -124,7 +126,7 @@ export const BannedMemberList = (): ReactElement => {
                 setShowModal(true);
               }}
             >
-              All banned members
+              {stringSet.CHANNEL_SETTING__BANNED_MEMBERS__TITLE_ALL}
             </Button>
           </div>
         )

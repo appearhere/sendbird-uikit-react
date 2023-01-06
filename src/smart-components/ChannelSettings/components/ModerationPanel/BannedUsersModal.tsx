@@ -99,7 +99,7 @@ export default function BannedUsersModal({
                           })
                         }}
                       >
-                        Unban
+                        {stringSet.CHANNEL_SETTING__UNBAN}
                       </MenuItem>
                     </MenuItems>
                   )}
