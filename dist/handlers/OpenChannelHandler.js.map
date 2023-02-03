@@ -1,0 +1,1 @@
+{"version":3,"file":"OpenChannelHandler.js","sources":["../../src/lib/handlers/OpenChannelHandler.ts"],"sourcesContent":["/**\n * Returns the instance of OpenChannelHandler\n */\nimport { OpenChannelHandler } from \"@sendbird/chat/openChannel\";\n\nexport default OpenChannelHandler;\n"],"names":[],"mappings":";;;AAAA;;AAEG"}

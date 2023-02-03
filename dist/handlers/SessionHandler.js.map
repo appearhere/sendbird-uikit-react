@@ -1,0 +1,1 @@
+{"version":3,"file":"SessionHandler.js","sources":["../../src/lib/handlers/SessionHandler.ts"],"sourcesContent":["/**\n * Returns the instance of SessionHandler\n */\nimport { SessionHandler } from \"@sendbird/chat\";\n\nexport default SessionHandler;\n"],"names":[],"mappings":";;;AAAA;;AAEG"}
