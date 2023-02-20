@@ -1,8 +1,8 @@
 import React__default, { useEffect, useCallback, useContext, useState, useReducer, useRef } from 'react';
-import { _ as __assign, c as __spreadArray, b as LocalizationContext, w as withSendbirdContext } from './LocalizationContext-4f84414a.js';
-import { f as format } from './index-09a6ff1f.js';
-import { i as isToday, a as isYesterday, f as formatRelative } from './index-5b01e184.js';
-import { A as Avatar, L as Label, a as LabelTypography, b as LabelColors, c as IconTypes, I as Icon, d as IconColors, P as PlaceHolder, i as PlaceHolderTypes } from './index-ba41c814.js';
+import { _ as __assign, d as __spreadArray, c as LocalizationContext, w as withSendbirdContext } from './LocalizationContext-ef1f11a7.js';
+import { f as format } from './index-9ba2e621.js';
+import { i as isToday, a as isYesterday, f as formatRelative } from './index-17a77b13.js';
+import { A as Avatar, L as Label, a as LabelTypography, b as LabelColors, c as IconTypes, I as Icon, d as IconColors, P as PlaceHolder, i as PlaceHolderTypes } from './index-88859e36.js';
 import 'prop-types';
 
 var GET_SEARCHED_MESSAGES = 'GET_SEARCHED_MESSAGES';
@@ -259,7 +259,7 @@ function MessageSearchItem(_a) {
   var className = _a.className,
       message = _a.message,
       selected = _a.selected,
-      onClick = _a.onClick;
+      _onClick = _a.onClick;
   var createdAt = message.createdAt;
   var messageText = message.message;
   var sender = message.sender || message._sender;
@@ -272,9 +272,10 @@ function MessageSearchItem(_a) {
 
   return /*#__PURE__*/React__default.createElement("div", {
     className: __spreadArray(__spreadArray([], Array.isArray(className) ? className : [className], true), ['sendbird-message-search-item', selected ? 'sendbird-message-search-item--selected' : ''], false).join(' '),
-    onClick: function (e) {
+    onClick: function onClick(e) {
       e.stopPropagation();
-      onClick(message);
+
+      _onClick(message);
     }
   }, /*#__PURE__*/React__default.createElement("div", {
     className: "sendbird-message-search-item__left"
@@ -353,7 +354,7 @@ function MessageSearchFileItem(props) {
   var className = props.className,
       message = props.message,
       selected = props.selected,
-      onClick = props.onClick;
+      _onClick = props.onClick;
   var createdAt = message.createdAt,
       url = message.url,
       name = message.name;
@@ -368,9 +369,10 @@ function MessageSearchFileItem(props) {
 
   return /*#__PURE__*/React__default.createElement("div", {
     className: __spreadArray(__spreadArray([], Array.isArray(className) ? className : [className], true), ['sendbird-message-search-file-item', selected ? 'sendbird-message-search-file-item--selected' : ''], false).join(' '),
-    onClick: function (e) {
+    onClick: function onClick(e) {
       e.stopPropagation();
-      onClick(message);
+
+      _onClick(message);
     }
   }, /*#__PURE__*/React__default.createElement("div", {
     className: "sendbird-message-search-file-item__left"
@@ -476,7 +478,7 @@ function MessageSearch(props) {
       currentMessageSearchQuery = messageSearchStore.currentMessageSearchQuery,
       hasMoreResult = messageSearchStore.hasMoreResult;
 
-  var getChannelName = function () {
+  var getChannelName = function getChannelName() {
     if (currentChannel && currentChannel.name && currentChannel.name !== 'Group Channel') {
       return currentChannel.name;
     }
@@ -497,7 +499,7 @@ function MessageSearch(props) {
   var sdkInit = sdkStore.initialized;
   var scrollRef = useRef(null);
 
-  var handleOnScroll = function (e) {
+  var handleOnScroll = function handleOnScroll(e) {
     var scrollElement = e.target;
     var scrollTop = scrollElement.scrollTop,
         scrollHeight = scrollElement.scrollHeight,
@@ -547,7 +549,7 @@ function MessageSearch(props) {
     messageSearchDispathcer: messageSearchDispathcer
   });
 
-  var handleRetryToConnect = function () {
+  var handleRetryToConnect = function handleRetryToConnect() {
     setRetryCount(retryCount + 1);
   };
 
@@ -591,11 +593,11 @@ function MessageSearch(props) {
 
     if (message.messageType === 'file') {
       return /*#__PURE__*/React__default.createElement(MessageSearchFileItem, {
-        className: "".concat(COMPONENT_CLASS_NAME, "__message-search-item"),
+        className: COMPONENT_CLASS_NAME + "__message-search-item",
         message: message,
         key: message.messageId,
         selected: selectedMessageId === message.messageId,
-        onClick: function () {
+        onClick: function onClick() {
           onResultClick(message);
           setSelectedMessageId(message.messageId);
         }
@@ -603,11 +605,11 @@ function MessageSearch(props) {
     }
 
     return /*#__PURE__*/React__default.createElement(MessageSearchItem, {
-      className: "".concat(COMPONENT_CLASS_NAME, "__message-search-item"),
+      className: COMPONENT_CLASS_NAME + "__message-search-item",
       message: message,
       key: message.messageId,
       selected: selectedMessageId === message.messageId,
-      onClick: function () {
+      onClick: function onClick() {
         onResultClick(message);
         setSelectedMessageId(message.messageId);
       }

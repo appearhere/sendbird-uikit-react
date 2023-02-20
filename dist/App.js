@@ -1,3 +1,4 @@
+import { c as LocalizationContext, b as _slicedToArray } from './LocalizationContext-ef1f11a7.js';
 import React__default, { useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Sendbird from './SendbirdProvider.js';
@@ -5,22 +6,21 @@ import ChannelList from './ChannelList.js';
 import Conversation from './Channel.js';
 import ChannelSettings from './ChannelSettings.js';
 import MessageSearch from './MessageSearch.js';
-import { b as LocalizationContext } from './LocalizationContext-4f84414a.js';
-import { L as Label, a as LabelTypography, b as LabelColors, I as Icon, c as IconTypes, d as IconColors, e as Loader } from './index-ba41c814.js';
-import { I as IconButton } from './index-38ea17f7.js';
+import { L as Label, a as LabelTypography, b as LabelColors, I as Icon, c as IconTypes, d as IconColors, e as Loader } from './index-88859e36.js';
+import { I as IconButton } from './index-9654c8fd.js';
 import 'sendbird';
-import './actionTypes-c5f62117.js';
-import './index-098bf6e1.js';
+import './actionTypes-b5c24a63.js';
+import './index-e9bf54e3.js';
 import 'css-vars-ponyfill';
-import './index-bb9cd10b.js';
-import './utils-1c812b47.js';
-import './LeaveChannel-e973613e.js';
-import './index-880f789f.js';
-import './index-5b01e184.js';
-import './index-09a6ff1f.js';
-import './index-be5aadf0.js';
+import './index-10ef6b87.js';
+import './utils-ff1fc2bf.js';
+import './LeaveChannel-04d546e3.js';
+import './index-b9a826ad.js';
+import './index-17a77b13.js';
+import './index-9ba2e621.js';
+import './index-b121da7f.js';
 import 'react-dom';
-import './index-e1ccbbac.js';
+import './index-016ac689.js';
 
 var COMPONENT_CLASS_NAME = 'sendbird-message-search-pannel';
 
@@ -55,15 +55,15 @@ function MessageSearchPannel(props) {
     }, 500);
   }, [inputString]);
 
-  var handleOnChangeInputString = function (e) {
+  var handleOnChangeInputString = function handleOnChangeInputString(e) {
     setInputString(e.target.value);
   };
 
-  var handleOnResultLoaded = function () {
+  var handleOnResultLoaded = function handleOnResultLoaded() {
     setLoading(false);
   };
 
-  var handleOnClickResetStringButton = function (e) {
+  var handleOnClickResetStringButton = function handleOnClickResetStringButton(e) {
     e.stopPropagation();
     setInputString('');
     setSearchString('');
@@ -72,13 +72,13 @@ function MessageSearchPannel(props) {
   return /*#__PURE__*/React__default.createElement("div", {
     className: COMPONENT_CLASS_NAME
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: "".concat(COMPONENT_CLASS_NAME, "__header")
+    className: COMPONENT_CLASS_NAME + "__header"
   }, /*#__PURE__*/React__default.createElement(Label, {
-    className: "".concat(COMPONENT_CLASS_NAME, "__header__title"),
+    className: COMPONENT_CLASS_NAME + "__header__title",
     type: LabelTypography.H_2,
     color: LabelColors.ONBACKGROUND_1
   }, stringSet.SEARCH_IN_CHANNEL), /*#__PURE__*/React__default.createElement(IconButton, {
-    className: "".concat(COMPONENT_CLASS_NAME, "__header__close-button"),
+    className: COMPONENT_CLASS_NAME + "__header__close-button",
     width: "32px",
     height: "32px",
     onClick: onCloseClick
@@ -88,22 +88,22 @@ function MessageSearchPannel(props) {
     width: "22px",
     height: "22px"
   }))), /*#__PURE__*/React__default.createElement("div", {
-    className: "".concat(COMPONENT_CLASS_NAME, "__input")
+    className: COMPONENT_CLASS_NAME + "__input"
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: "".concat(COMPONENT_CLASS_NAME, "__input__container")
+    className: COMPONENT_CLASS_NAME + "__input__container"
   }, /*#__PURE__*/React__default.createElement(Icon, {
-    className: "".concat(COMPONENT_CLASS_NAME, "__input__container__search-icon"),
+    className: COMPONENT_CLASS_NAME + "__input__container__search-icon",
     type: IconTypes.SEARCH,
     fillColor: IconColors.ON_BACKGROUND_3,
     width: "24px",
     height: "24px"
   }), /*#__PURE__*/React__default.createElement("input", {
-    className: "".concat(COMPONENT_CLASS_NAME, "__input__container__input-area"),
+    className: COMPONENT_CLASS_NAME + "__input__container__input-area",
     placeholder: stringSet.SEARCH,
     value: inputString,
     onChange: handleOnChangeInputString
   }), inputString && loading && /*#__PURE__*/React__default.createElement(Loader, {
-    className: "".concat(COMPONENT_CLASS_NAME, "__input__container__spinner"),
+    className: COMPONENT_CLASS_NAME + "__input__container__spinner",
     width: "20px",
     height: "20px"
   }, /*#__PURE__*/React__default.createElement(Icon, {
@@ -112,14 +112,14 @@ function MessageSearchPannel(props) {
     width: "20px",
     height: "20px"
   })), !loading && inputString && /*#__PURE__*/React__default.createElement(Icon, {
-    className: "".concat(COMPONENT_CLASS_NAME, "__input__container__reset-input-button"),
+    className: COMPONENT_CLASS_NAME + "__input__container__reset-input-button",
     type: IconTypes.REMOVE,
     fillColor: IconColors.ON_BACKGROUND_3,
     width: "20px",
     height: "20px",
     onClick: handleOnClickResetStringButton
   }))), /*#__PURE__*/React__default.createElement("div", {
-    className: "".concat(COMPONENT_CLASS_NAME, "__message-search")
+    className: COMPONENT_CLASS_NAME + "__message-search"
   }, /*#__PURE__*/React__default.createElement(MessageSearch, {
     channelUrl: channelUrl,
     searchString: searchString,
@@ -128,40 +128,55 @@ function MessageSearchPannel(props) {
   })));
 }
 
-/**
- * This is a drop in Chat solution
- * Can also be used as an example for creating
- * default chat apps
- */
 function App(props) {
-  const {
-    appId,
-    userId,
-    accessToken,
-    theme,
-    userListQuery,
-    nickname,
-    profileUrl,
-    config = {},
-    useReaction,
-    replyType,
-    useMessageGrouping,
-    colorSet,
-    stringSet,
-    dateLocale,
-    allowProfileEdit,
-    disableUserProfile,
-    renderUserProfile,
-    showSearchIcon,
-    onProfileEditSuccess,
-    imageCompression,
-    disableAutoSelect
-  } = props;
-  const [currentChannelUrl, setCurrentChannelUrl] = useState(null);
-  const [showSettings, setShowSettings] = useState(false);
-  const [showSearch, setShowSearch] = useState(false);
-  const [highlightedMessage, setHighlightedMessage] = useState(null);
-  const [startingPoint, setStartingPoint] = useState(null);
+  var appId = props.appId,
+      userId = props.userId,
+      accessToken = props.accessToken,
+      theme = props.theme,
+      userListQuery = props.userListQuery,
+      nickname = props.nickname,
+      profileUrl = props.profileUrl,
+      _props$config = props.config,
+      config = _props$config === void 0 ? {} : _props$config,
+      useReaction = props.useReaction,
+      replyType = props.replyType,
+      useMessageGrouping = props.useMessageGrouping,
+      colorSet = props.colorSet,
+      stringSet = props.stringSet,
+      dateLocale = props.dateLocale,
+      allowProfileEdit = props.allowProfileEdit,
+      disableUserProfile = props.disableUserProfile,
+      renderUserProfile = props.renderUserProfile,
+      showSearchIcon = props.showSearchIcon,
+      onProfileEditSuccess = props.onProfileEditSuccess,
+      imageCompression = props.imageCompression,
+      disableAutoSelect = props.disableAutoSelect;
+
+  var _useState = useState(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      currentChannelUrl = _useState2[0],
+      setCurrentChannelUrl = _useState2[1];
+
+  var _useState3 = useState(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      showSettings = _useState4[0],
+      setShowSettings = _useState4[1];
+
+  var _useState5 = useState(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      showSearch = _useState6[0],
+      setShowSearch = _useState6[1];
+
+  var _useState7 = useState(null),
+      _useState8 = _slicedToArray(_useState7, 2),
+      highlightedMessage = _useState8[0],
+      setHighlightedMessage = _useState8[1];
+
+  var _useState9 = useState(null),
+      _useState10 = _slicedToArray(_useState9, 2),
+      startingPoint = _useState10[0],
+      setStartingPoint = _useState10[1];
+
   return /*#__PURE__*/React__default.createElement(Sendbird, {
     stringSet: stringSet,
     dateLocale: dateLocale,
@@ -185,7 +200,7 @@ function App(props) {
   }, /*#__PURE__*/React__default.createElement(ChannelList, {
     allowProfileEdit: allowProfileEdit,
     onProfileEditSuccess: onProfileEditSuccess,
-    onChannelSelect: channel => {
+    onChannelSelect: function onChannelSelect(channel) {
       setStartingPoint(null);
       setHighlightedMessage(null);
 
@@ -197,18 +212,14 @@ function App(props) {
     },
     disableAutoSelect: disableAutoSelect
   })), /*#__PURE__*/React__default.createElement("div", {
-    className: `
-            ${showSettings ? 'sendbird-app__conversation--settings-open' : ''}
-            ${showSearch ? 'sendbird-app__conversation--search-open' : ''}
-            sendbird-app__conversation-wrap
-          `
+    className: "\n            ".concat(showSettings ? 'sendbird-app__conversation--settings-open' : '', "\n            ").concat(showSearch ? 'sendbird-app__conversation--search-open' : '', "\n            sendbird-app__conversation-wrap\n          ")
   }, /*#__PURE__*/React__default.createElement(Conversation, {
     channelUrl: currentChannelUrl,
-    onChatHeaderActionClick: () => {
+    onChatHeaderActionClick: function onChatHeaderActionClick() {
       setShowSearch(false);
       setShowSettings(!showSettings);
     },
-    onSearchClick: () => {
+    onSearchClick: function onSearchClick() {
       setShowSettings(false);
       setShowSearch(!showSearch);
     },
@@ -223,17 +234,17 @@ function App(props) {
   }, /*#__PURE__*/React__default.createElement(ChannelSettings, {
     className: "sendbird-channel-settings",
     channelUrl: currentChannelUrl,
-    onCloseClick: () => {
+    onCloseClick: function onCloseClick() {
       setShowSettings(false);
     }
   })), showSearch && /*#__PURE__*/React__default.createElement("div", {
     className: "sendbird-app__searchpanel-wrap"
   }, /*#__PURE__*/React__default.createElement(MessageSearchPannel, {
     channelUrl: currentChannelUrl,
-    onResultClick: message => {
+    onResultClick: function onResultClick(message) {
       if (message.messageId === highlightedMessage) {
         setHighlightedMessage(null);
-        setTimeout(() => {
+        setTimeout(function () {
           setHighlightedMessage(message.messageId);
         });
       } else {
@@ -241,7 +252,7 @@ function App(props) {
         setHighlightedMessage(message.messageId);
       }
     },
-    onCloseClick: () => {
+    onCloseClick: function onCloseClick() {
       setShowSearch(false);
     }
   }))));

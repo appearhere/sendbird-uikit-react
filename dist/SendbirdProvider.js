@@ -1,64 +1,58 @@
-import { _ as __assign, a as _objectSpread2, u as uuidv4, g as getStringSet, S as SendbirdSdkContext, L as LocalizationProvider } from './LocalizationContext-4f84414a.js';
+import { _ as __assign, a as _objectSpread2, b as _slicedToArray, u as uuidv4, g as getStringSet, S as SendbirdSdkContext, L as LocalizationProvider } from './LocalizationContext-ef1f11a7.js';
 import React__default, { useLayoutEffect, useState, useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
 import Sb from 'sendbird';
-import { R as RESET_USER, I as INIT_USER, U as UPDATE_USER_INFO } from './actionTypes-c5f62117.js';
-import { i as isTextuallyNull } from './index-098bf6e1.js';
+import { R as RESET_USER, I as INIT_USER, U as UPDATE_USER_INFO } from './actionTypes-b5c24a63.js';
+import { i as isTextuallyNull } from './index-e9bf54e3.js';
 import cssVars from 'css-vars-ponyfill';
 
-const INIT_SDK = 'INIT_SDK';
-const SET_SDK_LOADING = 'SET_SDK_LOADING';
-const RESET_SDK = 'RESET_SDK';
-const SDK_ERROR = 'SDK_ERROR';
+var INIT_SDK = 'INIT_SDK';
+var SET_SDK_LOADING = 'SET_SDK_LOADING';
+var RESET_SDK = 'RESET_SDK';
+var SDK_ERROR = 'SDK_ERROR';
 
-const APP_VERSION_STRING = '2.7.2';
-const disconnectSdk = _ref => {
-  let {
-    sdkDispatcher,
-    userDispatcher,
-    sdk,
-    onDisconnect
-  } = _ref;
+var APP_VERSION_STRING = '2.7.2';
+var disconnectSdk = function disconnectSdk(_ref) {
+  var sdkDispatcher = _ref.sdkDispatcher,
+      userDispatcher = _ref.userDispatcher,
+      sdk = _ref.sdk,
+      onDisconnect = _ref.onDisconnect;
   sdkDispatcher({
     type: SET_SDK_LOADING,
     payload: true
   });
 
   if (sdk && sdk.disconnect) {
-    sdk.disconnect().then(() => {
+    sdk.disconnect().then(function () {
       sdkDispatcher({
         type: RESET_SDK
       });
       userDispatcher({
         type: RESET_USER
       });
-    }).finally(() => {
+    }).finally(function () {
       onDisconnect();
     });
   } else {
     onDisconnect();
   }
 };
-const handleConnection = (_ref2, dispatchers) => {
-  let {
-    userId,
-    appId,
-    nickname,
-    profileUrl,
-    accessToken,
-    sdk,
-    logger
-  } = _ref2;
-  const {
-    sdkDispatcher,
-    userDispatcher
-  } = dispatchers;
+var handleConnection = function handleConnection(_ref2, dispatchers) {
+  var userId = _ref2.userId,
+      appId = _ref2.appId,
+      nickname = _ref2.nickname,
+      profileUrl = _ref2.profileUrl,
+      accessToken = _ref2.accessToken,
+      sdk = _ref2.sdk,
+      logger = _ref2.logger;
+  var sdkDispatcher = dispatchers.sdkDispatcher,
+      userDispatcher = dispatchers.userDispatcher;
   disconnectSdk({
-    sdkDispatcher,
-    userDispatcher,
-    sdk,
-    logger,
-    onDisconnect: () => {
+    sdkDispatcher: sdkDispatcher,
+    userDispatcher: userDispatcher,
+    sdk: sdk,
+    logger: logger,
+    onDisconnect: function onDisconnect() {
       logger.info('Setup connection');
       sdkDispatcher({
         type: SET_SDK_LOADING,
@@ -66,8 +60,8 @@ const handleConnection = (_ref2, dispatchers) => {
       });
 
       if (userId && appId) {
-        const newSdk = new Sb({
-          appId
+        var newSdk = new Sb({
+          appId: appId
         }); // to check if code is released version from rollup and *not from storybook*
         // see rollup config file
 
@@ -75,7 +69,7 @@ const handleConnection = (_ref2, dispatchers) => {
           newSdk.addExtension('sb_uikit', APP_VERSION_STRING);
         }
 
-        const connectCbSucess = user => {
+        var connectCbSucess = function connectCbSucess(user) {
           sdkDispatcher({
             type: INIT_SDK,
             payload: newSdk
@@ -87,7 +81,7 @@ const handleConnection = (_ref2, dispatchers) => {
           // or set userID as nickname
 
           if ((nickname !== user.nickname || profileUrl !== user.profileUrl) && !(isTextuallyNull(nickname) && isTextuallyNull(profileUrl))) {
-            newSdk.updateCurrentUserInfo(nickname || user.nickname, profileUrl || user.profileUrl).then(namedUser => {
+            newSdk.updateCurrentUserInfo(nickname || user.nickname, profileUrl || user.profileUrl).then(function (namedUser) {
               userDispatcher({
                 type: UPDATE_USER_INFO,
                 payload: namedUser
@@ -96,8 +90,8 @@ const handleConnection = (_ref2, dispatchers) => {
           }
         };
 
-        const connectCbError = e => {
-          logger.error('Connection failed', `${e}`);
+        var connectCbError = function connectCbError(e) {
+          logger.error('Connection failed', "".concat(e));
           sdkDispatcher({
             type: RESET_SDK
           });
@@ -110,9 +104,17 @@ const handleConnection = (_ref2, dispatchers) => {
         };
 
         if (accessToken) {
-          newSdk.connect(userId, accessToken).then(res => connectCbSucess(res)).catch(err => connectCbError(err));
+          newSdk.connect(userId, accessToken).then(function (res) {
+            return connectCbSucess(res);
+          }).catch(function (err) {
+            return connectCbError(err);
+          });
         } else {
-          newSdk.connect(userId).then(res => connectCbSucess(res)).catch(err => connectCbError(err));
+          newSdk.connect(userId).then(function (res) {
+            return connectCbSucess(res);
+          }).catch(function (err) {
+            return connectCbError(err);
+          });
         }
       } else {
         sdkDispatcher({
@@ -124,7 +126,7 @@ const handleConnection = (_ref2, dispatchers) => {
   });
 };
 
-var isEmpty = function (obj) {
+var isEmpty = function isEmpty(obj) {
   if (obj === null || obj === undefined) {
     return true;
   }
@@ -138,7 +140,7 @@ var isEmpty = function (obj) {
   return JSON.stringify(obj) === JSON.stringify({});
 };
 
-var useTheme = function (overrides) {
+var useTheme = function useTheme(overrides) {
   useLayoutEffect(function () {
     if (!isEmpty(overrides)) {
       cssVars({
@@ -292,30 +294,34 @@ function reducer(state, action) {
 }
 
 function useConnectionStatus(sdk, logger) {
-  const [isOnline, setIsOnline] = useState(true);
-  useEffect(() => {
-    const uniqueHandlerId = uuidv4();
+  var _useState = useState(true),
+      _useState2 = _slicedToArray(_useState, 2),
+      isOnline = _useState2[0],
+      setIsOnline = _useState2[1];
+
+  useEffect(function () {
+    var uniqueHandlerId = uuidv4();
     logger.warning('sdk changed', uniqueHandlerId);
-    let handler;
+    var handler;
 
     if (sdk && sdk.ConnectionHandler) {
       handler = new sdk.ConnectionHandler();
 
-      handler.onReconnectStarted = () => {
+      handler.onReconnectStarted = function () {
         setIsOnline(false);
         logger.warning('onReconnectStarted', {
-          isOnline
+          isOnline: isOnline
         });
       };
 
-      handler.onReconnectSucceeded = () => {
+      handler.onReconnectSucceeded = function () {
         setIsOnline(true);
         logger.warning('onReconnectSucceeded', {
-          isOnline
+          isOnline: isOnline
         });
       };
 
-      handler.onReconnectFailed = () => {
+      handler.onReconnectFailed = function () {
         sdk.reconnect();
         logger.warning('onReconnectFailed');
       };
@@ -324,7 +330,7 @@ function useConnectionStatus(sdk, logger) {
       sdk.addConnectionHandler(uniqueHandlerId, handler);
     }
 
-    return () => {
+    return function () {
       try {
         sdk.removeConnectionHandler(uniqueHandlerId);
         logger.info('Removed ConnectionHandler', uniqueHandlerId);
@@ -332,8 +338,8 @@ function useConnectionStatus(sdk, logger) {
       }
     };
   }, [sdk]);
-  useEffect(() => {
-    const tryReconnect = () => {
+  useEffect(function () {
+    var tryReconnect = function tryReconnect() {
       try {
         logger.warning('Try reconnecting SDK');
 
@@ -347,13 +353,13 @@ function useConnectionStatus(sdk, logger) {
 
 
     window.addEventListener('online', tryReconnect);
-    return () => {
+    return function () {
       window.removeEventListener('online', tryReconnect);
     };
   }, [sdk]); // add offline-class to body
 
-  useEffect(() => {
-    const body = document.querySelector('body');
+  useEffect(function () {
+    var body = document.querySelector('body');
 
     if (!isOnline) {
       try {
@@ -375,7 +381,7 @@ function useConnectionStatus(sdk, logger) {
 // Logger, pretty much explains it
 // in SendbirdProvider
 // const [logger, setLogger] = useState(LoggerFactory(logLevel));
-const LOG_LEVELS = {
+var LOG_LEVELS = {
   DEBUG: 'debug',
   WARNING: 'warning',
   ERROR: 'error',
@@ -383,7 +389,7 @@ const LOG_LEVELS = {
   ALL: 'all'
 };
 
-const colorLog = level => {
+var colorLog = function colorLog(level) {
   switch (level) {
     case LOG_LEVELS.WARNING:
       return 'color: Orange';
@@ -396,31 +402,36 @@ const colorLog = level => {
   }
 };
 
-const printLog = _ref => {
-  let {
-    level,
-    title,
-    description = ''
-  } = _ref;
+var printLog = function printLog(_ref) {
+  var level = _ref.level,
+      title = _ref.title,
+      _ref$description = _ref.description,
+      description = _ref$description === void 0 ? '' : _ref$description;
   // eslint-disable-next-line no-console
-  console.log(`%c SendbirdUIKit | ${level} | ${new Date().toISOString()} | ${title} ${description && '|'}`, colorLog(level), description);
+  console.log("%c SendbirdUIKit | ".concat(level, " | ").concat(new Date().toISOString(), " | ").concat(title, " ").concat(description && '|'), colorLog(level), description);
 };
-const getDefaultLogger = () => ({
-  info: () => {},
-  error: () => {},
-  warning: () => {}
-});
-const LoggerFactory = (lvl, customInterface) => {
-  const logInterface = customInterface || printLog;
-  const lvlArray = Array.isArray(lvl) ? lvl : [lvl];
+var getDefaultLogger = function getDefaultLogger() {
+  return {
+    info: function info() {},
+    error: function error() {},
+    warning: function warning() {}
+  };
+};
+var LoggerFactory = function LoggerFactory(lvl, customInterface) {
+  var logInterface = customInterface || printLog;
+  var lvlArray = Array.isArray(lvl) ? lvl : [lvl];
 
-  const applyLog = lgLvl => (title, description) => logInterface({
-    level: lgLvl,
-    title,
-    description
-  });
+  var applyLog = function applyLog(lgLvl) {
+    return function (title, description) {
+      return logInterface({
+        level: lgLvl,
+        title: title,
+        description: description
+      });
+    };
+  };
 
-  const logger = lvlArray.reduce((accumulator, currentLvl) => {
+  var logger = lvlArray.reduce(function (accumulator, currentLvl) {
     if (currentLvl === LOG_LEVELS.DEBUG || currentLvl === LOG_LEVELS.ALL) {
       return _objectSpread2(_objectSpread2({}, accumulator), {}, {
         info: applyLog(LOG_LEVELS.INFO),
@@ -457,34 +468,36 @@ const LoggerFactory = (lvl, customInterface) => {
 // for example, if customer sends a message from their custom component
 // without pubsub,we would not be able to listen to it
 // in our ChannelList or Conversation
-var pubSubFactory = (() => {
-  const topics = {};
-  const hOP = topics.hasOwnProperty;
+var pubSubFactory = (function () {
+  var topics = {};
+  var hOP = topics.hasOwnProperty;
   return {
-    __getTopics: () => topics,
-    subscribe: (topic, listener) => {
+    __getTopics: function __getTopics() {
+      return topics;
+    },
+    subscribe: function subscribe(topic, listener) {
       // Create the topic's object if not yet created
       if (!hOP.call(topics, topic)) {
         topics[topic] = [];
       } // Add the listener to queue
 
 
-      const index = topics[topic].push(listener) - 1; // Provide handle back for removal of topic
+      var index = topics[topic].push(listener) - 1; // Provide handle back for removal of topic
 
       return {
-        remove: () => {
+        remove: function remove() {
           delete topics[topic][index];
         }
       };
     },
-    publish: (topic, info) => {
+    publish: function publish(topic, info) {
       // If the topic doesn't exist, or there's no listeners in queue, just leave
       if (!hOP.call(topics, topic)) {
         return;
       } // Cycle through topics queue, fire!
 
 
-      topics[topic].forEach(item => {
+      topics[topic].forEach(function (item) {
         item(info !== undefined ? info : {});
       });
     }
@@ -492,18 +505,18 @@ var pubSubFactory = (() => {
 });
 
 function useAppendDomNode() {
-  let ids = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  let rootSelector = arguments.length > 1 ? arguments[1] : undefined;
-  useEffect(() => {
-    const root = document.querySelector(rootSelector);
-    ids.forEach(id => {
-      const elem = document.createElement('div');
+  var ids = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var rootSelector = arguments.length > 1 ? arguments[1] : undefined;
+  useEffect(function () {
+    var root = document.querySelector(rootSelector);
+    ids.forEach(function (id) {
+      var elem = document.createElement('div');
       elem.setAttribute('id', id);
       root.appendChild(elem);
     });
-    return () => {
-      ids.forEach(id => {
-        const target = document.getElementById(id);
+    return function () {
+      ids.forEach(function (id) {
+        var target = document.getElementById(id);
 
         if (target) {
           root.removeChild(target);
@@ -514,87 +527,109 @@ function useAppendDomNode() {
 }
 
 function Sendbird(props) {
-  const {
-    userId,
-    appId,
-    accessToken,
-    children,
-    disableUserProfile,
-    renderUserProfile,
-    allowProfileEdit,
-    theme,
-    nickname,
-    dateLocale,
-    profileUrl,
-    userListQuery,
-    config = {},
-    colorSet,
-    stringSet,
-    imageCompression,
-    useReaction
-  } = props;
-  const {
-    logLevel = ''
-  } = config;
-  const [logger, setLogger] = useState(LoggerFactory(logLevel));
-  const [pubSub, setPubSub] = useState();
-  const [sdkStore, sdkDispatcher] = useReducer(reducer$1, sdkInitialState);
-  const [userStore, userDispatcher] = useReducer(reducer, userInitialState);
+  var userId = props.userId,
+      appId = props.appId,
+      accessToken = props.accessToken,
+      children = props.children,
+      disableUserProfile = props.disableUserProfile,
+      renderUserProfile = props.renderUserProfile,
+      allowProfileEdit = props.allowProfileEdit,
+      theme = props.theme,
+      nickname = props.nickname,
+      dateLocale = props.dateLocale,
+      profileUrl = props.profileUrl,
+      userListQuery = props.userListQuery,
+      _props$config = props.config,
+      config = _props$config === void 0 ? {} : _props$config,
+      colorSet = props.colorSet,
+      stringSet = props.stringSet,
+      imageCompression = props.imageCompression,
+      useReaction = props.useReaction;
+  var _config$logLevel = config.logLevel,
+      logLevel = _config$logLevel === void 0 ? '' : _config$logLevel;
+
+  var _useState = useState(LoggerFactory(logLevel)),
+      _useState2 = _slicedToArray(_useState, 2),
+      logger = _useState2[0],
+      setLogger = _useState2[1];
+
+  var _useState3 = useState(),
+      _useState4 = _slicedToArray(_useState3, 2),
+      pubSub = _useState4[0],
+      setPubSub = _useState4[1];
+
+  var _useReducer = useReducer(reducer$1, sdkInitialState),
+      _useReducer2 = _slicedToArray(_useReducer, 2),
+      sdkStore = _useReducer2[0],
+      sdkDispatcher = _useReducer2[1];
+
+  var _useReducer3 = useReducer(reducer, userInitialState),
+      _useReducer4 = _slicedToArray(_useReducer3, 2),
+      userStore = _useReducer4[0],
+      userDispatcher = _useReducer4[1];
+
   useTheme(colorSet);
-  useEffect(() => {
+  useEffect(function () {
     setPubSub(pubSubFactory());
   }, []);
-  useEffect(() => {
+  useEffect(function () {
     logger.info('App Init'); // dispatch action
 
     handleConnection({
-      userId,
-      appId,
-      accessToken,
-      sdkStore,
-      nickname,
-      profileUrl,
+      userId: userId,
+      appId: appId,
+      accessToken: accessToken,
+      sdkStore: sdkStore,
+      nickname: nickname,
+      profileUrl: profileUrl,
       sdk: sdkStore.sdk,
-      logger
+      logger: logger
     }, {
-      sdkDispatcher,
-      userDispatcher
+      sdkDispatcher: sdkDispatcher,
+      userDispatcher: userDispatcher
     });
   }, [userId, appId, accessToken]); // to create a pubsub to communicate between parent and child
 
-  useEffect(() => {
+  useEffect(function () {
     setLogger(LoggerFactory(logLevel));
   }, [logLevel]);
   useAppendDomNode(['sendbird-modal-root', 'sendbird-dropdown-portal', 'sendbird-emoji-list-portal'], 'body'); // should move to reducer
 
-  const [currenttheme, setCurrenttheme] = useState(theme);
-  useEffect(() => {
+  var _useState5 = useState(theme),
+      _useState6 = _slicedToArray(_useState5, 2),
+      currenttheme = _useState6[0],
+      setCurrenttheme = _useState6[1];
+
+  useEffect(function () {
     setCurrenttheme(theme);
   }, [theme]); // add-remove theme from body
 
-  useEffect(() => {
-    logger.info('Setup theme', `Theme: ${currenttheme}`);
+  useEffect(function () {
+    logger.info('Setup theme', "Theme: ".concat(currenttheme));
 
     try {
-      const body = document.querySelector('body');
+      var body = document.querySelector('body');
       body.classList.remove('sendbird-theme--light');
       body.classList.remove('sendbird-theme--dark');
-      body.classList.add(`sendbird-theme--${currenttheme || 'light'}`);
+      body.classList.add("sendbird-theme--".concat(currenttheme || 'light'));
       logger.info('Finish setup theme'); // eslint-disable-next-line no-empty
     } catch (e) {
-      logger.warning('Setup theme failed', `${e}`);
+      logger.warning('Setup theme failed', "".concat(e));
     }
 
-    return () => {
+    return function () {
       try {
-        const body = document.querySelector('body');
-        body.classList.remove('sendbird-theme--light');
-        body.classList.remove('sendbird-theme--dark'); // eslint-disable-next-line no-empty
+        var _body = document.querySelector('body');
+
+        _body.classList.remove('sendbird-theme--light');
+
+        _body.classList.remove('sendbird-theme--dark'); // eslint-disable-next-line no-empty
+
       } catch (_unused) {}
     };
   }, [currenttheme]);
-  const isOnline = useConnectionStatus(sdkStore.sdk, logger);
-  const localeStringSet = React__default.useMemo(() => {
+  var isOnline = useConnectionStatus(sdkStore.sdk, logger);
+  var localeStringSet = React__default.useMemo(function () {
     if (!stringSet) {
       return getStringSet('en');
     }
@@ -604,43 +639,43 @@ function Sendbird(props) {
   return /*#__PURE__*/React__default.createElement(SendbirdSdkContext.Provider, {
     value: {
       stores: {
-        sdkStore,
-        userStore
+        sdkStore: sdkStore,
+        userStore: userStore
       },
       dispatchers: {
-        sdkDispatcher,
-        userDispatcher,
-        reconnect: () => {
+        sdkDispatcher: sdkDispatcher,
+        userDispatcher: userDispatcher,
+        reconnect: function reconnect() {
           handleConnection({
-            userId,
-            appId,
-            accessToken,
-            sdkStore,
-            nickname,
-            profileUrl,
-            logger,
+            userId: userId,
+            appId: appId,
+            accessToken: accessToken,
+            sdkStore: sdkStore,
+            nickname: nickname,
+            profileUrl: profileUrl,
+            logger: logger,
             sdk: sdkStore.sdk
           }, {
-            sdkDispatcher,
-            userDispatcher
+            sdkDispatcher: sdkDispatcher,
+            userDispatcher: userDispatcher
           });
         }
       },
       config: {
-        disableUserProfile,
-        renderUserProfile,
-        allowProfileEdit,
-        isOnline,
-        userId,
-        appId,
-        accessToken,
+        disableUserProfile: disableUserProfile,
+        renderUserProfile: renderUserProfile,
+        allowProfileEdit: allowProfileEdit,
+        isOnline: isOnline,
+        userId: userId,
+        appId: appId,
+        accessToken: accessToken,
         theme: currenttheme,
-        setCurrenttheme,
-        userListQuery,
-        logger,
-        pubSub,
-        imageCompression,
-        useReaction
+        setCurrenttheme: setCurrenttheme,
+        userListQuery: userListQuery,
+        logger: logger,
+        pubSub: pubSub,
+        imageCompression: imageCompression,
+        useReaction: useReaction
       }
     }
   }, /*#__PURE__*/React__default.createElement(LocalizationProvider, {

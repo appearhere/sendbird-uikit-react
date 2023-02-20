@@ -1,10 +1,10 @@
 'use strict';
 
 var React = require('react');
-var LocalizationContext = require('./LocalizationContext-12ba41f8.js');
-var index$1 = require('./index-0d62dfb8.js');
-var index = require('./index-ee035d75.js');
-var index$2 = require('./index-0bc71091.js');
+var LocalizationContext = require('./LocalizationContext-aa91c4ff.js');
+var index$1 = require('./index-418284a2.js');
+var index = require('./index-8adc20af.js');
+var index$2 = require('./index-bb47b529.js');
 require('prop-types');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
@@ -265,7 +265,7 @@ function MessageSearchItem(_a) {
   var className = _a.className,
       message = _a.message,
       selected = _a.selected,
-      onClick = _a.onClick;
+      _onClick = _a.onClick;
   var createdAt = message.createdAt;
   var messageText = message.message;
   var sender = message.sender || message._sender;
@@ -278,9 +278,10 @@ function MessageSearchItem(_a) {
 
   return /*#__PURE__*/React__default["default"].createElement("div", {
     className: LocalizationContext.__spreadArray(LocalizationContext.__spreadArray([], Array.isArray(className) ? className : [className], true), ['sendbird-message-search-item', selected ? 'sendbird-message-search-item--selected' : ''], false).join(' '),
-    onClick: function (e) {
+    onClick: function onClick(e) {
       e.stopPropagation();
-      onClick(message);
+
+      _onClick(message);
     }
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sendbird-message-search-item__left"
@@ -359,7 +360,7 @@ function MessageSearchFileItem(props) {
   var className = props.className,
       message = props.message,
       selected = props.selected,
-      onClick = props.onClick;
+      _onClick = props.onClick;
   var createdAt = message.createdAt,
       url = message.url,
       name = message.name;
@@ -374,9 +375,10 @@ function MessageSearchFileItem(props) {
 
   return /*#__PURE__*/React__default["default"].createElement("div", {
     className: LocalizationContext.__spreadArray(LocalizationContext.__spreadArray([], Array.isArray(className) ? className : [className], true), ['sendbird-message-search-file-item', selected ? 'sendbird-message-search-file-item--selected' : ''], false).join(' '),
-    onClick: function (e) {
+    onClick: function onClick(e) {
       e.stopPropagation();
-      onClick(message);
+
+      _onClick(message);
     }
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sendbird-message-search-file-item__left"
@@ -482,7 +484,7 @@ function MessageSearch(props) {
       currentMessageSearchQuery = messageSearchStore.currentMessageSearchQuery,
       hasMoreResult = messageSearchStore.hasMoreResult;
 
-  var getChannelName = function () {
+  var getChannelName = function getChannelName() {
     if (currentChannel && currentChannel.name && currentChannel.name !== 'Group Channel') {
       return currentChannel.name;
     }
@@ -503,7 +505,7 @@ function MessageSearch(props) {
   var sdkInit = sdkStore.initialized;
   var scrollRef = React.useRef(null);
 
-  var handleOnScroll = function (e) {
+  var handleOnScroll = function handleOnScroll(e) {
     var scrollElement = e.target;
     var scrollTop = scrollElement.scrollTop,
         scrollHeight = scrollElement.scrollHeight,
@@ -553,7 +555,7 @@ function MessageSearch(props) {
     messageSearchDispathcer: messageSearchDispathcer
   });
 
-  var handleRetryToConnect = function () {
+  var handleRetryToConnect = function handleRetryToConnect() {
     setRetryCount(retryCount + 1);
   };
 
@@ -597,11 +599,11 @@ function MessageSearch(props) {
 
     if (message.messageType === 'file') {
       return /*#__PURE__*/React__default["default"].createElement(MessageSearchFileItem, {
-        className: "".concat(COMPONENT_CLASS_NAME, "__message-search-item"),
+        className: COMPONENT_CLASS_NAME + "__message-search-item",
         message: message,
         key: message.messageId,
         selected: selectedMessageId === message.messageId,
-        onClick: function () {
+        onClick: function onClick() {
           onResultClick(message);
           setSelectedMessageId(message.messageId);
         }
@@ -609,11 +611,11 @@ function MessageSearch(props) {
     }
 
     return /*#__PURE__*/React__default["default"].createElement(MessageSearchItem, {
-      className: "".concat(COMPONENT_CLASS_NAME, "__message-search-item"),
+      className: COMPONENT_CLASS_NAME + "__message-search-item",
       message: message,
       key: message.messageId,
       selected: selectedMessageId === message.messageId,
-      onClick: function () {
+      onClick: function onClick() {
         onResultClick(message);
         setSelectedMessageId(message.messageId);
       }
