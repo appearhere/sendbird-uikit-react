@@ -103,3 +103,20 @@ npm run lint
   `export NewComponent from './src/location/of/NewComponent';`
 3. Add the following line to './rollup.config.js' `input`
   `NewComponent: 'src/location/of/NewComponent',`
+
+## Working with the forked repo in other projects
+
+### Updating the forked repo to the latest branch
+
+1. First set the sendbird-uikit stub in the `package.json` to an alternative branch name e.g. `"sendbird-uikit": "git+https://github.com/appearhere/sendbird-uikit-react.git#my-branch-name"`
+2. Run `yarn install`
+3. Reset the sendbird-uikit stub in the `package.json` to the original branch name e.g. `"sendbird-uikit": "git+https://github.com/appearhere/sendbird-uikit-react.git#original-branch-name"`
+4. Run `yarn install`
+5. Check the commit hash in the `yarn.lock` file matches the latest commit hash from `main-v2`
+
+### Testing on localhost
+
+1. Push your branch
+2. Set the sendbird-uikit stub in the `package.json` to your branch name e.g. `"sendbird-uikit": "git+https://github.com/appearhere/sendbird-uikit-react.git#my-branch-name"`
+3. Run `npm install` or `yarn install`
+4. Check the commit hash in the `package.lock.json` or `yarn.lock` file matches the latest commit hash from your branch
