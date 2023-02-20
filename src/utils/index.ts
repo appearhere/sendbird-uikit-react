@@ -507,15 +507,6 @@ export const filterChannelListParams = (params: SDKChannelListParamsPrivateProps
         break;
     }
   }
-  if (params?.unreadChannelFilter) {
-    switch (params.unreadChannelFilter) {
-      case 'unread_message':
-        if (channel?.unreadMessageCount === 0) {
-          return false;
-        }
-        break;
-    }
-  }
   if (params?.publicChannelFilter) {
     switch (params.publicChannelFilter) {
       case 'public':
