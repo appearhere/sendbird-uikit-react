@@ -3,23 +3,23 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var React = require('react');
-var index$1 = require('./index-0d62dfb8.js');
-var LocalizationContext = require('./LocalizationContext-12ba41f8.js');
-var index$2 = require('./index-89a6d536.js');
-var index$3 = require('./index-0bc71091.js');
-var index$4 = require('./index-cea4ec67.js');
+var index$1 = require('./index-418284a2.js');
+var LocalizationContext = require('./LocalizationContext-aa91c4ff.js');
+var index$2 = require('./index-e317aa01.js');
+var index$3 = require('./index-bb47b529.js');
+var index$4 = require('./index-ba87405c.js');
 require('prop-types');
-require('./index-3bea5f1c.js');
+require('./index-8a6239b5.js');
 require('react-dom');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 
-var getMessageCreatedAt = function (message) {
+var getMessageCreatedAt = function getMessageCreatedAt(message) {
   return index$1.format(message.createdAt, 'p');
 };
-var shouldFetchMore = function (messageLength, maxMessages) {
+var shouldFetchMore = function shouldFetchMore(messageLength, maxMessages) {
   if (typeof maxMessages !== 'number') {
     return true;
   }
@@ -30,7 +30,7 @@ var shouldFetchMore = function (messageLength, maxMessages) {
 
   return false;
 };
-var scrollIntoLast = function (intialTry) {
+var scrollIntoLast = function scrollIntoLast(intialTry) {
   if (intialTry === void 0) {
     intialTry = 0;
   }
@@ -52,7 +52,7 @@ var scrollIntoLast = function (intialTry) {
     }, 500 * currentTry);
   }
 };
-var isSameGroup = function (message, comparingMessage) {
+var isSameGroup = function isSameGroup(message, comparingMessage) {
   var _a, _b, _c, _d;
 
   if (!(message && comparingMessage && (message === null || message === void 0 ? void 0 : message.messageType) !== 'admin' && (comparingMessage === null || comparingMessage === void 0 ? void 0 : comparingMessage.messageType) !== 'admin' && (message === null || message === void 0 ? void 0 : message.sender) && (comparingMessage === null || comparingMessage === void 0 ? void 0 : comparingMessage.sender) && (message === null || message === void 0 ? void 0 : message.createdAt) && (comparingMessage === null || comparingMessage === void 0 ? void 0 : comparingMessage.createdAt) && ((_a = message === null || message === void 0 ? void 0 : message.sender) === null || _a === void 0 ? void 0 : _a.userId) && ((_b = comparingMessage === null || comparingMessage === void 0 ? void 0 : comparingMessage.sender) === null || _b === void 0 ? void 0 : _b.userId))) {
@@ -61,21 +61,21 @@ var isSameGroup = function (message, comparingMessage) {
 
   return (message === null || message === void 0 ? void 0 : message.sendingStatus) === (comparingMessage === null || comparingMessage === void 0 ? void 0 : comparingMessage.sendingStatus) && ((_c = message === null || message === void 0 ? void 0 : message.sender) === null || _c === void 0 ? void 0 : _c.userId) === ((_d = comparingMessage === null || comparingMessage === void 0 ? void 0 : comparingMessage.sender) === null || _d === void 0 ? void 0 : _d.userId) && getMessageCreatedAt(message) === getMessageCreatedAt(comparingMessage);
 };
-var compareMessagesForGrouping = function (prevMessage, currMessage, nextMessage) {
+var compareMessagesForGrouping = function compareMessagesForGrouping(prevMessage, currMessage, nextMessage) {
   return [isSameGroup(prevMessage, currMessage), isSameGroup(currMessage, nextMessage)];
 };
-var kFormatter = function (num) {
+var kFormatter = function kFormatter(num) {
   if (Math.abs(num) > 999999) {
-    return "".concat((Math.abs(num) / 1000000).toFixed(1), "M");
+    return (Math.abs(num) / 1000000).toFixed(1) + "M";
   }
 
   if (Math.abs(num) > 999) {
-    return "".concat((Math.abs(num) / 1000).toFixed(1), "K");
+    return (Math.abs(num) / 1000).toFixed(1) + "K";
   }
 
-  return "".concat(num);
+  return "" + num;
 };
-var isOperator = function (openChannel, userId) {
+var isOperator = function isOperator(openChannel, userId) {
   var operators = openChannel.operators;
 
   if (operators.map(function (operator) {
@@ -86,12 +86,12 @@ var isOperator = function (openChannel, userId) {
 
   return true;
 };
-var isDisabledBecauseFrozen = function (openChannel, userId) {
+var isDisabledBecauseFrozen = function isDisabledBecauseFrozen(openChannel, userId) {
   var isFrozen = openChannel.isFrozen;
   return isFrozen && !isOperator(openChannel, userId);
 };
-var fetchWithListQuery = function (listQuery, logger, eachQueryNextCallback) {
-  var fetchList = function (query) {
+var fetchWithListQuery = function fetchWithListQuery(listQuery, logger, eachQueryNextCallback) {
+  var fetchList = function fetchList(query) {
     var hasNext = query.hasNext;
 
     if (hasNext) {
@@ -111,7 +111,7 @@ var fetchWithListQuery = function (listQuery, logger, eachQueryNextCallback) {
   logger.info('OpenChannel | FetchUserList start', listQuery);
   fetchList(listQuery);
 };
-var pxToNumber = function (px) {
+var pxToNumber = function pxToNumber(px) {
   if (typeof px === 'number') {
     return px;
   }
@@ -127,7 +127,7 @@ var pxToNumber = function (px) {
   return null;
 };
 
-var MessageInputWrapper = function (_a, ref) {
+var MessageInputWrapper = function MessageInputWrapper(_a, ref) {
   var channel = _a.channel,
       user = _a.user,
       disabled = _a.disabled,
@@ -163,7 +163,7 @@ var MessageInputWrapper = function (_a, ref) {
 
 var MessageInputWrapper$1 = /*#__PURE__*/React__default["default"].forwardRef(MessageInputWrapper);
 
-var FrozenNotification = function () {
+var FrozenNotification = function FrozenNotification() {
   var stringSet = React.useContext(LocalizationContext.LocalizationContext).stringSet;
   return /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sendbird-frozen-channel-notification"
@@ -224,7 +224,7 @@ function OpenchannelConversationHeader(_a) {
   }))));
 }
 
-var copyToClipboard = function (text) {
+var copyToClipboard = function copyToClipboard(text) {
   // @ts-ignore: Unreachable code error
   if (window.clipboardData && window.clipboardData.setData) {
     // Internet Explorer-specific code path to prevent textarea being shown while dialog is visible.
@@ -259,43 +259,43 @@ var OpenChannelMessageStatusTypes = {
   CANCELED: 'canceled',
   SUCCEEDED: 'succeeded'
 };
-var getSenderFromMessage = function (message) {
+var getSenderFromMessage = function getSenderFromMessage(message) {
   return message.sender || message._sender;
 };
-var checkIsSent = function (status) {
+var checkIsSent = function checkIsSent(status) {
   return status === OpenChannelMessageStatusTypes.SUCCEEDED;
 };
-var checkIsPending = function (status) {
+var checkIsPending = function checkIsPending(status) {
   return status === OpenChannelMessageStatusTypes.PENDING;
 };
-var checkIsFailed = function (status) {
+var checkIsFailed = function checkIsFailed(status) {
   return status === OpenChannelMessageStatusTypes.FAILED;
 };
-var checkIsByMe = function (message, userId) {
+var checkIsByMe = function checkIsByMe(message, userId) {
   return getSenderFromMessage(message).userId === userId;
 };
-var isFineCopy = function (_a) {
+var isFineCopy = function isFineCopy(_a) {
   var message = _a.message;
   return message.messageType === 'user' && message.message.length > 0;
 };
-var isFineResend = function (_a) {
+var isFineResend = function isFineResend(_a) {
   var message = _a.message,
       status = _a.status,
       userId = _a.userId;
   return checkIsByMe(message, userId) && checkIsFailed(status) && message.isResendable && message.isResendable();
 };
-var isFineEdit = function (_a) {
+var isFineEdit = function isFineEdit(_a) {
   var message = _a.message,
       status = _a.status,
       userId = _a.userId;
   return checkIsByMe(message, userId) && checkIsSent(status);
 };
-var isFineDelete = function (_a) {
+var isFineDelete = function isFineDelete(_a) {
   var message = _a.message,
       userId = _a.userId;
   return checkIsByMe(message, userId);
 };
-var showMenuTrigger = function (props) {
+var showMenuTrigger = function showMenuTrigger(props) {
   var message = props.message,
       status = props.status,
       userId = props.userId;
@@ -381,7 +381,7 @@ function OpenchannelUserMessage(_a) {
           type: index$3.LabelTypography.BODY_1,
           color: index$3.LabelColors.ONBACKGROUND_2,
           calssName: "sendbird-openchannel-user-message-word"
-        }, " ".concat(stringSet.MESSAGE_EDITED, " ")));
+        }, " " + stringSet.MESSAGE_EDITED + " "));
       }
 
       return matchedMessage;
@@ -407,21 +407,21 @@ function OpenchannelUserMessage(_a) {
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sendbird-openchannel-user-message__left"
   }, !chainTop && /*#__PURE__*/React__default["default"].createElement(index$4.ContextMenu, {
-    menuTrigger: function (toggleDropdown) {
+    menuTrigger: function menuTrigger(toggleDropdown) {
       return /*#__PURE__*/React__default["default"].createElement(index$3.Avatar, {
         className: "sendbird-openchannel-user-message__left__avatar",
         src: sender.profileUrl || '',
         ref: avatarRef,
         width: "28px",
         height: "28px",
-        onClick: function () {
+        onClick: function onClick() {
           if (!disableUserProfile) {
             toggleDropdown();
           }
         }
       });
     },
-    menuItems: function (closeDropdown) {
+    menuItems: function menuItems(closeDropdown) {
       return /*#__PURE__*/React__default["default"].createElement(index$4.MenuItems, {
         parentRef: avatarRef,
         parentContainRef: avatarRef,
@@ -480,7 +480,7 @@ function OpenchannelUserMessage(_a) {
     ref: contextMenuRef,
     style: contextStyle
   }, /*#__PURE__*/React__default["default"].createElement(index$4.ContextMenu, {
-    menuTrigger: function (toggleDropdown) {
+    menuTrigger: function menuTrigger(toggleDropdown) {
       return showMenuTrigger({
         message: message,
         userId: userId,
@@ -489,7 +489,7 @@ function OpenchannelUserMessage(_a) {
         className: "sendbird-openchannel-user-message__context-menu--icon",
         width: "32px",
         height: "32px",
-        onClick: function () {
+        onClick: function onClick() {
           toggleDropdown();
         }
       }, /*#__PURE__*/React__default["default"].createElement(index$3.Icon, {
@@ -499,7 +499,7 @@ function OpenchannelUserMessage(_a) {
         height: "24px"
       }));
     },
-    menuItems: function (closeDropdown) {
+    menuItems: function menuItems(closeDropdown) {
       return /*#__PURE__*/React__default["default"].createElement(index$4.MenuItems, {
         parentRef: contextMenuRef,
         parentContainRef: contextMenuRef,
@@ -511,7 +511,7 @@ function OpenchannelUserMessage(_a) {
         status: status
       }) && /*#__PURE__*/React__default["default"].createElement(index$4.MenuItem, {
         className: "sendbird-openchannel-user-message__context-menu__copy",
-        onClick: function () {
+        onClick: function onClick() {
           copyToClipboard(message.message);
           closeDropdown();
         }
@@ -521,7 +521,7 @@ function OpenchannelUserMessage(_a) {
         status: status
       }) && /*#__PURE__*/React__default["default"].createElement(index$4.MenuItem, {
         className: "sendbird-openchannel-user-message__context-menu__edit",
-        onClick: function () {
+        onClick: function onClick() {
           if (disabled) {
             return;
           }
@@ -535,7 +535,7 @@ function OpenchannelUserMessage(_a) {
         status: status
       }) && /*#__PURE__*/React__default["default"].createElement(index$4.MenuItem, {
         className: "sendbird-openchannel-user-message__context-menu__resend",
-        onClick: function () {
+        onClick: function onClick() {
           resendMessage(message);
           closeDropdown();
         }
@@ -545,7 +545,7 @@ function OpenchannelUserMessage(_a) {
         status: status
       }) && /*#__PURE__*/React__default["default"].createElement(index$4.MenuItem, {
         className: "sendbird-openchannel-user-message__context-menu__delete",
-        onClick: function () {
+        onClick: function onClick() {
           if (disabled) {
             return;
           }
@@ -571,12 +571,12 @@ function OpenChannelAdminMessage(_a) {
 }
 
 var URL_REG = /[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/;
-var createUrlTester = function (regexp) {
+var createUrlTester = function createUrlTester(regexp) {
   return function (text) {
     return regexp.test(text);
   };
 };
-var checkOGIsEnalbed = function (message) {
+var checkOGIsEnalbed = function checkOGIsEnalbed(message) {
   var ogMetaData = message.ogMetaData;
 
   if (!ogMetaData) {
@@ -662,7 +662,7 @@ function OpenchannelOGMessage(_a) {
     };
   }, [message, message.updatedAt]);
 
-  var openLink = function () {
+  var openLink = function openLink() {
     if (checkOGIsEnalbed(message)) {
       var url = ogMetaData.url;
       window.open(url);
@@ -691,21 +691,21 @@ function OpenchannelOGMessage(_a) {
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sendbird-openchannel-og-message__top__left"
   }, !chainTop && /*#__PURE__*/React__default["default"].createElement(index$4.ContextMenu, {
-    menuTrigger: function (toggleDropdown) {
+    menuTrigger: function menuTrigger(toggleDropdown) {
       return /*#__PURE__*/React__default["default"].createElement(index$3.Avatar, {
         className: "sendbird-openchannel-og-message__top__left__avatar",
         src: sender.profileUrl || '',
         ref: avatarRef,
         width: "28px",
         height: "28px",
-        onClick: function () {
+        onClick: function onClick() {
           if (!disableUserProfile) {
             toggleDropdown();
           }
         }
       });
     },
-    menuItems: function (closeDropdown) {
+    menuItems: function menuItems(closeDropdown) {
       return /*#__PURE__*/React__default["default"].createElement(index$4.MenuItems, {
         parentRef: avatarRef,
         parentContainRef: avatarRef,
@@ -748,7 +748,7 @@ function OpenchannelOGMessage(_a) {
     ref: contextMenuRef,
     style: contextStyle
   }, /*#__PURE__*/React__default["default"].createElement(index$4.ContextMenu, {
-    menuTrigger: function (toggleDropdown) {
+    menuTrigger: function menuTrigger(toggleDropdown) {
       return showMenuTrigger({
         message: message,
         userId: userId,
@@ -757,7 +757,7 @@ function OpenchannelOGMessage(_a) {
         className: "sendbird-openchannel-og-message__top__context-menu--icon",
         width: "32px",
         height: "32px",
-        onClick: function () {
+        onClick: function onClick() {
           toggleDropdown();
         }
       }, /*#__PURE__*/React__default["default"].createElement(index$3.Icon, {
@@ -767,7 +767,7 @@ function OpenchannelOGMessage(_a) {
         height: "24px"
       }));
     },
-    menuItems: function (closeDropdown) {
+    menuItems: function menuItems(closeDropdown) {
       return /*#__PURE__*/React__default["default"].createElement(index$4.MenuItems, {
         parentRef: contextMenuRef,
         parentContainRef: contextMenuRef,
@@ -779,7 +779,7 @@ function OpenchannelOGMessage(_a) {
         status: status
       }) && /*#__PURE__*/React__default["default"].createElement(index$4.MenuItem, {
         className: "sendbird-openchannel-og-message__top__context-menu__copy",
-        onClick: function () {
+        onClick: function onClick() {
           copyToClipboard(message.message);
           closeDropdown();
         }
@@ -789,7 +789,7 @@ function OpenchannelOGMessage(_a) {
         status: status
       }) && /*#__PURE__*/React__default["default"].createElement(index$4.MenuItem, {
         className: "sendbird-openchannel-og-message__top__context-menu__edit",
-        onClick: function () {
+        onClick: function onClick() {
           if (disabled) {
             return;
           }
@@ -803,7 +803,7 @@ function OpenchannelOGMessage(_a) {
         status: status
       }) && /*#__PURE__*/React__default["default"].createElement(index$4.MenuItem, {
         className: "sendbird-openchannel-og-message__top__context-menu__resend",
-        onClick: function () {
+        onClick: function onClick() {
           resendMessage(message);
           closeDropdown();
         }
@@ -813,7 +813,7 @@ function OpenchannelOGMessage(_a) {
         status: status
       }) && /*#__PURE__*/React__default["default"].createElement(index$4.MenuItem, {
         className: "sendbird-openchannel-og-message__top__context-menu__delete",
-        onClick: function () {
+        onClick: function onClick() {
           if (disabled) {
             return;
           }
@@ -886,7 +886,7 @@ var SUPPORTED_MIMES$1 = {
   IMAGE: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'],
   VIDEO: ['video/mpeg', 'video/ogg', 'video/webm', 'video/mp4']
 };
-var getSupportingFileType = function (type) {
+var getSupportingFileType = function getSupportingFileType(type) {
   if (SUPPORTED_MIMES$1.IMAGE.indexOf(type) >= 0) {
     return SUPPORTING_TYPES.IMAGE;
   }
@@ -907,7 +907,7 @@ function OpenchannelThumbnailMessage(_a) {
       userId = _a.userId,
       status = _a.status,
       chainTop = _a.chainTop,
-      onClick = _a.onClick,
+      _onClick = _a.onClick,
       showRemove = _a.showRemove,
       resendMessage = _a.resendMessage;
   var type = message.type,
@@ -967,21 +967,21 @@ function OpenchannelThumbnailMessage(_a) {
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sendbird-openchannel-thumbnail-message__left"
   }, !chainTop && /*#__PURE__*/React__default["default"].createElement(index$4.ContextMenu, {
-    menuTrigger: function (toggleDropdown) {
+    menuTrigger: function menuTrigger(toggleDropdown) {
       return /*#__PURE__*/React__default["default"].createElement(index$3.Avatar, {
         className: "sendbird-openchannel-thumbnail-message__left__avatar",
         src: sender.profileUrl || '',
         ref: avatarRef,
         width: "28px",
         height: "28px",
-        onClick: function () {
+        onClick: function onClick() {
           if (!disableUserProfile) {
             toggleDropdown();
           }
         }
       });
     },
-    menuItems: function (closeDropdown) {
+    menuItems: function menuItems(closeDropdown) {
       return /*#__PURE__*/React__default["default"].createElement(index$4.MenuItems, {
         parentRef: avatarRef,
         parentContainRef: avatarRef,
@@ -1018,14 +1018,14 @@ function OpenchannelThumbnailMessage(_a) {
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sendbird-openchannel-thumbnail-message__right__body__wrap",
     role: "button",
-    onClick: function () {
+    onClick: function onClick() {
       if (isMessageSent) {
-        onClick(true);
+        _onClick(true);
       }
     },
-    onKeyDown: function () {
+    onKeyDown: function onKeyDown() {
       if (isMessageSent) {
-        onClick(true);
+        _onClick(true);
       }
     },
     tabIndex: 0
@@ -1096,7 +1096,7 @@ function OpenchannelThumbnailMessage(_a) {
     className: "sendbird-openchannel-thumbnail-message__context-menu",
     ref: contextMenuRef
   }, /*#__PURE__*/React__default["default"].createElement(index$4.ContextMenu, {
-    menuTrigger: function (toggleDropdown) {
+    menuTrigger: function menuTrigger(toggleDropdown) {
       return showMenuTrigger({
         message: message,
         userId: userId,
@@ -1113,7 +1113,7 @@ function OpenchannelThumbnailMessage(_a) {
         height: "24px"
       }));
     },
-    menuItems: function (closeDropdown) {
+    menuItems: function menuItems(closeDropdown) {
       return /*#__PURE__*/React__default["default"].createElement(index$4.MenuItems, {
         parentRef: contextMenuRef,
         parentContainRef: contextMenuRef,
@@ -1124,7 +1124,7 @@ function OpenchannelThumbnailMessage(_a) {
         userId: userId,
         status: status
       }) && /*#__PURE__*/React__default["default"].createElement(index$4.MenuItem, {
-        onClick: function () {
+        onClick: function onClick() {
           resendMessage(message);
           closeDropdown();
         }
@@ -1133,7 +1133,7 @@ function OpenchannelThumbnailMessage(_a) {
         userId: userId,
         status: status
       }) && /*#__PURE__*/React__default["default"].createElement(index$4.MenuItem, {
-        onClick: function () {
+        onClick: function onClick() {
           if (disabled) {
             return;
           }
@@ -1146,7 +1146,7 @@ function OpenchannelThumbnailMessage(_a) {
   })));
 }
 
-var checkFileType = function (fileUrl) {
+var checkFileType = function checkFileType(fileUrl) {
   var audioFile = /(\.mp3)$/i;
   var gifFile = /(\.gif)$/i;
 
@@ -1160,7 +1160,7 @@ var checkFileType = function (fileUrl) {
 
   return index$3.IconTypes.FILE_DOCUMENT;
 };
-var truncate = function (fullStr, strLen) {
+var truncate = function truncate(fullStr, strLen) {
   if (fullStr === null || fullStr === undefined) return '';
   if (fullStr.length <= strLen) return fullStr;
   var separator = '...';
@@ -1191,7 +1191,7 @@ function OpenchannelFileMessage(_a) {
       disableUserProfile = _c.disableUserProfile,
       renderUserProfile = _c.renderUserProfile;
 
-  var openFileUrl = function () {
+  var openFileUrl = function openFileUrl() {
     window.open(message.url);
   };
 
@@ -1204,21 +1204,21 @@ function OpenchannelFileMessage(_a) {
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sendbird-openchannel-file-message__left"
   }, !chainTop && /*#__PURE__*/React__default["default"].createElement(index$4.ContextMenu, {
-    menuTrigger: function (toggleDropdown) {
+    menuTrigger: function menuTrigger(toggleDropdown) {
       return /*#__PURE__*/React__default["default"].createElement(index$3.Avatar, {
         className: "sendbird-openchannel-file-message__left__avatar",
         src: sender.profileUrl || '',
         ref: avatarRef,
         width: "28px",
         height: "28px",
-        onClick: function () {
+        onClick: function onClick() {
           if (!disableUserProfile) {
             toggleDropdown();
           }
         }
       });
     },
-    menuItems: function (closeDropdown) {
+    menuItems: function menuItems(closeDropdown) {
       return /*#__PURE__*/React__default["default"].createElement(index$4.MenuItems, {
         parentRef: avatarRef,
         parentContainRef: avatarRef,
@@ -1284,7 +1284,7 @@ function OpenchannelFileMessage(_a) {
     className: "sendbird-openchannel-file-message__context-menu",
     ref: contextMenuRef
   }, /*#__PURE__*/React__default["default"].createElement(index$4.ContextMenu, {
-    menuTrigger: function (toggleDropdown) {
+    menuTrigger: function menuTrigger(toggleDropdown) {
       return showMenuTrigger({
         message: message,
         userId: userId,
@@ -1300,7 +1300,7 @@ function OpenchannelFileMessage(_a) {
         height: "24px"
       }));
     },
-    menuItems: function (closeDropdown) {
+    menuItems: function menuItems(closeDropdown) {
       return /*#__PURE__*/React__default["default"].createElement(index$4.MenuItems, {
         parentRef: contextMenuRef,
         parentContainRef: contextMenuRef,
@@ -1311,7 +1311,7 @@ function OpenchannelFileMessage(_a) {
         userId: userId,
         status: status
       }) && /*#__PURE__*/React__default["default"].createElement(index$4.MenuItem, {
-        onClick: function () {
+        onClick: function onClick() {
           if (disabled) {
             return;
           }
@@ -1324,7 +1324,7 @@ function OpenchannelFileMessage(_a) {
         userId: userId,
         status: status
       }) && /*#__PURE__*/React__default["default"].createElement(index$4.MenuItem, {
-        onClick: function () {
+        onClick: function onClick() {
           if (disabled) {
             return;
           }
@@ -1350,13 +1350,17 @@ function RemoveMessageModal(_a) {
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types
-const SUPPORTED_MIMES = {
+var SUPPORTED_MIMES = {
   IMAGE: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/svg+xml', 'image/webp' // not supported in IE
   ],
   VIDEO: ['video/mpeg', 'video/ogg', 'video/webm', 'video/mp4']
 };
-const isImage = type => SUPPORTED_MIMES.IMAGE.indexOf(type) >= 0;
-const isVideo = type => SUPPORTED_MIMES.VIDEO.indexOf(type) >= 0;
+var isImage = function isImage(type) {
+  return SUPPORTED_MIMES.IMAGE.indexOf(type) >= 0;
+};
+var isVideo = function isVideo(type) {
+  return SUPPORTED_MIMES.VIDEO.indexOf(type) >= 0;
+};
 
 var MessageTypes = {
   ADMIN: 'ADMIN',
@@ -1372,7 +1376,7 @@ var SendingMessageStatus = {
   FAILED: 'failed',
   PENDING: 'pending'
 };
-var getMessageType = function (message) {
+var getMessageType = function getMessageType(message) {
   if (message.isUserMessage && message.isUserMessage() || message.messageType === 'user') {
     return message.ogMetaData ? MessageTypes.OG : MessageTypes.USER;
   }
@@ -1454,7 +1458,7 @@ function MessageHoc(_a) {
       ref: editMessageInputRef,
       name: message.messageId,
       onSendMessage: updateMessage,
-      onCancelEdit: function () {
+      onCancelEdit: function onCancelEdit() {
         setShowEdit(false);
       },
       value: message.message
@@ -1542,20 +1546,20 @@ function MessageHoc(_a) {
     //   <OpenChannelUnknownMessage message={message} />
     // );
   }(), _b)[getMessageType(message)], showRemove && /*#__PURE__*/React__default["default"].createElement(RemoveMessageModal, {
-    onCloseModal: function () {
+    onCloseModal: function onCloseModal() {
       return setShowRemove(false);
     },
-    onDeleteMessage: function () {
+    onDeleteMessage: function onDeleteMessage() {
       if (message.messageType !== 'admin') {
         deleteMessage(message);
       }
     }
   }), showFileViewer && message.messageType === 'file' && /*#__PURE__*/React__default["default"].createElement(index$2.FileViewer, {
-    onClose: function () {
+    onClose: function onClose() {
       return setShowFileViewer(false);
     },
     message: message,
-    onDelete: function () {
+    onDelete: function onDelete() {
       return deleteMessage(message);
     },
     isByMe: isByMe
@@ -1582,7 +1586,7 @@ function OpenchannelConversationScroll(_a, ref) {
       showScrollDownButton = _d[0],
       setShowScrollDownButton = _d[1];
 
-  var handleOnScroll = function (e) {
+  var handleOnScroll = function handleOnScroll(e) {
     var element = e.target;
     var scrollTop = element.scrollTop,
         scrollHeight = element.scrollHeight,
@@ -1610,7 +1614,7 @@ function OpenchannelConversationScroll(_a, ref) {
     }
   };
 
-  var scrollToBottom = function () {
+  var scrollToBottom = function scrollToBottom() {
     if (scrollRef && scrollRef.current) {
       scrollRef.current.scrollTo(0, scrollRef.current.scrollHeight);
       setShowScrollDownButton(false);
@@ -1629,7 +1633,7 @@ function OpenchannelConversationScroll(_a, ref) {
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sendbird-openchannel-conversation-scroll__container__padding"
   }), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: "sendbird-openchannel-conversation-scroll__container__item-container".concat(hasMessage ? '' : '--no-messages')
+    className: "sendbird-openchannel-conversation-scroll__container__item-container" + (hasMessage ? '' : '--no-messages')
   }, hasMessage ? allMessages.map(function (message, index) {
     var status;
 
@@ -2887,7 +2891,7 @@ function useSendMessageCallback(_a, _b) {
     if (sdk && sdk.UserMessageParams) {
       var text = messageInputRef.current.value;
 
-      var createParamsDefault = function (txt) {
+      var createParamsDefault = function createParamsDefault(txt) {
         var message = typeof txt === 'string' ? txt.trim() : txt.toString(10).trim();
         var params = new sdk.UserMessageParams();
         params.message = message;
@@ -2956,7 +2960,7 @@ function useFileUploadCallback(_a, _b) {
       var compressibleDiamensions_1 = pxToNumber(resizingWidth_1) || pxToNumber(resizingHeight_1);
       var canCompressImage = compressibleFileType && (compressibleRatio || compressibleDiamensions_1);
 
-      var createParamsDefault_1 = function (file_) {
+      var createParamsDefault_1 = function createParamsDefault_1(file_) {
         var params = new sdk.FileMessageParams();
         params.file = file_;
         return params;
@@ -3099,7 +3103,7 @@ function useUpdateMessageCallback(_a, _b) {
       logger = _b.logger,
       messagesDispatcher = _b.messagesDispatcher;
   return React.useCallback(function (messageId, text, callback) {
-    var createParamsDefault = function (txt) {
+    var createParamsDefault = function createParamsDefault(txt) {
       var params = new sdk.UserMessageParams();
       params.message = txt;
       return params;
@@ -3291,7 +3295,7 @@ function useTrimMessageList(_a, _b) {
 }
 
 var COMPONENT_CLASS_NAME = 'sendbird-openchannel-conversation';
-var OpenchannelConversation = function (props) {
+var OpenchannelConversation = function OpenchannelConversation(props) {
   var // internal props
   stores = props.stores,
       config = props.config,
@@ -3578,7 +3582,7 @@ var OpenchannelConversation = function (props) {
     user: user
   }) : /*#__PURE__*/React__default["default"].createElement(OpenchannelConversationHeader, {
     title: currentOpenChannel.name,
-    subTitle: "".concat(kFormatter(currentOpenChannel.participantCount), " ").concat(stringSet.OPEN_CHANNEL_CONVERSATION__TITLE_PARTICIPANTS),
+    subTitle: kFormatter(currentOpenChannel.participantCount) + " " + stringSet.OPEN_CHANNEL_CONVERSATION__TITLE_PARTICIPANTS,
     coverImage: currentOpenChannel.coverUrl,
     onActionClick: onChatHeaderActionClick,
     amIOperator: amIOperator

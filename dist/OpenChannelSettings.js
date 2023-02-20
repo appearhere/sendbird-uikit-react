@@ -1,11 +1,11 @@
 import React__default, { useContext, useMemo, useRef, useState, useEffect } from 'react';
-import { M as Modal, T as Type, a as TextButton, B as Button, d as ButtonTypes, e as ButtonSizes, U as UserProfileContext, C as ContextMenu, b as MenuItems, f as ConnectedUserProfile, h as UserProfileProvider, s as selectors } from './index-38ea17f7.js';
-import { b as LocalizationContext, c as __spreadArray, w as withSendbirdContext } from './LocalizationContext-4f84414a.js';
-import { n as copyToClipboard } from './index-098bf6e1.js';
-import { A as Avatar, L as Label, a as LabelTypography, b as LabelColors, I as Icon, c as IconTypes, d as IconColors, P as PlaceHolder, f as PlaceHolderTypes } from './index-ba41c814.js';
-import { g as getOpenChannelAvatar } from './utils-1c812b47.js';
-import { I as InputLabel, a as Input, n as noop, U as UserListItem$1 } from './index-880f789f.js';
-import { a as Accordion, A as AccordionGroup } from './index-e1ccbbac.js';
+import { M as Modal, T as Type, a as TextButton, B as Button, d as ButtonTypes, e as ButtonSizes, U as UserProfileContext, C as ContextMenu, b as MenuItems, f as ConnectedUserProfile, s as selectors, h as UserProfileProvider } from './index-9654c8fd.js';
+import { c as LocalizationContext, d as __spreadArray, w as withSendbirdContext } from './LocalizationContext-ef1f11a7.js';
+import { n as copyToClipboard } from './index-e9bf54e3.js';
+import { A as Avatar, L as Label, a as LabelTypography, b as LabelColors, I as Icon, c as IconTypes, d as IconColors, P as PlaceHolder, f as PlaceHolderTypes } from './index-88859e36.js';
+import { g as getOpenChannelAvatar } from './utils-ff1fc2bf.js';
+import { I as InputLabel, a as Input, n as noop, U as UserListItem$1 } from './index-b9a826ad.js';
+import { a as Accordion, A as AccordionGroup } from './index-016ac689.js';
 import 'prop-types';
 import 'react-dom';
 
@@ -21,16 +21,16 @@ function ChannelAvatar(_a) {
     return /*#__PURE__*/React__default.createElement(Avatar, {
       className: "sendbird-chat-header__avatar--open-channel",
       src: getOpenChannelAvatar(channel),
-      width: "".concat(width, "px"),
-      height: "".concat(height, "px"),
+      width: width + "px",
+      height: height + "px",
       alt: channel.name || stringSet.OPEN_CHANNEL_SETTINGS__NO_TITLE
     });
   }, [channel.coverUrl, theme]);
   return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, memoizedAvatar);
 }
 
-var EditDetails = function (props) {
-  var onSubmit = props.onSubmit,
+var EditDetails = function EditDetails(props) {
+  var _onSubmit = props.onSubmit,
       onCancel = props.onCancel,
       channel = props.channel,
       theme = props.theme;
@@ -52,7 +52,7 @@ var EditDetails = function (props) {
     titleText: stringSet.MODAL__CHANNEL_INFORMATION__TITLE,
     submitText: stringSet.BUTTON__SAVE,
     onCancel: onCancel,
-    onSubmit: function () {
+    onSubmit: function onSubmit() {
       if (title !== '' && !inputRef.current.value) {
         if (formRef.current.reportValidity) {
           // might not work in explorer
@@ -62,14 +62,15 @@ var EditDetails = function (props) {
         return;
       }
 
-      onSubmit(newFile, inputRef.current.value);
+      _onSubmit(newFile, inputRef.current.value);
+
       onCancel();
     },
     type: Type.PRIMARY
   }, /*#__PURE__*/React__default.createElement("form", {
     className: "channel-profile-form",
     ref: formRef,
-    onSubmit: function (e) {
+    onSubmit: function onSubmit(e) {
       e.preventDefault();
     }
   }, /*#__PURE__*/React__default.createElement("div", {
@@ -92,14 +93,14 @@ var EditDetails = function (props) {
     style: {
       display: 'none'
     },
-    onChange: function (e) {
+    onChange: function onChange(e) {
       setCurrentImg(URL.createObjectURL(e.target.files[0]));
       setNewFile(e.target.files[0]);
       hiddenInputRef.current.value = '';
     }
   }), /*#__PURE__*/React__default.createElement(TextButton, {
     className: "channel-profile-form__avatar-button",
-    onClick: function () {
+    onClick: function onClick() {
       return hiddenInputRef.current.click();
     },
     notUnderline: true
@@ -147,7 +148,7 @@ function ChannelProfile(props) {
   }, title || stringSet.OPEN_CHANNEL_SETTINGS__NO_TITLE), /*#__PURE__*/React__default.createElement(TextButton, {
     disabled: disabled,
     className: "sendbird-openchannel-profile__edit",
-    onClick: function () {
+    onClick: function onClick() {
       if (disabled) {
         return;
       }
@@ -159,7 +160,7 @@ function ChannelProfile(props) {
     type: LabelTypography.BUTTON_1,
     color: disabled ? LabelColors.ONBACKGROUND_2 : LabelColors.PRIMARY
   }, stringSet.CHANNEL_SETTING__PROFILE__EDIT)), showModal && /*#__PURE__*/React__default.createElement(EditDetails, {
-    onCancel: function () {
+    onCancel: function onCancel() {
       return setShowModal(false);
     },
     onSubmit: onChannelInfoChange,
@@ -198,14 +199,14 @@ function ParticipantsModal(_a) {
   }, []);
   return /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(Modal, {
     hideFooter: true,
-    onCancel: function () {
+    onCancel: function onCancel() {
       return hideModal();
     },
     onSubmit: noop,
     titleText: stringSet.OPEN_CHANNEL_SETTINGS__ALL_PARTICIPANTS_TITLE
   }, /*#__PURE__*/React__default.createElement("div", {
     className: "sendbird-more-members__popup-scroll",
-    onScroll: function (e) {
+    onScroll: function onScroll(e) {
       var hasNext = participantListQuery.hasNext;
       var target = e.target;
       var fetchMore = target.clientHeight + target.scrollTop === target.scrollHeight;
@@ -229,7 +230,7 @@ function ParticipantsModal(_a) {
 }
 
 var SHOWN_MEMBER_MAX = 10;
-var UserListItem = function (_a) {
+var UserListItem = function UserListItem(_a) {
   var member = _a.member,
       _b = _a.currentUser,
       currentUser = _b === void 0 ? '' : _b;
@@ -245,9 +246,9 @@ var UserListItem = function (_a) {
   }, /*#__PURE__*/React__default.createElement("div", {
     className: "sendbird-participants-accordion__member-avatar"
   }, /*#__PURE__*/React__default.createElement(ContextMenu, {
-    menuTrigger: function (toggleDropdown) {
+    menuTrigger: function menuTrigger(toggleDropdown) {
       return /*#__PURE__*/React__default.createElement(Avatar, {
-        onClick: function () {
+        onClick: function onClick() {
           if (!disableUserProfile) {
             toggleDropdown();
           }
@@ -258,7 +259,7 @@ var UserListItem = function (_a) {
         height: 24
       });
     },
-    menuItems: function (closeDropdown) {
+    menuItems: function menuItems(closeDropdown) {
       return /*#__PURE__*/React__default.createElement(MenuItems, {
         openLeft: true,
         parentRef: avatarRef // for catching location(x, y) of MenuItems
@@ -316,7 +317,7 @@ function ParticipantsAccordion(_a) {
   return /*#__PURE__*/React__default.createElement(Accordion, {
     className: "sendbird-participants-accordion",
     id: "participants",
-    renderTitle: function () {
+    renderTitle: function renderTitle() {
       return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(Icon, {
         type: IconTypes.MEMBERS,
         fillColor: IconColors.PRIMARY,
@@ -328,7 +329,7 @@ function ParticipantsAccordion(_a) {
         color: LabelColors.ONBACKGROUND_1
       }, stringSet.OPEN_CHANNEL_SETTINGS__PARTICIPANTS_ACCORDION_TITLE));
     },
-    renderContent: function () {
+    renderContent: function renderContent() {
       return /*#__PURE__*/React__default.createElement("div", {
         className: ""
       }, /*#__PURE__*/React__default.createElement("div", {
@@ -349,12 +350,12 @@ function ParticipantsAccordion(_a) {
         className: "sendbird-participants-accordion__footer__all-participants",
         type: ButtonTypes.SECONDARY,
         size: ButtonSizes.SMALL,
-        onClick: function () {
+        onClick: function onClick() {
           return setShowMoreModal(true);
         }
       }, stringSet.OPEN_CHANNEL_SETTINGS__SEE_ALL), showMoreModal && /*#__PURE__*/React__default.createElement(ParticipantsModal, {
         currentUser: currentUser,
-        hideModal: function () {
+        hideModal: function hideModal() {
           setShowMoreModal(false);
         },
         channel: channel
@@ -373,17 +374,17 @@ function DeleteChannel(_a) {
 
   var stringSet = useContext(LocalizationContext).stringSet;
   return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement("div", {
-    className: "sendbird-openchannel-settings__panel-item\n          sendbird-openchannel-settings__delete-channel\n            ".concat(!isOnline ? 'sendbird-openchannel-settings__panel-item__disabled' : ''),
+    className: "sendbird-openchannel-settings__panel-item\n          sendbird-openchannel-settings__delete-channel\n            " + (!isOnline ? 'sendbird-openchannel-settings__panel-item__disabled' : ''),
     role: "button",
     tabIndex: 0,
-    onKeyDown: function () {
+    onKeyDown: function onKeyDown() {
       if (!isOnline) {
         return;
       }
 
       setShowDeleteChannelModal(true);
     },
-    onClick: function () {
+    onClick: function onClick() {
       if (!isOnline) {
         return;
       }
@@ -399,10 +400,10 @@ function DeleteChannel(_a) {
     type: LabelTypography.SUBTITLE_1,
     color: LabelColors.ONBACKGROUND_1
   }, stringSet.OPEN_CHANNEL_SETTINGS__DELETE_CHANNEL_PANEL)), showDeleteChannelModal && /*#__PURE__*/React__default.createElement(Modal, {
-    onCancel: function () {
+    onCancel: function onCancel() {
       setShowDeleteChannelModal(false);
     },
-    onSubmit: function () {
+    onSubmit: function onSubmit() {
       onDeleteChannel();
     },
     submitText: stringSet.OPEN_CHANNEL_SETTINGS__DELETE_CHANNEL_SUBMIT,
@@ -451,12 +452,12 @@ function ParticipantsList(_a) {
     className: "sendbird-openchannel-settings__close-icon",
     height: "24px",
     width: "24px",
-    onClick: function () {
+    onClick: function onClick() {
       onCloseClick();
     }
   })), /*#__PURE__*/React__default.createElement("div", {
     className: "sendbird-openchannel-settings__participants-list",
-    onScroll: function (e) {
+    onScroll: function onScroll(e) {
       var hasNext = participantListQuery.hasNext;
       var target = e.target;
       var fetchMore = target.clientHeight + target.scrollTop === target.scrollHeight;
@@ -499,7 +500,7 @@ function InvalidChannel(_a) {
     className: "sendbird-openchannel-settings__close-icon",
     height: "24px",
     width: "24px",
-    onClick: function () {
+    onClick: function onClick() {
       onCloseClick();
     }
   })), /*#__PURE__*/React__default.createElement("div", {
@@ -509,7 +510,7 @@ function InvalidChannel(_a) {
   })));
 }
 
-var emptyLogger = function () {
+var emptyLogger = function emptyLogger() {
   return {
     info: noop,
     error: noop,
@@ -520,13 +521,13 @@ var emptyLogger = function () {
 function OpenChannelSettings(props) {
   var channelUrl = props.channelUrl,
       _a = props.onCloseClick,
-      onCloseClick = _a === void 0 ? noop : _a,
+      _onCloseClick = _a === void 0 ? noop : _a,
       onBeforeUpdateChannel = props.onBeforeUpdateChannel,
       _b = props.onChannelModified,
       onChannelModified = _b === void 0 ? noop : _b,
       renderChannelProfile = props.renderChannelProfile,
       renderUserProfile = props.renderUserProfile,
-      onDeleteChannel = props.onDeleteChannel,
+      _onDeleteChannel = props.onDeleteChannel,
       _c = props.disableUserProfile,
       disableUserProfile = _c === void 0 ? false : _c,
       _d = props.logger,
@@ -535,6 +536,7 @@ function OpenChannelSettings(props) {
       theme = props.theme,
       user = props.user,
       isOnline = props.isOnline;
+
   var currentUser = user.userId;
 
   var _e = useState(null),
@@ -559,11 +561,11 @@ function OpenChannelSettings(props) {
 
   if (!channel) {
     return /*#__PURE__*/React__default.createElement(InvalidChannel, {
-      onCloseClick: function () {
+      onCloseClick: function onCloseClick() {
         logger.info('OpenChannelSettings: Click close');
 
-        if (onCloseClick) {
-          onCloseClick();
+        if (_onCloseClick) {
+          _onCloseClick();
         }
       }
     });
@@ -583,8 +585,8 @@ function OpenChannelSettings(props) {
     type: IconTypes.CLOSE,
     height: "24px",
     width: "24px",
-    onClick: function () {
-      onCloseClick();
+    onClick: function onClick() {
+      _onCloseClick();
     }
   })), /*#__PURE__*/React__default.createElement("div", {
     className: "sendbird-openchannel-settings__profile"
@@ -595,7 +597,7 @@ function OpenChannelSettings(props) {
     disabled: !isOnline,
     channel: channel,
     theme: theme,
-    onChannelInfoChange: function (currentImg, currentTitle) {
+    onChannelInfoChange: function onChannelInfoChange(currentImg, currentTitle) {
       logger.info('ChannelSettings: Channel information being updated');
 
       if (onBeforeUpdateChannel) {
@@ -624,7 +626,7 @@ function OpenChannelSettings(props) {
     type: IconTypes.COPY,
     height: "22px",
     width: "22px",
-    onClick: function () {
+    onClick: function onClick() {
       copyToClipboard(channel.url);
     }
   }), /*#__PURE__*/React__default.createElement(Label, {
@@ -639,7 +641,7 @@ function OpenChannelSettings(props) {
     currentUser: currentUser
   })), /*#__PURE__*/React__default.createElement(DeleteChannel, {
     isOnline: isOnline,
-    onDeleteChannel: function () {
+    onDeleteChannel: function onDeleteChannel() {
       channel.delete(function (response, error) {
         if (error) {
           logger.warning('OpenChannelSettings: Delete channel failed', error);
@@ -648,16 +650,16 @@ function OpenChannelSettings(props) {
 
         logger.info('OpenChannelSettings: Delete channel success', response);
 
-        if (onDeleteChannel) {
-          onDeleteChannel(channel);
+        if (_onDeleteChannel) {
+          _onDeleteChannel(channel);
         }
       });
     }
   })) : /*#__PURE__*/React__default.createElement(ParticipantsList, {
     currentUser: currentUser,
     channel: channel,
-    onCloseClick: function () {
-      onCloseClick();
+    onCloseClick: function onCloseClick() {
+      _onCloseClick();
     }
   }));
 }
