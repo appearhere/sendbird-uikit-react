@@ -2,7 +2,7 @@
   "index.js": {
     "bundled": 1607,
     "minified": 1280,
-    "gzipped": 468,
+    "gzipped": 466,
     "treeshaked": {
       "rollup": {
         "code": 692,
@@ -14,58 +14,58 @@
     }
   },
   "App.js": {
-    "bundled": 9992,
-    "minified": 6569,
-    "gzipped": 1954,
+    "bundled": 11072,
+    "minified": 6757,
+    "gzipped": 2105,
     "treeshaked": {
       "rollup": {
         "code": 1053,
         "import_statements": 624
       },
       "webpack": {
-        "code": 7256
+        "code": 7409
       }
     }
   },
   "SendbirdProvider.js": {
-    "bundled": 21295,
-    "minified": 13199,
-    "gzipped": 3722,
+    "bundled": 24013,
+    "minified": 13954,
+    "gzipped": 3907,
     "treeshaked": {
       "rollup": {
         "code": 660,
         "import_statements": 187
       },
       "webpack": {
-        "code": 13054
+        "code": 13752
       }
     }
   },
   "ChannelSettings.js": {
-    "bundled": 68795,
-    "minified": 37918,
-    "gzipped": 6487,
+    "bundled": 72898,
+    "minified": 38736,
+    "gzipped": 6589,
     "treeshaked": {
       "rollup": {
-        "code": 30044,
-        "import_statements": 718
+        "code": 30730,
+        "import_statements": 737
       },
       "webpack": {
-        "code": 33719
+        "code": 34436
       }
     }
   },
   "ChannelList.js": {
-    "bundled": 55091,
-    "minified": 32473,
-    "gzipped": 7548,
+    "bundled": 59945,
+    "minified": 33831,
+    "gzipped": 7798,
     "treeshaked": {
       "rollup": {
-        "code": 25628,
-        "import_statements": 839
+        "code": 26771,
+        "import_statements": 848
       },
       "webpack": {
-        "code": 28427
+        "code": 29697
       }
     }
   },
@@ -75,30 +75,30 @@
     "gzipped": 3999
   },
   "OpenChannelSettings.js": {
-    "bundled": 24485,
-    "minified": 14708,
-    "gzipped": 3568,
+    "bundled": 24762,
+    "minified": 14680,
+    "gzipped": 3561,
     "treeshaked": {
       "rollup": {
-        "code": 11615,
+        "code": 11587,
         "import_statements": 598
       },
       "webpack": {
-        "code": 13559
+        "code": 13531
       }
     }
   },
   "MessageSearch.js": {
-    "bundled": 20384,
-    "minified": 10975,
-    "gzipped": 2948,
+    "bundled": 20446,
+    "minified": 10953,
+    "gzipped": 2941,
     "treeshaked": {
       "rollup": {
-        "code": 8801,
+        "code": 8773,
         "import_statements": 396
       },
       "webpack": {
-        "code": 10473
+        "code": 10445
       }
     }
   },
@@ -113,16 +113,16 @@
     "gzipped": 106
   },
   "OpenChannel.js": {
-    "bundled": 126974,
-    "minified": 65035,
-    "gzipped": 12790,
+    "bundled": 127895,
+    "minified": 64946,
+    "gzipped": 12763,
     "treeshaked": {
       "rollup": {
-        "code": 54215,
+        "code": 54159,
         "import_statements": 623
       },
       "webpack": {
-        "code": 57853
+        "code": 57797
       }
     }
   },
@@ -167,16 +167,16 @@
     "gzipped": 2772
   },
   "Channel.js": {
-    "bundled": 165352,
-    "minified": 91659,
-    "gzipped": 19443,
+    "bundled": 179129,
+    "minified": 94306,
+    "gzipped": 19933,
     "treeshaked": {
       "rollup": {
-        "code": 74366,
-        "import_statements": 1030
+        "code": 77152,
+        "import_statements": 1076
       },
       "webpack": {
-        "code": 80440
+        "code": 82551
       }
     }
   },
@@ -3759,253 +3759,6 @@
       },
       "webpack": {
         "code": 72989
-      }
-    }
-  },
-  "LocalizationContext-795c0600.js": {
-    "bundled": 10479,
-    "minified": 7060,
-    "gzipped": 2419
-  },
-  "index-8bf6265b.js": {
-    "bundled": 49098,
-    "minified": 29287,
-    "gzipped": 5591
-  },
-  "LeaveChannel-8c76f428.js": {
-    "bundled": 9055,
-    "minified": 5207,
-    "gzipped": 1759
-  },
-  "actionTypes-b0ff04b7.js": {
-    "bundled": 233,
-    "minified": 201,
-    "gzipped": 108
-  },
-  "index-579dea05.js": {
-    "bundled": 22831,
-    "minified": 12998,
-    "gzipped": 3339
-  },
-  "index-f5d56c83.js": {
-    "bundled": 3248,
-    "minified": 1969,
-    "gzipped": 755
-  },
-  "index-ecfb49b6.js": {
-    "bundled": 8614,
-    "minified": 5903,
-    "gzipped": 1621
-  },
-  "index-4bd1cbb9.js": {
-    "bundled": 1975,
-    "minified": 1310,
-    "gzipped": 586
-  },
-  "index-74ac63f1.js": {
-    "bundled": 16509,
-    "minified": 11549,
-    "gzipped": 2681
-  },
-  "utils-fa5e8552.js": {
-    "bundled": 1037,
-    "minified": 657,
-    "gzipped": 304
-  },
-  "index-5e727b1b.js": {
-    "bundled": 89847,
-    "minified": 28265,
-    "gzipped": 6824
-  },
-  "index-d52bc2a3.js": {
-    "bundled": 9830,
-    "minified": 2196,
-    "gzipped": 807
-  },
-  "index-f5402bf9.js": {
-    "bundled": 109911,
-    "minified": 87024,
-    "gzipped": 17847
-  },
-  "actionTypes-ed6a21b3.js": {
-    "bundled": 176,
-    "minified": 149,
-    "gzipped": 95,
-    "treeshaked": {
-      "rollup": {
-        "code": 0,
-        "import_statements": 0
-      },
-      "webpack": {
-        "code": 951
-      }
-    }
-  },
-  "LocalizationContext-668a1ea6.js": {
-    "bundled": 10050,
-    "minified": 6696,
-    "gzipped": 2361,
-    "treeshaked": {
-      "rollup": {
-        "code": 14,
-        "import_statements": 14
-      },
-      "webpack": {
-        "code": 5404
-      }
-    }
-  },
-  "index-25dbd6cb.js": {
-    "bundled": 2877,
-    "minified": 1678,
-    "gzipped": 697,
-    "treeshaked": {
-      "rollup": {
-        "code": 200,
-        "import_statements": 131
-      },
-      "webpack": {
-        "code": 1283
-      }
-    }
-  },
-  "index-ae395294.js": {
-    "bundled": 1767,
-    "minified": 1157,
-    "gzipped": 546,
-    "treeshaked": {
-      "rollup": {
-        "code": 70,
-        "import_statements": 70
-      },
-      "webpack": {
-        "code": 1120
-      }
-    }
-  },
-  "utils-6e673a84.js": {
-    "bundled": 957,
-    "minified": 582,
-    "gzipped": 293,
-    "treeshaked": {
-      "rollup": {
-        "code": 0,
-        "import_statements": 0
-      },
-      "webpack": {
-        "code": 951
-      }
-    }
-  },
-  "index-0cd544e5.js": {
-    "bundled": 7507,
-    "minified": 5017,
-    "gzipped": 1574,
-    "treeshaked": {
-      "rollup": {
-        "code": 1001,
-        "import_statements": 186
-      },
-      "webpack": {
-        "code": 4894
-      }
-    }
-  },
-  "LeaveChannel-bf4033b5.js": {
-    "bundled": 8166,
-    "minified": 4467,
-    "gzipped": 1693,
-    "treeshaked": {
-      "rollup": {
-        "code": 374,
-        "import_statements": 166
-      },
-      "webpack": {
-        "code": 3379
-      }
-    }
-  },
-  "index-0a69274c.js": {
-    "bundled": 9818,
-    "minified": 2177,
-    "gzipped": 829,
-    "treeshaked": {
-      "rollup": {
-        "code": 28,
-        "import_statements": 28
-      },
-      "webpack": {
-        "code": 1012
-      }
-    }
-  },
-  "index-3ba00050.js": {
-    "bundled": 21810,
-    "minified": 12052,
-    "gzipped": 3298,
-    "treeshaked": {
-      "rollup": {
-        "code": 42,
-        "import_statements": 42
-      },
-      "webpack": {
-        "code": 1026
-      }
-    }
-  },
-  "index-13a6a88a.js": {
-    "bundled": 14420,
-    "minified": 9830,
-    "gzipped": 2652,
-    "treeshaked": {
-      "rollup": {
-        "code": 3855,
-        "import_statements": 355
-      },
-      "webpack": {
-        "code": 8899
-      }
-    }
-  },
-  "index-ea3ae4a1.js": {
-    "bundled": 89655,
-    "minified": 28092,
-    "gzipped": 6808,
-    "treeshaked": {
-      "rollup": {
-        "code": 0,
-        "import_statements": 0
-      },
-      "webpack": {
-        "code": 7189
-      }
-    }
-  },
-  "index-96c0ebfa.js": {
-    "bundled": 44924,
-    "minified": 25759,
-    "gzipped": 5478,
-    "treeshaked": {
-      "rollup": {
-        "code": 10192,
-        "import_statements": 288
-      },
-      "webpack": {
-        "code": 15519
-      }
-    }
-  },
-  "index-63e654f0.js": {
-    "bundled": 105152,
-    "minified": 83007,
-    "gzipped": 17602,
-    "treeshaked": {
-      "rollup": {
-        "code": 66356,
-        "import_statements": 125
-      },
-      "webpack": {
-        "code": 73706
       }
     }
   }

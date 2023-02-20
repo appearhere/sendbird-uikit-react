@@ -1,11 +1,11 @@
 import React__default, { useContext, useRef, useState, useMemo, useEffect, useCallback, useReducer } from 'react';
-import { f as format, i as isSameDay } from './index-ea3ae4a1.js';
-import { b as LocalizationContext, u as uuidv4, c as __spreadArray, _ as __assign, w as withSendbirdContext } from './LocalizationContext-668a1ea6.js';
-import { M as MessageInput, L as LinkLabel, D as DateSeparator, F as FileViewer, c as compareIds } from './index-13a6a88a.js';
-import { L as Label, a as LabelTypography, A as Avatar, I as Icon, c as IconTypes, d as IconColors, b as LabelColors, e as Loader, h as ImageRenderer, P as PlaceHolder, i as PlaceHolderTypes } from './index-63e654f0.js';
-import { I as IconButton, U as UserProfileContext, C as ContextMenu, b as MenuItems, f as ConnectedUserProfile, c as MenuItem, a as TextButton, M as Modal, k as SEND_USER_MESSAGE, S as SEND_MESSAGE_START, l as SEND_FILE_MESSAGE, j as UPDATE_USER_MESSAGE, D as DELETE_MESSAGE, h as UserProfileProvider } from './index-96c0ebfa.js';
+import { f as format, i as isSameDay } from './index-09a6ff1f.js';
+import { b as LocalizationContext, u as uuidv4, c as __spreadArray, _ as __assign, w as withSendbirdContext } from './LocalizationContext-4f84414a.js';
+import { M as MessageInput, L as LinkLabel, D as DateSeparator, F as FileViewer, c as compareIds } from './index-be5aadf0.js';
+import { L as Label, a as LabelTypography, A as Avatar, I as Icon, c as IconTypes, d as IconColors, b as LabelColors, e as Loader, h as ImageRenderer, P as PlaceHolder, i as PlaceHolderTypes } from './index-ba41c814.js';
+import { I as IconButton, U as UserProfileContext, C as ContextMenu, b as MenuItems, f as ConnectedUserProfile, c as MenuItem, a as TextButton, M as Modal, k as SEND_USER_MESSAGE, S as SEND_MESSAGE_START, l as SEND_FILE_MESSAGE, j as UPDATE_USER_MESSAGE, D as DELETE_MESSAGE, h as UserProfileProvider } from './index-38ea17f7.js';
 import 'prop-types';
-import './index-3ba00050.js';
+import './index-098bf6e1.js';
 import 'react-dom';
 
 var getMessageCreatedAt = function (message) {
