@@ -1,43 +1,43 @@
+import { a as _objectSpread2, e as _toConsumableArray, c as LocalizationContext, w as withSendbirdContext, b as _slicedToArray, u as uuidv4 } from './LocalizationContext-ef1f11a7.js';
 import React__default, { useContext, useRef, useState, useReducer, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { a as _objectSpread2, b as LocalizationContext, w as withSendbirdContext, u as uuidv4 } from './LocalizationContext-4f84414a.js';
-import { U as UPDATE_USER_INFO } from './actionTypes-c5f62117.js';
-import { I as IconButton, M as Modal, T as Type, a as TextButton, C as ContextMenu, b as MenuItems, c as MenuItem, i as CREATE_CHANNEL$1, j as UPDATE_USER_MESSAGE, L as LEAVE_CHANNEL, S as SEND_MESSAGE_START, h as UserProfileProvider } from './index-38ea17f7.js';
-import { f as filterChannelListParams, g as getChannelsWithUpsertedChannel, t as truncateString } from './index-098bf6e1.js';
-import { C as ChannelAvatar } from './index-bb9cd10b.js';
-import { B as Badge, i as isBroadcastChannelEnabled, a as isSuperGroupChannelEnabled, I as InviteMembers, c as createDefaultUserListQuery, b as createChannel, L as LeaveChannel } from './LeaveChannel-e973613e.js';
-import { g as LabelStringSet, I as Icon, c as IconTypes, d as IconColors, L as Label, a as LabelTypography, b as LabelColors, A as Avatar, P as PlaceHolder, f as PlaceHolderTypes } from './index-ba41c814.js';
-import { i as isToday, a as isYesterday, f as formatRelative } from './index-5b01e184.js';
-import { f as format } from './index-09a6ff1f.js';
-import { I as InputLabel, a as Input, n as noop$1 } from './index-880f789f.js';
+import { U as UPDATE_USER_INFO } from './actionTypes-b5c24a63.js';
+import { I as IconButton, M as Modal, T as Type, a as TextButton, C as ContextMenu, b as MenuItems, c as MenuItem, i as CREATE_CHANNEL$1, j as UPDATE_USER_MESSAGE, L as LEAVE_CHANNEL, S as SEND_MESSAGE_START, h as UserProfileProvider } from './index-9654c8fd.js';
+import { f as filterChannelListParams, g as getChannelsWithUpsertedChannel, t as truncateString } from './index-e9bf54e3.js';
+import { C as ChannelAvatar } from './index-10ef6b87.js';
+import { B as Badge, i as isBroadcastChannelEnabled, a as isSuperGroupChannelEnabled, I as InviteMembers, c as createDefaultUserListQuery, b as createChannel, L as LeaveChannel } from './LeaveChannel-04d546e3.js';
+import { g as LabelStringSet, I as Icon, c as IconTypes, d as IconColors, L as Label, a as LabelTypography, b as LabelColors, A as Avatar, P as PlaceHolder, f as PlaceHolderTypes } from './index-88859e36.js';
+import { i as isToday, a as isYesterday, f as formatRelative } from './index-17a77b13.js';
+import { f as format } from './index-9ba2e621.js';
+import { I as InputLabel, a as Input, n as noop$1 } from './index-b9a826ad.js';
 import 'react-dom';
-import './utils-1c812b47.js';
+import './utils-ff1fc2bf.js';
 
-const RESET_CHANNEL_LIST = 'RESET_CHANNEL_LIST';
-const CREATE_CHANNEL = 'CREATE_CHANNEL';
-const SET_AUTO_SELECT_CHANNEL_ITEM = 'SET_AUTO_SELECT_CHANNEL_ITEM';
-const LEAVE_CHANNEL_SUCCESS = 'LEAVE_CHANNEL_SUCCESS';
-const SET_CURRENT_CHANNEL = 'SET_CURRENT_CHANNEL';
-const SHOW_CHANNEL_SETTINGS = 'SHOW_CHANNEL_SETTINGS';
-const HIDE_CHANNEL_SETTINGS = 'HIDE_CHANNEL_SETTINGS';
-const FETCH_CHANNELS_START = 'FETCH_CHANNELS_START';
-const FETCH_CHANNELS_SUCCESS = 'FETCH_CHANNELS_SUCCESS';
-const FETCH_CHANNELS_FAILURE = 'FETCH_CHANNELS_FAILURE';
-const INIT_CHANNELS_START = 'INIT_CHANNELS_START';
-const INIT_CHANNELS_SUCCESS = 'INIT_CHANNELS_SUCCESS';
-const INIT_CHANNELS_FAILURE = 'INIT_CHANNELS_FAILURE';
-const ON_USER_JOINED = 'ON_USER_JOINED';
-const ON_CHANNEL_DELETED = 'ON_CHANNEL_DELETED';
-const ON_LAST_MESSAGE_UPDATED = 'ON_LAST_MESSAGE_UPDATED';
-const ON_USER_LEFT = 'ON_USER_LEFT';
-const ON_CHANNEL_CHANGED = 'ON_CHANNEL_CHANGED';
-const ON_CHANNEL_ARCHIVED = 'ON_CHANNEL_ARCHIVED';
-const ON_CHANNEL_FROZEN = 'ON_CHANNEL_FROZEN';
-const ON_CHANNEL_UNFROZEN = 'ON_CHANNEL_UNFROZEN';
-const ON_READ_RECEIPT_UPDATED = 'ON_READ_RECEIPT_UPDATED';
-const ON_DELIVERY_RECEIPT_UPDATED = 'ON_DELIVERY_RECEIPT_UPDATED';
-const CHANNEL_REPLACED_TO_TOP = 'CHANNEL_REPLACED_TO_TOP';
-const CHANNEL_LIST_PARAMS_UPDATED = 'CHANNEL_LIST_PARAMS_UPDATED';
+var RESET_CHANNEL_LIST = 'RESET_CHANNEL_LIST';
+var CREATE_CHANNEL = 'CREATE_CHANNEL';
+var SET_AUTO_SELECT_CHANNEL_ITEM = 'SET_AUTO_SELECT_CHANNEL_ITEM';
+var LEAVE_CHANNEL_SUCCESS = 'LEAVE_CHANNEL_SUCCESS';
+var SET_CURRENT_CHANNEL = 'SET_CURRENT_CHANNEL';
+var SHOW_CHANNEL_SETTINGS = 'SHOW_CHANNEL_SETTINGS';
+var HIDE_CHANNEL_SETTINGS = 'HIDE_CHANNEL_SETTINGS';
+var FETCH_CHANNELS_START = 'FETCH_CHANNELS_START';
+var FETCH_CHANNELS_SUCCESS = 'FETCH_CHANNELS_SUCCESS';
+var FETCH_CHANNELS_FAILURE = 'FETCH_CHANNELS_FAILURE';
+var INIT_CHANNELS_START = 'INIT_CHANNELS_START';
+var INIT_CHANNELS_SUCCESS = 'INIT_CHANNELS_SUCCESS';
+var INIT_CHANNELS_FAILURE = 'INIT_CHANNELS_FAILURE';
+var ON_USER_JOINED = 'ON_USER_JOINED';
+var ON_CHANNEL_DELETED = 'ON_CHANNEL_DELETED';
+var ON_LAST_MESSAGE_UPDATED = 'ON_LAST_MESSAGE_UPDATED';
+var ON_USER_LEFT = 'ON_USER_LEFT';
+var ON_CHANNEL_CHANGED = 'ON_CHANNEL_CHANGED';
+var ON_CHANNEL_ARCHIVED = 'ON_CHANNEL_ARCHIVED';
+var ON_CHANNEL_FROZEN = 'ON_CHANNEL_FROZEN';
+var ON_CHANNEL_UNFROZEN = 'ON_CHANNEL_UNFROZEN';
+var ON_READ_RECEIPT_UPDATED = 'ON_READ_RECEIPT_UPDATED';
+var ON_DELIVERY_RECEIPT_UPDATED = 'ON_DELIVERY_RECEIPT_UPDATED';
+var CHANNEL_REPLACED_TO_TOP = 'CHANNEL_REPLACED_TO_TOP';
+var CHANNEL_LIST_PARAMS_UPDATED = 'CHANNEL_LIST_PARAMS_UPDATED';
 
 var channelListInitialState = {
   // we might not need this initialized state -> should remove
@@ -63,7 +63,7 @@ function reducer(state, action) {
 
     case INIT_CHANNELS_SUCCESS:
       {
-        const nextChannel = action.payload && action.payload.length && action.payload.length > 0 ? action.payload[0].url : null;
+        var nextChannel = action.payload && action.payload.length && action.payload.length > 0 ? action.payload[0].url : null;
         return _objectSpread2(_objectSpread2({}, state), {}, {
           initialized: true,
           loading: false,
@@ -74,21 +74,23 @@ function reducer(state, action) {
 
     case FETCH_CHANNELS_SUCCESS:
       {
-        const currentChannels = state.allChannels.map(c => c.url);
-        const filteredChannels = action.payload.filter(_ref => {
-          let {
-            url
-          } = _ref;
-          return !currentChannels.find(c => c === url);
+        var currentChannels = state.allChannels.map(function (c) {
+          return c.url;
+        });
+        var filteredChannels = action.payload.filter(function (_ref) {
+          var url = _ref.url;
+          return !currentChannels.find(function (c) {
+            return c === url;
+          });
         });
         return _objectSpread2(_objectSpread2({}, state), {}, {
-          allChannels: [...state.allChannels, ...filteredChannels]
+          allChannels: [].concat(_toConsumableArray(state.allChannels), _toConsumableArray(filteredChannels))
         });
       }
 
     case CREATE_CHANNEL:
       {
-        const channel = action.payload;
+        var channel = action.payload;
 
         if (state.channelListQuery) {
           if (filterChannelListParams(state.channelListQuery, channel, state.currentUserId)) {
@@ -104,30 +106,31 @@ function reducer(state, action) {
 
         return _objectSpread2(_objectSpread2({}, state), {}, {
           currentChannel: channel.url,
-          allChannels: [channel, ...state.allChannels.filter(ch => ch.url !== channel.url)]
+          allChannels: [channel].concat(_toConsumableArray(state.allChannels.filter(function (ch) {
+            return ch.url !== channel.url;
+          })))
         });
       }
 
     case ON_CHANNEL_ARCHIVED:
       {
-        const channel = action.payload;
+        var _channel = action.payload;
 
         if (state.channelListQuery) {
-          if (filterChannelListParams(state.channelListQuery, channel, state.currentUserId)) {
+          if (filterChannelListParams(state.channelListQuery, _channel, state.currentUserId)) {
             return _objectSpread2(_objectSpread2({}, state), {}, {
-              allChannels: getChannelsWithUpsertedChannel(state.allChannels, channel)
+              allChannels: getChannelsWithUpsertedChannel(state.allChannels, _channel)
             });
           }
         }
 
-        const nextChannel = channel.url === state.currentChannel ? state.allChannels[state.allChannels[0].url === channel.url ? 1 : 0].url : state.currentChannel;
+        var _nextChannel = _channel.url === state.currentChannel ? state.allChannels[state.allChannels[0].url === _channel.url ? 1 : 0].url : state.currentChannel;
+
         return _objectSpread2(_objectSpread2({}, state), {}, {
-          currentChannel: state.disableAutoSelect ? null : nextChannel,
-          allChannels: state.allChannels.filter(_ref2 => {
-            let {
-              url
-            } = _ref2;
-            return url !== channel.url;
+          currentChannel: state.disableAutoSelect ? null : _nextChannel,
+          allChannels: state.allChannels.filter(function (_ref2) {
+            var url = _ref2.url;
+            return url !== _channel.url;
           })
         });
       }
@@ -135,14 +138,14 @@ function reducer(state, action) {
     case LEAVE_CHANNEL_SUCCESS:
     case ON_CHANNEL_DELETED:
       {
-        const channelUrl = action.payload;
-        const nextChannel = channelUrl === state.currentChannel ? state.allChannels[0].url : state.currentChannel;
+        var channelUrl = action.payload;
+
+        var _nextChannel2 = channelUrl === state.currentChannel ? state.allChannels[0].url : state.currentChannel;
+
         return _objectSpread2(_objectSpread2({}, state), {}, {
-          currentChannel: state.disableAutoSelect ? null : nextChannel,
-          allChannels: state.allChannels.filter(_ref3 => {
-            let {
-              url
-            } = _ref3;
+          currentChannel: state.disableAutoSelect ? null : _nextChannel2,
+          allChannels: state.allChannels.filter(function (_ref3) {
+            var url = _ref3.url;
             return url !== channelUrl;
           })
         });
@@ -150,38 +153,42 @@ function reducer(state, action) {
 
     case ON_USER_LEFT:
       {
-        const {
-          channel,
-          isMe
-        } = action.payload;
+        var _action$payload = action.payload,
+            _channel2 = _action$payload.channel,
+            isMe = _action$payload.isMe;
 
         if (state.channelListQuery) {
-          if (filterChannelListParams(state.channelListQuery, channel, state.currentUserId)) {
-            const filteredChannels = getChannelsWithUpsertedChannel(state.allChannels, channel);
-            const nextChannel = isMe && channel.url === state.currentChannel ? filteredChannels[0].url : state.currentChannel;
+          if (filterChannelListParams(state.channelListQuery, _channel2, state.currentUserId)) {
+            var _filteredChannels2 = getChannelsWithUpsertedChannel(state.allChannels, _channel2);
+
+            var _nextChannel5 = isMe && _channel2.url === state.currentChannel ? _filteredChannels2[0].url : state.currentChannel;
+
             return _objectSpread2(_objectSpread2({}, state), {}, {
-              currentChannel: state.disableAutoSelect ? null : nextChannel,
-              allChannels: filteredChannels
+              currentChannel: state.disableAutoSelect ? null : _nextChannel5,
+              allChannels: _filteredChannels2
             });
           }
 
-          const nextChannel = channel.url === state.currentChannel ? state.allChannels[0].url : state.currentChannel;
+          var _nextChannel4 = _channel2.url === state.currentChannel ? state.allChannels[0].url : state.currentChannel;
+
           return _objectSpread2(_objectSpread2({}, state), {}, {
-            currentChannel: state.disableAutoSelect ? null : nextChannel,
-            allChannels: state.allChannels.filter(_ref4 => {
-              let {
-                url
-              } = _ref4;
-              return url !== channel.url;
+            currentChannel: state.disableAutoSelect ? null : _nextChannel4,
+            allChannels: state.allChannels.filter(function (_ref4) {
+              var url = _ref4.url;
+              return url !== _channel2.url;
             })
           });
         }
 
-        const filteredChannels = state.allChannels.filter(c => !(c.url === channel.url && isMe));
-        const nextChannel = isMe && channel.url === state.currentChannel ? filteredChannels[0].url : state.currentChannel;
+        var _filteredChannels = state.allChannels.filter(function (c) {
+          return !(c.url === _channel2.url && isMe);
+        });
+
+        var _nextChannel3 = isMe && _channel2.url === state.currentChannel ? _filteredChannels[0].url : state.currentChannel;
+
         return _objectSpread2(_objectSpread2({}, state), {}, {
-          currentChannel: state.disableAutoSelect ? null : nextChannel,
-          allChannels: filteredChannels
+          currentChannel: state.disableAutoSelect ? null : _nextChannel3,
+          allChannels: _filteredChannels
         });
       }
 
@@ -190,59 +197,53 @@ function reducer(state, action) {
     case ON_READ_RECEIPT_UPDATED:
     case ON_DELIVERY_RECEIPT_UPDATED:
       {
-        const {
-          allChannels = []
-        } = state;
-        const channel = action.payload;
-        const {
-          unreadMessageCount
-        } = channel;
-        if (!channel.lastMessage) return state;
+        var _state$allChannels = state.allChannels,
+            allChannels = _state$allChannels === void 0 ? [] : _state$allChannels;
+        var _channel3 = action.payload;
+        var unreadMessageCount = _channel3.unreadMessageCount;
+        if (!_channel3.lastMessage) return state;
 
         if (state.channelListQuery) {
-          if (filterChannelListParams(state.channelListQuery, channel, state.currentUserId)) {
+          if (filterChannelListParams(state.channelListQuery, _channel3, state.currentUserId)) {
             return _objectSpread2(_objectSpread2({}, state), {}, {
-              allChannels: getChannelsWithUpsertedChannel(allChannels, channel)
+              allChannels: getChannelsWithUpsertedChannel(allChannels, _channel3)
             });
           }
 
-          const nextChannel = channel.url === state.currentChannel ? state.allChannels[state.allChannels[0].url === channel.url ? 1 : 0].url // if coming channel is first of channel list, current channel will be the next one
+          var _nextChannel6 = _channel3.url === state.currentChannel ? state.allChannels[state.allChannels[0].url === _channel3.url ? 1 : 0].url // if coming channel is first of channel list, current channel will be the next one
           : state.currentChannel;
+
           return _objectSpread2(_objectSpread2({}, state), {}, {
-            currentChannel: state.disableAutoSelect ? null : nextChannel,
-            allChannels: state.allChannels.filter(_ref5 => {
-              let {
-                url
-              } = _ref5;
-              return url !== channel.url;
+            currentChannel: state.disableAutoSelect ? null : _nextChannel6,
+            allChannels: state.allChannels.filter(function (_ref5) {
+              var url = _ref5.url;
+              return url !== _channel3.url;
             })
           });
         } // if its only an unread message count change, dont push to top
 
 
         if (unreadMessageCount === 0) {
-          const currentChannel = allChannels.find(_ref6 => {
-            let {
-              url
-            } = _ref6;
-            return url === channel.url;
+          var currentChannel = allChannels.find(function (_ref6) {
+            var url = _ref6.url;
+            return url === _channel3.url;
           });
-          const currentUnreadCount = currentChannel && currentChannel.unreadMessageCount;
+          var currentUnreadCount = currentChannel && currentChannel.unreadMessageCount;
 
           if (currentUnreadCount === 0) {
             return _objectSpread2(_objectSpread2({}, state), {}, {
-              allChannels: state.allChannels.map(ch => ch.url === channel.url ? channel : ch)
+              allChannels: state.allChannels.map(function (ch) {
+                return ch.url === _channel3.url ? _channel3 : ch;
+              })
             });
           }
         }
 
         return _objectSpread2(_objectSpread2({}, state), {}, {
-          allChannels: [channel, ...state.allChannels.filter(_ref7 => {
-            let {
-              url
-            } = _ref7;
+          allChannels: [_channel3].concat(_toConsumableArray(state.allChannels.filter(function (_ref7) {
+            var url = _ref7.url;
             return url !== action.payload.url;
-          })]
+          })))
         });
       }
 
@@ -263,36 +264,37 @@ function reducer(state, action) {
 
     case ON_LAST_MESSAGE_UPDATED:
       return _objectSpread2(_objectSpread2({}, state), {}, {
-        allChannels: state.allChannels.map(channel => channel.url === action.payload.url ? action.payload : channel)
+        allChannels: state.allChannels.map(function (channel) {
+          return channel.url === action.payload.url ? action.payload : channel;
+        })
       });
 
     case ON_CHANNEL_FROZEN:
       {
-        const channel = action.payload;
+        var _channel4 = action.payload;
 
         if (state.channelListQuery) {
-          if (filterChannelListParams(state.channelListQuery, channel, state.currentUserId)) {
+          if (filterChannelListParams(state.channelListQuery, _channel4, state.currentUserId)) {
             return _objectSpread2(_objectSpread2({}, state), {}, {
-              allChannels: getChannelsWithUpsertedChannel(state.allChannels, channel)
+              allChannels: getChannelsWithUpsertedChannel(state.allChannels, _channel4)
             });
           }
 
-          const nextChannel = channel.url === state.currentChannel ? state.allChannels[state.allChannels[0].url === channel.url ? 1 : 0].url // if coming channel is first of channel list, current channel will be the next one
+          var _nextChannel7 = _channel4.url === state.currentChannel ? state.allChannels[state.allChannels[0].url === _channel4.url ? 1 : 0].url // if coming channel is first of channel list, current channel will be the next one
           : state.currentChannel;
+
           return _objectSpread2(_objectSpread2({}, state), {}, {
-            currentChannel: state.disableAutoSelect ? null : nextChannel,
-            allChannels: state.allChannels.filter(_ref8 => {
-              let {
-                url
-              } = _ref8;
-              return url !== channel.url;
+            currentChannel: state.disableAutoSelect ? null : _nextChannel7,
+            allChannels: state.allChannels.filter(function (_ref8) {
+              var url = _ref8.url;
+              return url !== _channel4.url;
             })
           });
         }
 
         return _objectSpread2(_objectSpread2({}, state), {}, {
-          allChannels: state.allChannels.map(ch => {
-            if (ch.url === channel.url) {
+          allChannels: state.allChannels.map(function (ch) {
+            if (ch.url === _channel4.url) {
               // eslint-disable-next-line no-param-reassign
               ch.isFrozen = true;
               return ch;
@@ -305,31 +307,30 @@ function reducer(state, action) {
 
     case ON_CHANNEL_UNFROZEN:
       {
-        const channel = action.payload;
+        var _channel5 = action.payload;
 
         if (state.channelListQuery) {
-          if (filterChannelListParams(state.channelListQuery, channel, state.currentUserId)) {
+          if (filterChannelListParams(state.channelListQuery, _channel5, state.currentUserId)) {
             return _objectSpread2(_objectSpread2({}, state), {}, {
-              allChannels: getChannelsWithUpsertedChannel(state.allChannels, channel)
+              allChannels: getChannelsWithUpsertedChannel(state.allChannels, _channel5)
             });
           }
 
-          const nextChannel = channel.url === state.currentChannel ? state.allChannels[state.allChannels[0].url === channel.url ? 1 : 0].url // if coming channel is first of channel list, current channel will be the next one
+          var _nextChannel8 = _channel5.url === state.currentChannel ? state.allChannels[state.allChannels[0].url === _channel5.url ? 1 : 0].url // if coming channel is first of channel list, current channel will be the next one
           : state.currentChannel;
+
           return _objectSpread2(_objectSpread2({}, state), {}, {
-            currentChannel: state.disableAutoSelect ? null : nextChannel,
-            allChannels: state.allChannels.filter(_ref9 => {
-              let {
-                url
-              } = _ref9;
-              return url !== channel.url;
+            currentChannel: state.disableAutoSelect ? null : _nextChannel8,
+            allChannels: state.allChannels.filter(function (_ref9) {
+              var url = _ref9.url;
+              return url !== _channel5.url;
             })
           });
         }
 
         return _objectSpread2(_objectSpread2({}, state), {}, {
-          allChannels: state.allChannels.map(ch => {
-            if (ch.url === channel.url) {
+          allChannels: state.allChannels.map(function (ch) {
+            if (ch.url === _channel5.url) {
               // eslint-disable-next-line no-param-reassign
               ch.isFrozen = false;
               return ch;
@@ -343,7 +344,9 @@ function reducer(state, action) {
     case CHANNEL_REPLACED_TO_TOP:
       {
         return _objectSpread2(_objectSpread2({}, state), {}, {
-          allChannels: [action.payload, ...state.allChannels.filter(channel => channel.url !== action.payload.url)]
+          allChannels: [action.payload].concat(_toConsumableArray(state.allChannels.filter(function (channel) {
+            return channel.url !== action.payload.url;
+          })))
         });
       }
 
@@ -363,10 +366,10 @@ function reducer(state, action) {
   }
 }
 
-const getChannelTitle = function () {
-  let channel = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  let currentUserId = arguments.length > 1 ? arguments[1] : undefined;
-  let stringSet = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : LabelStringSet;
+var getChannelTitle = function getChannelTitle() {
+  var channel = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var currentUserId = arguments.length > 1 ? arguments[1] : undefined;
+  var stringSet = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : LabelStringSet;
 
   if (!channel || !channel.name && !channel.members) {
     return stringSet.NO_TITLE;
@@ -380,24 +383,20 @@ const getChannelTitle = function () {
     return stringSet.NO_MEMBERS;
   }
 
-  return channel.members.filter(_ref => {
-    let {
-      userId
-    } = _ref;
+  return channel.members.filter(function (_ref) {
+    var userId = _ref.userId;
     return userId !== currentUserId;
-  }).map(_ref2 => {
-    let {
-      nickname
-    } = _ref2;
+  }).map(function (_ref2) {
+    var nickname = _ref2.nickname;
     return nickname || stringSet.NO_NAME;
   }).join(', ');
 };
-const getLastMessageCreatedAt = (channel, locale) => {
+var getLastMessageCreatedAt = function getLastMessageCreatedAt(channel, locale) {
   var _channel$lastMessage;
 
-  const createdAt = channel === null || channel === void 0 ? void 0 : (_channel$lastMessage = channel.lastMessage) === null || _channel$lastMessage === void 0 ? void 0 : _channel$lastMessage.createdAt;
-  const optionalParam = locale ? {
-    locale
+  var createdAt = channel === null || channel === void 0 ? void 0 : (_channel$lastMessage = channel.lastMessage) === null || _channel$lastMessage === void 0 ? void 0 : _channel$lastMessage.createdAt;
+  var optionalParam = locale ? {
+    locale: locale
   } : null;
 
   if (!createdAt) {
@@ -414,15 +413,15 @@ const getLastMessageCreatedAt = (channel, locale) => {
 
   return format(createdAt, 'MMM dd', optionalParam);
 };
-const getTotalMembers = channel => channel && channel.memberCount ? channel.memberCount : 0;
+var getTotalMembers = function getTotalMembers(channel) {
+  return channel && channel.memberCount ? channel.memberCount : 0;
+};
 
-const getPrettyLastMessage = function () {
-  let message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  const MAXLEN = 30;
-  const {
-    messageType,
-    name
-  } = message;
+var getPrettyLastMessage = function getPrettyLastMessage() {
+  var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var MAXLEN = 30;
+  var messageType = message.messageType,
+      name = message.name;
 
   if (messageType === 'file') {
     return truncateString(name, MAXLEN);
@@ -431,30 +430,29 @@ const getPrettyLastMessage = function () {
   return message.message;
 };
 
-const getLastMessage = channel => channel && channel.lastMessage ? getPrettyLastMessage(channel.lastMessage) : '';
-const getChannelUnreadMessageCount = channel => channel && channel.unreadMessageCount ? channel.unreadMessageCount : 0;
+var getLastMessage = function getLastMessage(channel) {
+  return channel && channel.lastMessage ? getPrettyLastMessage(channel.lastMessage) : '';
+};
+var getChannelUnreadMessageCount = function getChannelUnreadMessageCount(channel) {
+  return channel && channel.unreadMessageCount ? channel.unreadMessageCount : 0;
+};
 
 function ChannelPreview(_ref) {
-  let {
-    channel,
-    currentUser,
-    isActive,
-    ChannelAction,
-    theme,
-    onClick,
-    tabIndex
-  } = _ref;
-  const {
-    userId
-  } = currentUser;
-  const {
-    isBroadcast,
-    isFrozen
-  } = channel;
-  const {
-    stringSet,
-    dateLocale
-  } = useContext(LocalizationContext);
+  var channel = _ref.channel,
+      currentUser = _ref.currentUser,
+      isActive = _ref.isActive,
+      ChannelAction = _ref.ChannelAction,
+      theme = _ref.theme,
+      onClick = _ref.onClick,
+      tabIndex = _ref.tabIndex;
+  var userId = currentUser.userId;
+  var isBroadcast = channel.isBroadcast,
+      isFrozen = channel.isFrozen;
+
+  var _useContext = useContext(LocalizationContext),
+      stringSet = _useContext.stringSet,
+      dateLocale = _useContext.dateLocale;
+
   return /*#__PURE__*/React__default.createElement("div", {
     className: ['sendbird-channel-preview', isActive ? 'sendbird-channel-preview--active' : ''].join(' '),
     role: "link",
@@ -536,21 +534,20 @@ ChannelPreview.defaultProps = {
   currentUser: {},
   isActive: false,
   theme: 'light',
-  onClick: () => {},
+  onClick: function onClick() {},
   tabIndex: 0
 };
 
 function ChannelHeader(_ref) {
-  let {
-    user,
-    renderHeader,
-    iconButton,
-    onEdit,
-    allowProfileEdit
-  } = _ref;
-  const {
-    stringSet
-  } = useContext(LocalizationContext);
+  var user = _ref.user,
+      renderHeader = _ref.renderHeader,
+      iconButton = _ref.iconButton,
+      onEdit = _ref.onEdit,
+      allowProfileEdit = _ref.allowProfileEdit;
+
+  var _useContext = useContext(LocalizationContext),
+      stringSet = _useContext.stringSet;
+
   return /*#__PURE__*/React__default.createElement("div", {
     className: ['sendbird-channel-header', allowProfileEdit ? 'sendbird-channel-header--allow-edit' : ''].join(' ')
   }, renderHeader ? renderHeader() : /*#__PURE__*/React__default.createElement("div", {
@@ -603,7 +600,7 @@ function EditUserProfile(_a) {
       _b = _a.theme,
       theme = _b === void 0 ? 'light' : _b,
       onCancel = _a.onCancel,
-      onSubmit = _a.onSubmit,
+      _onSubmit = _a.onSubmit,
       _c = _a.changeTheme,
       changeTheme = _c === void 0 ? noop$1 : _c,
       _d = _a.onThemeChange,
@@ -626,7 +623,7 @@ function EditUserProfile(_a) {
     submitText: stringSet.BUTTON__SAVE,
     type: Type.PRIMARY,
     onCancel: onCancel,
-    onSubmit: function () {
+    onSubmit: function onSubmit() {
       if (user.nickname !== '' && !inputRef.current.value) {
         if (formRef.current.reportValidity) {
           // might not work in explorer
@@ -636,13 +633,14 @@ function EditUserProfile(_a) {
         return;
       }
 
-      onSubmit(inputRef.current.value, newFile);
+      _onSubmit(inputRef.current.value, newFile);
+
       onCancel();
     }
   }, /*#__PURE__*/React__default.createElement("form", {
     className: "sendbird-edit-user-profile",
     ref: formRef,
-    onSubmit: function (e) {
+    onSubmit: function onSubmit(e) {
       e.preventDefault();
     }
   }, /*#__PURE__*/React__default.createElement("section", {
@@ -660,7 +658,7 @@ function EditUserProfile(_a) {
     style: {
       display: 'none'
     },
-    onChange: function (e) {
+    onChange: function onChange(e) {
       setCurrentImg(URL.createObjectURL(e.target.files[0]));
       setNewFile(e.target.files[0]);
       hiddenInputRef.current.value = '';
@@ -668,7 +666,7 @@ function EditUserProfile(_a) {
   }), /*#__PURE__*/React__default.createElement(TextButton, {
     className: "sendbird-edit-user-profile__img__avatar-button",
     notUnderline: true,
-    onClick: function () {
+    onClick: function onClick() {
       return hiddenInputRef.current.click();
     }
   }, /*#__PURE__*/React__default.createElement(Label, {
@@ -693,7 +691,7 @@ function EditUserProfile(_a) {
   }, /*#__PURE__*/React__default.createElement(InputLabel, null, stringSet.EDIT_PROFILE__THEME_LABEL), /*#__PURE__*/React__default.createElement("div", {
     className: "sendbird-edit-user-profile__theme__theme-icon"
   }, theme === 'dark' ? /*#__PURE__*/React__default.createElement(Icon, {
-    onClick: function () {
+    onClick: function onClick() {
       changeTheme('light');
 
       if (onThemeChange && typeof onThemeChange === 'function') {
@@ -704,7 +702,7 @@ function EditUserProfile(_a) {
     width: 44,
     height: 24
   }) : /*#__PURE__*/React__default.createElement(Icon, {
-    onClick: function () {
+    onClick: function onClick() {
       changeTheme('dark');
 
       if (onThemeChange && typeof onThemeChange === 'function') {
@@ -717,7 +715,7 @@ function EditUserProfile(_a) {
   })))));
 }
 
-var mapStoreToProps = function (store) {
+var mapStoreToProps = function mapStoreToProps(store) {
   return {
     theme: store.config.theme,
     changeTheme: store.config.setCurrenttheme
@@ -727,32 +725,42 @@ var mapStoreToProps = function (store) {
 var ConnectedEditUserProfile = withSendbirdContext(EditUserProfile, mapStoreToProps);
 
 function AddChannel(_ref) {
-  let {
-    sdk,
-    disabled,
-    channelListDispatcher,
-    onBeforeCreateChannel,
-    userId,
-    userFilledApplicationUserListQuery,
-    userListQuery
-  } = _ref;
-  const [showModal, setShowModal] = useState(false);
-  const [step, setStep] = useState(0);
-  const [type, setType] = useState('group');
-  const {
-    stringSet
-  } = useContext(LocalizationContext);
+  var sdk = _ref.sdk,
+      disabled = _ref.disabled,
+      channelListDispatcher = _ref.channelListDispatcher,
+      onBeforeCreateChannel = _ref.onBeforeCreateChannel,
+      userId = _ref.userId,
+      userFilledApplicationUserListQuery = _ref.userFilledApplicationUserListQuery,
+      userListQuery = _ref.userListQuery;
+
+  var _useState = useState(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      showModal = _useState2[0],
+      setShowModal = _useState2[1];
+
+  var _useState3 = useState(0),
+      _useState4 = _slicedToArray(_useState3, 2),
+      step = _useState4[0],
+      setStep = _useState4[1];
+
+  var _useState5 = useState('group'),
+      _useState6 = _slicedToArray(_useState5, 2),
+      type = _useState6[0],
+      setType = _useState6[1];
+
+  var _useContext = useContext(LocalizationContext),
+      stringSet = _useContext.stringSet;
 
   if (!sdk || !sdk.createApplicationUserListQuery) {
     return null;
   }
 
-  const isBroadcastAvailable = isBroadcastChannelEnabled(sdk);
-  const isSupergroupAvailable = isSuperGroupChannelEnabled(sdk);
+  var isBroadcastAvailable = isBroadcastChannelEnabled(sdk);
+  var isSupergroupAvailable = isSuperGroupChannelEnabled(sdk);
   return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(IconButton, {
     height: "32px",
     width: "32px",
-    onClick: () => {
+    onClick: function onClick() {
       setShowModal(true);
     },
     disabled: disabled
@@ -764,21 +772,21 @@ function AddChannel(_ref) {
   })), showModal && step === 0 && /*#__PURE__*/React__default.createElement(Modal, {
     titleText: stringSet.MODAL__CHOOSE_CHANNEL_TYPE__TITLE,
     hideFooter: true,
-    onCancel: () => {
+    onCancel: function onCancel() {
       setShowModal(false);
     },
-    onSubmit: () => {}
+    onSubmit: function onSubmit() {}
   }, /*#__PURE__*/React__default.createElement("div", {
     className: "sendbird-add-channel__rectangle-wrap"
   }, /*#__PURE__*/React__default.createElement("div", {
     className: "sendbird-add-channel__rectangle",
-    onClick: () => {
+    onClick: function onClick() {
       setType('group');
       setStep(1);
     },
     role: "button",
     tabIndex: 0,
-    onKeyDown: () => {
+    onKeyDown: function onKeyDown() {
       setType('group');
       setStep(1);
     }
@@ -793,13 +801,13 @@ function AddChannel(_ref) {
     color: LabelColors.ONBACKGROUND_1
   }, stringSet.MODAL__CHOOSE_CHANNEL_TYPE__GROUP)), isSupergroupAvailable && /*#__PURE__*/React__default.createElement("div", {
     className: "sendbird-add-channel__rectangle",
-    onClick: () => {
+    onClick: function onClick() {
       setType('supergroup');
       setStep(1);
     },
     role: "button",
     tabIndex: 0,
-    onKeyDown: () => {
+    onKeyDown: function onKeyDown() {
       setType('supergroup');
       setStep(1);
     }
@@ -814,13 +822,13 @@ function AddChannel(_ref) {
     color: LabelColors.ONBACKGROUND_1
   }, stringSet.MODAL__CHOOSE_CHANNEL_TYPE__SUPER_GROUP)), isBroadcastAvailable && /*#__PURE__*/React__default.createElement("div", {
     className: "sendbird-add-channel__rectangle",
-    onClick: () => {
+    onClick: function onClick() {
       setType('broadcast');
       setStep(1);
     },
     role: "button",
     tabIndex: 0,
-    onKeyDown: () => {
+    onKeyDown: function onKeyDown() {
       setType('broadcast');
       setStep(1);
     }
@@ -837,22 +845,26 @@ function AddChannel(_ref) {
     swapParams: sdk && sdk.getErrorFirstCallback && sdk.getErrorFirstCallback(),
     titleText: stringSet.MODAL__CREATE_CHANNEL__TITLE,
     submitText: stringSet.BUTTON__CREATE,
-    closeModal: () => {
+    closeModal: function closeModal() {
       setStep(0);
       setShowModal(false);
     },
     idsToFilter: [userId],
-    userQueryCreator: () => userListQuery && typeof userListQuery === 'function' ? userListQuery() : createDefaultUserListQuery({
-      sdk,
-      userFilledApplicationUserListQuery
-    }),
-    onSubmit: selectedUsers => createChannel(sdk, selectedUsers, onBeforeCreateChannel, userId, type).then(channel => {
-      // maybe - do this in event listener
-      channelListDispatcher({
-        type: CREATE_CHANNEL,
-        payload: channel
+    userQueryCreator: function userQueryCreator() {
+      return userListQuery && typeof userListQuery === 'function' ? userListQuery() : createDefaultUserListQuery({
+        sdk: sdk,
+        userFilledApplicationUserListQuery: userFilledApplicationUserListQuery
       });
-    })
+    },
+    onSubmit: function onSubmit(selectedUsers) {
+      return createChannel(sdk, selectedUsers, onBeforeCreateChannel, userId, type).then(function (channel) {
+        // maybe - do this in event listener
+        channelListDispatcher({
+          type: CREATE_CHANNEL,
+          payload: channel
+        });
+      });
+    }
   }));
 }
 AddChannel.propTypes = {
@@ -875,55 +887,64 @@ AddChannel.defaultProps = {
 };
 
 function ChannelPreviewAction(_ref) {
-  let {
-    disabled,
-    onLeaveChannel
-  } = _ref;
-  const parentRef = useRef(null);
-  const [showModal, setShowModal] = useState(false);
-  const {
-    stringSet
-  } = useContext(LocalizationContext);
+  var disabled = _ref.disabled,
+      onLeaveChannel = _ref.onLeaveChannel;
+  var parentRef = useRef(null);
+
+  var _useState = useState(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      showModal = _useState2[0],
+      setShowModal = _useState2[1];
+
+  var _useContext = useContext(LocalizationContext),
+      stringSet = _useContext.stringSet;
+
   return /*#__PURE__*/React__default.createElement("div", {
     role: "button",
     style: {
       display: 'inline-block'
     },
-    onKeyDown: e => {
+    onKeyDown: function onKeyDown(e) {
       e.stopPropagation();
     },
     tabIndex: 0,
-    onClick: e => {
+    onClick: function onClick(e) {
       e.stopPropagation();
     }
   }, /*#__PURE__*/React__default.createElement(ContextMenu, {
-    menuTrigger: toggleDropdown => /*#__PURE__*/React__default.createElement(IconButton, {
-      ref: parentRef,
-      onClick: toggleDropdown,
-      height: "32px",
-      width: "32px"
-    }, /*#__PURE__*/React__default.createElement(Icon, {
-      type: IconTypes.MORE,
-      fillColor: IconColors.PRIMARY,
-      width: "24px",
-      height: "24px"
-    })),
-    menuItems: closeDropdown => /*#__PURE__*/React__default.createElement(MenuItems, {
-      parentRef: parentRef,
-      parentContainRef: parentRef,
-      closeDropdown: closeDropdown
-    }, /*#__PURE__*/React__default.createElement(MenuItem, {
-      onClick: () => {
-        if (disabled) {
-          return;
-        }
+    menuTrigger: function menuTrigger(toggleDropdown) {
+      return /*#__PURE__*/React__default.createElement(IconButton, {
+        ref: parentRef,
+        onClick: toggleDropdown,
+        height: "32px",
+        width: "32px"
+      }, /*#__PURE__*/React__default.createElement(Icon, {
+        type: IconTypes.MORE,
+        fillColor: IconColors.PRIMARY,
+        width: "24px",
+        height: "24px"
+      }));
+    },
+    menuItems: function menuItems(closeDropdown) {
+      return /*#__PURE__*/React__default.createElement(MenuItems, {
+        parentRef: parentRef,
+        parentContainRef: parentRef,
+        closeDropdown: closeDropdown
+      }, /*#__PURE__*/React__default.createElement(MenuItem, {
+        onClick: function onClick() {
+          if (disabled) {
+            return;
+          }
 
-        setShowModal(true);
-        closeDropdown();
-      }
-    }, stringSet.CHANNEL_SETTING__LEAVE_CHANNEL__TITLE))
+          setShowModal(true);
+          closeDropdown();
+        }
+      }, stringSet.CHANNEL_SETTING__LEAVE_CHANNEL__TITLE));
+    }
   }), showModal && /*#__PURE__*/React__default.createElement(LeaveChannel, {
-    onCloseModal: () => setShowModal(false),
+    onCloseModal: function onCloseModal() {
+      return setShowModal(false);
+    },
     onLeaveChannel: onLeaveChannel
   }));
 }
@@ -936,9 +957,7 @@ ChannelPreviewAction.defaultProps = {
 };
 
 function ChannelsPlaceholder(_ref) {
-  let {
-    type
-  } = _ref;
+  var type = _ref.type;
   return /*#__PURE__*/React__default.createElement("div", {
     className: "sendbird-channel-list"
   }, /*#__PURE__*/React__default.createElement(PlaceHolder, {
@@ -949,18 +968,16 @@ ChannelsPlaceholder.propTypes = {
   type: PropTypes.string.isRequired
 };
 
-const DELIVERY_RECIPT$1 = 'delivery_receipt';
+var DELIVERY_RECIPT$1 = 'delivery_receipt';
 
-const createEventHandler = _ref => {
-  let {
-    sdk,
-    sdkChannelHandlerId,
-    channelListDispatcher,
-    logger
-  } = _ref;
-  const ChannelHandler = new sdk.ChannelHandler();
+var createEventHandler = function createEventHandler(_ref) {
+  var sdk = _ref.sdk,
+      sdkChannelHandlerId = _ref.sdkChannelHandlerId,
+      channelListDispatcher = _ref.channelListDispatcher,
+      logger = _ref.logger;
+  var ChannelHandler = new sdk.ChannelHandler();
 
-  ChannelHandler.onChannelChanged = channel => {
+  ChannelHandler.onChannelChanged = function (channel) {
     logger.info('ChannelList: onChannelChanged', channel);
     channelListDispatcher({
       type: ON_CHANNEL_CHANGED,
@@ -968,7 +985,7 @@ const createEventHandler = _ref => {
     });
   };
 
-  ChannelHandler.onChannelDeleted = channelUrl => {
+  ChannelHandler.onChannelDeleted = function (channelUrl) {
     logger.info('ChannelList: onChannelDeleted', channelUrl);
     channelListDispatcher({
       type: ON_CHANNEL_DELETED,
@@ -976,7 +993,7 @@ const createEventHandler = _ref => {
     });
   };
 
-  ChannelHandler.onUserJoined = channel => {
+  ChannelHandler.onUserJoined = function (channel) {
     logger.info('ChannelList: onUserJoined', channel);
 
     if (channel.lastMessage) {
@@ -987,17 +1004,15 @@ const createEventHandler = _ref => {
     }
   };
 
-  ChannelHandler.onUserBanned = (channel, user) => {
-    const {
-      currentUser
-    } = sdk;
+  ChannelHandler.onUserBanned = function (channel, user) {
+    var currentUser = sdk.currentUser;
     logger.info('Channel | useHandleChannelEvents: onUserBanned', channel);
 
     if (user.userId === currentUser.userId) {
       channelListDispatcher({
         type: ON_USER_LEFT,
         payload: {
-          channel,
+          channel: channel,
           isMe: true
         }
       });
@@ -1005,29 +1020,27 @@ const createEventHandler = _ref => {
       channelListDispatcher({
         type: ON_USER_LEFT,
         payload: {
-          channel,
+          channel: channel,
           isMe: false
         }
       });
     }
   };
 
-  ChannelHandler.onUserLeft = (channel, leftUser) => {
-    const {
-      currentUser
-    } = sdk;
-    const isMe = currentUser.userId === leftUser.userId;
+  ChannelHandler.onUserLeft = function (channel, leftUser) {
+    var currentUser = sdk.currentUser;
+    var isMe = currentUser.userId === leftUser.userId;
     logger.info('ChannelList: onUserLeft', channel);
     channelListDispatcher({
       type: ON_USER_LEFT,
       payload: {
-        channel,
-        isMe
+        channel: channel,
+        isMe: isMe
       }
     });
   };
 
-  ChannelHandler.onReadStatus = channel => {
+  ChannelHandler.onReadStatus = function (channel) {
     logger.info('ChannelList: onReadStatus', channel);
     channelListDispatcher({
       type: ON_READ_RECEIPT_UPDATED,
@@ -1035,7 +1048,7 @@ const createEventHandler = _ref => {
     });
   };
 
-  ChannelHandler.onDeliveryReceiptUpdated = channel => {
+  ChannelHandler.onDeliveryReceiptUpdated = function (channel) {
     logger.info('ChannelList: onDeliveryReceiptUpdated', channel);
 
     if (channel.lastMessage) {
@@ -1046,7 +1059,7 @@ const createEventHandler = _ref => {
     }
   };
 
-  ChannelHandler.onMessageUpdated = (channel, message) => {
+  ChannelHandler.onMessageUpdated = function (channel, message) {
     if (channel.lastMessage.isEqual(message)) {
       logger.info('ChannelList: onMessageUpdated', channel);
       channelListDispatcher({
@@ -1056,7 +1069,7 @@ const createEventHandler = _ref => {
     }
   };
 
-  ChannelHandler.onChannelHidden = channel => {
+  ChannelHandler.onChannelHidden = function (channel) {
     logger.info('ChannelList: onChannelHidden', channel);
     channelListDispatcher({
       type: ON_CHANNEL_ARCHIVED,
@@ -1064,7 +1077,7 @@ const createEventHandler = _ref => {
     });
   };
 
-  ChannelHandler.onChannelFrozen = channel => {
+  ChannelHandler.onChannelFrozen = function (channel) {
     logger.info('ChannelList: onChannelFrozen', channel);
     channelListDispatcher({
       type: ON_CHANNEL_FROZEN,
@@ -1072,7 +1085,7 @@ const createEventHandler = _ref => {
     });
   };
 
-  ChannelHandler.onChannelUnfrozen = channel => {
+  ChannelHandler.onChannelUnfrozen = function (channel) {
     logger.info('ChannelList: onChannelUnfrozen', channel);
     channelListDispatcher({
       type: ON_CHANNEL_UNFROZEN,
@@ -1084,19 +1097,18 @@ const createEventHandler = _ref => {
   sdk.addChannelHandler(sdkChannelHandlerId, ChannelHandler);
 };
 
-const createChannelListQuery = _ref2 => {
-  let {
-    sdk,
-    userFilledChannelListQuery = {}
-  } = _ref2;
-  const channelListQuery = sdk.GroupChannel.createMyGroupChannelListQuery();
+var createChannelListQuery = function createChannelListQuery(_ref2) {
+  var sdk = _ref2.sdk,
+      _ref2$userFilledChann = _ref2.userFilledChannelListQuery,
+      userFilledChannelListQuery = _ref2$userFilledChann === void 0 ? {} : _ref2$userFilledChann;
+  var channelListQuery = sdk.GroupChannel.createMyGroupChannelListQuery();
   channelListQuery.includeEmpty = false;
   channelListQuery.order = 'latest_last_message'; // 'chronological', 'latest_last_message', 'channel_name_alphabetical', and 'metadata_value_alphabetical'
 
   channelListQuery.limit = 20; // The value of pagination limit could be set up to 100.
 
   if (userFilledChannelListQuery) {
-    Object.keys(userFilledChannelListQuery).forEach(key => {
+    Object.keys(userFilledChannelListQuery).forEach(function (key) {
       channelListQuery[key] = userFilledChannelListQuery[key];
     });
   }
@@ -1111,35 +1123,33 @@ const createChannelListQuery = _ref2 => {
 
 
 function setupChannelList(_ref3) {
-  let {
-    sdk,
-    sdkChannelHandlerId,
-    channelListDispatcher,
-    setChannelSource,
-    onChannelSelect,
-    userFilledChannelListQuery,
-    logger,
-    sortChannelList,
-    disableAutoSelect
-  } = _ref3;
+  var sdk = _ref3.sdk,
+      sdkChannelHandlerId = _ref3.sdkChannelHandlerId,
+      channelListDispatcher = _ref3.channelListDispatcher,
+      setChannelSource = _ref3.setChannelSource,
+      onChannelSelect = _ref3.onChannelSelect,
+      userFilledChannelListQuery = _ref3.userFilledChannelListQuery,
+      logger = _ref3.logger,
+      sortChannelList = _ref3.sortChannelList,
+      disableAutoSelect = _ref3.disableAutoSelect;
 
   if (sdk && sdk.ChannelHandler) {
     createEventHandler({
-      sdk,
-      channelListDispatcher,
-      sdkChannelHandlerId,
-      logger
+      sdk: sdk,
+      channelListDispatcher: channelListDispatcher,
+      sdkChannelHandlerId: sdkChannelHandlerId,
+      logger: logger
     });
   } else {
     logger.console.warning('ChannelList - createEventHandler: sdk or sdk.ChannelHandler does not exist', sdk);
   }
 
   logger.info('ChannelList - creating query', {
-    userFilledChannelListQuery
+    userFilledChannelListQuery: userFilledChannelListQuery
   });
-  const channelListQuery = createChannelListQuery({
-    sdk,
-    userFilledChannelListQuery
+  var channelListQuery = createChannelListQuery({
+    sdk: sdk,
+    userFilledChannelListQuery: userFilledChannelListQuery
   });
   logger.info('ChannelList - created query', channelListQuery);
   setChannelSource(channelListQuery);
@@ -1152,7 +1162,7 @@ function setupChannelList(_ref3) {
     channelListDispatcher({
       type: CHANNEL_LIST_PARAMS_UPDATED,
       payload: {
-        channelListQuery,
+        channelListQuery: channelListQuery,
         currentUserId: sdk && sdk.currentUser && sdk.currentUser.userId
       }
     });
@@ -1161,12 +1171,12 @@ function setupChannelList(_ref3) {
   logger.info('ChannelList - fetching channels');
 
   if (channelListQuery.hasNext) {
-    channelListQuery.next((response, error) => {
+    channelListQuery.next(function (response, error) {
       var _sdk$appInfo, _sdk$appInfo$premiumF;
 
-      const swapParams = sdk.getErrorFirstCallback();
-      let channelList = response;
-      let err = error;
+      var swapParams = sdk.getErrorFirstCallback();
+      var channelList = response;
+      var err = error;
 
       if (swapParams) {
         channelList = error;
@@ -1185,7 +1195,7 @@ function setupChannelList(_ref3) {
 
 
       logger.info('ChannelList - highlight channel', channelList[0]);
-      let sorted = channelList;
+      var sorted = channelList;
 
       if (sortChannelList && typeof sortChannelList === 'function') {
         sorted = sortChannelList(channelList);
@@ -1200,16 +1210,18 @@ function setupChannelList(_ref3) {
         type: INIT_CHANNELS_SUCCESS,
         payload: sorted
       });
-      const canSetMarkAsDelivered = sdk === null || sdk === void 0 ? void 0 : (_sdk$appInfo = sdk.appInfo) === null || _sdk$appInfo === void 0 ? void 0 : (_sdk$appInfo$premiumF = _sdk$appInfo.premiumFeatureList) === null || _sdk$appInfo$premiumF === void 0 ? void 0 : _sdk$appInfo$premiumF.find(feature => feature === DELIVERY_RECIPT$1);
+      var canSetMarkAsDelivered = sdk === null || sdk === void 0 ? void 0 : (_sdk$appInfo = sdk.appInfo) === null || _sdk$appInfo === void 0 ? void 0 : (_sdk$appInfo$premiumF = _sdk$appInfo.premiumFeatureList) === null || _sdk$appInfo$premiumF === void 0 ? void 0 : _sdk$appInfo$premiumF.find(function (feature) {
+        return feature === DELIVERY_RECIPT$1;
+      });
 
       if (canSetMarkAsDelivered) {
         var _channelList;
 
         logger.info('ChannelList: Marking all channels as read'); // eslint-disable-next-line no-unused-expressions
 
-        (_channelList = channelList) === null || _channelList === void 0 ? void 0 : _channelList.forEach((channel, idx) => {
+        (_channelList = channelList) === null || _channelList === void 0 ? void 0 : _channelList.forEach(function (channel, idx) {
           // Plan-based rate limits - minimum limit is 5 requests per second
-          setTimeout(() => {
+          setTimeout(function () {
             // eslint-disable-next-line no-unused-expressions
             channel === null || channel === void 0 ? void 0 : channel.markAsDelivered();
           }, 500 * idx);
@@ -1221,34 +1233,30 @@ function setupChannelList(_ref3) {
   }
 }
 
-const pubSubHandleRemover = subscriber => {
-  subscriber.forEach(s => {
+var pubSubHandleRemover = function pubSubHandleRemover(subscriber) {
+  subscriber.forEach(function (s) {
     try {
       s.remove();
     } catch (_unused) {//
     }
   });
 };
-const pubSubHandler = (pubSub, channelListDispatcher) => {
-  const subScriber = new Map();
+var pubSubHandler = function pubSubHandler(pubSub, channelListDispatcher) {
+  var subScriber = new Map();
   if (!pubSub) return subScriber;
-  subScriber.set(CREATE_CHANNEL$1, pubSub.subscribe(CREATE_CHANNEL$1, msg => {
-    const {
-      channel
-    } = msg;
+  subScriber.set(CREATE_CHANNEL$1, pubSub.subscribe(CREATE_CHANNEL$1, function (msg) {
+    var channel = msg.channel;
     channelListDispatcher({
       type: 'CREATE_CHANNEL',
       payload: channel
     });
   }));
-  subScriber.set(UPDATE_USER_MESSAGE, pubSub.subscribe(UPDATE_USER_MESSAGE, msg => {
+  subScriber.set(UPDATE_USER_MESSAGE, pubSub.subscribe(UPDATE_USER_MESSAGE, function (msg) {
     var _updatedChannel$lastM;
 
-    const {
-      channel,
-      message
-    } = msg;
-    const updatedChannel = channel;
+    var channel = msg.channel,
+        message = msg.message;
+    var updatedChannel = channel;
 
     if ((updatedChannel === null || updatedChannel === void 0 ? void 0 : (_updatedChannel$lastM = updatedChannel.lastMessage) === null || _updatedChannel$lastM === void 0 ? void 0 : _updatedChannel$lastM.messageId) === message.messageId) {
       updatedChannel.lastMessage = message;
@@ -1261,19 +1269,15 @@ const pubSubHandler = (pubSub, channelListDispatcher) => {
       });
     }
   }));
-  subScriber.set(LEAVE_CHANNEL, pubSub.subscribe(LEAVE_CHANNEL, msg => {
-    const {
-      channel
-    } = msg;
+  subScriber.set(LEAVE_CHANNEL, pubSub.subscribe(LEAVE_CHANNEL, function (msg) {
+    var channel = msg.channel;
     channelListDispatcher({
       type: LEAVE_CHANNEL_SUCCESS,
       payload: channel.url
     });
   }));
-  subScriber.set(SEND_MESSAGE_START, pubSub.subscribe(SEND_MESSAGE_START, msg => {
-    const {
-      channel
-    } = msg;
+  subScriber.set(SEND_MESSAGE_START, pubSub.subscribe(SEND_MESSAGE_START, function (msg) {
+    var channel = msg.channel;
     channelListDispatcher({
       type: CHANNEL_REPLACED_TO_TOP,
       payload: channel
@@ -1282,87 +1286,101 @@ const pubSubHandler = (pubSub, channelListDispatcher) => {
   return subScriber;
 };
 
-const noop = () => {};
+var noop = function noop() {};
 
-const DELIVERY_RECIPT = 'delivery_receipt';
+var DELIVERY_RECIPT = 'delivery_receipt';
 
 function ChannelList(props) {
-  const {
-    stores: {
-      sdkStore = {},
-      userStore = {}
-    },
-    config: {
-      userId,
-      isOnline,
-      userListQuery,
-      logger,
-      pubSub,
-      theme
-    },
-    dispatchers: {
-      userDispatcher
-    },
-    queries = {},
-    renderChannelPreview,
-    renderHeader,
-    renderUserProfile,
-    disableUserProfile,
-    allowProfileEdit,
-    sortChannelList,
-    onProfileEditSuccess,
-    onThemeChange,
-    onBeforeCreateChannel,
-    onChannelSelect,
-    disableAutoSelect
-  } = props;
-  const {
-    config = {}
-  } = props; // enable if it is true atleast once(both are flase by default)
+  var _props$stores = props.stores,
+      _props$stores$sdkStor = _props$stores.sdkStore,
+      sdkStore = _props$stores$sdkStor === void 0 ? {} : _props$stores$sdkStor,
+      _props$stores$userSto = _props$stores.userStore,
+      userStore = _props$stores$userSto === void 0 ? {} : _props$stores$userSto,
+      _props$config = props.config,
+      userId = _props$config.userId,
+      isOnline = _props$config.isOnline,
+      userListQuery = _props$config.userListQuery,
+      logger = _props$config.logger,
+      pubSub = _props$config.pubSub,
+      theme = _props$config.theme,
+      userDispatcher = props.dispatchers.userDispatcher,
+      _props$queries = props.queries,
+      queries = _props$queries === void 0 ? {} : _props$queries,
+      renderChannelPreview = props.renderChannelPreview,
+      renderHeader = props.renderHeader,
+      renderUserProfile = props.renderUserProfile,
+      disableUserProfile = props.disableUserProfile,
+      allowProfileEdit = props.allowProfileEdit,
+      sortChannelList = props.sortChannelList,
+      onProfileEditSuccess = props.onProfileEditSuccess,
+      onThemeChange = props.onThemeChange,
+      onBeforeCreateChannel = props.onBeforeCreateChannel,
+      onChannelSelect = props.onChannelSelect,
+      disableAutoSelect = props.disableAutoSelect;
+  var _props$config2 = props.config,
+      config = _props$config2 === void 0 ? {} : _props$config2; // enable if it is true atleast once(both are flase by default)
 
-  const enableEditProfile = allowProfileEdit || config.allowProfileEdit;
-  const userDefinedDisableUserProfile = disableUserProfile || config.disableUserProfile;
-  const userDefinedRenderProfile = renderUserProfile || config.renderUserProfile;
-  const {
-    sdk = {}
-  } = sdkStore;
-  const userFilledChannelListQuery = queries.channelListQuery;
-  const userFilledApplicationUserListQuery = queries.applicationUserListQuery;
-  const sdkError = sdkStore.error;
-  const sdkIntialized = sdkStore.initialized;
-  const [channelListStore, channelListDispatcher] = useReducer(reducer, channelListInitialState);
-  const [user, setUser] = useState({});
-  const [channelSource, setChannelSource] = useState({});
-  const [showProfileEdit, setShowProfileEdit] = useState(false);
-  const [sdkChannelHandlerId, setSdkChannelHandlerId] = useState(null);
-  const {
-    loading,
-    currentChannel
-  } = channelListStore;
-  useEffect(() => {
+  var enableEditProfile = allowProfileEdit || config.allowProfileEdit;
+  var userDefinedDisableUserProfile = disableUserProfile || config.disableUserProfile;
+  var userDefinedRenderProfile = renderUserProfile || config.renderUserProfile;
+  var _sdkStore$sdk = sdkStore.sdk,
+      sdk = _sdkStore$sdk === void 0 ? {} : _sdkStore$sdk;
+  var userFilledChannelListQuery = queries.channelListQuery;
+  var userFilledApplicationUserListQuery = queries.applicationUserListQuery;
+  var sdkError = sdkStore.error;
+  var sdkIntialized = sdkStore.initialized;
+
+  var _useReducer = useReducer(reducer, channelListInitialState),
+      _useReducer2 = _slicedToArray(_useReducer, 2),
+      channelListStore = _useReducer2[0],
+      channelListDispatcher = _useReducer2[1];
+
+  var _useState = useState({}),
+      _useState2 = _slicedToArray(_useState, 2),
+      user = _useState2[0],
+      setUser = _useState2[1];
+
+  var _useState3 = useState({}),
+      _useState4 = _slicedToArray(_useState3, 2),
+      channelSource = _useState4[0],
+      setChannelSource = _useState4[1];
+
+  var _useState5 = useState(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      showProfileEdit = _useState6[0],
+      setShowProfileEdit = _useState6[1];
+
+  var _useState7 = useState(null),
+      _useState8 = _slicedToArray(_useState7, 2),
+      sdkChannelHandlerId = _useState8[0],
+      setSdkChannelHandlerId = _useState8[1];
+
+  var loading = channelListStore.loading,
+      currentChannel = channelListStore.currentChannel;
+  useEffect(function () {
     setUser(userStore.user);
   }, [userStore.user]);
-  useEffect(() => {
-    const subscriber = pubSubHandler(pubSub, channelListDispatcher);
-    return () => {
+  useEffect(function () {
+    var subscriber = pubSubHandler(pubSub, channelListDispatcher);
+    return function () {
       pubSubHandleRemover(subscriber);
     };
   }, [sdkIntialized]);
-  useEffect(() => {
+  useEffect(function () {
     setSdkChannelHandlerId(uuidv4);
 
     if (sdkIntialized) {
       logger.info('ChannelList: Setup channelHandlers');
       setupChannelList({
-        sdk,
-        sdkChannelHandlerId,
-        channelListDispatcher,
-        setChannelSource,
-        onChannelSelect,
-        userFilledChannelListQuery,
-        logger,
-        sortChannelList,
-        disableAutoSelect
+        sdk: sdk,
+        sdkChannelHandlerId: sdkChannelHandlerId,
+        channelListDispatcher: channelListDispatcher,
+        setChannelSource: setChannelSource,
+        onChannelSelect: onChannelSelect,
+        userFilledChannelListQuery: userFilledChannelListQuery,
+        logger: logger,
+        sortChannelList: sortChannelList,
+        disableAutoSelect: disableAutoSelect
       });
     } else {
       logger.info('ChannelList: Removing channelHandlers'); // remove previous channelHandlers
@@ -1379,7 +1397,7 @@ function ChannelList(props) {
       });
     }
 
-    return () => {
+    return function () {
       logger.info('ChannelList: Removing channelHandlers');
 
       if (sdk && sdk.removeChannelHandler) {
@@ -1387,14 +1405,11 @@ function ChannelList(props) {
       }
     };
   }, [sdkIntialized, userFilledChannelListQuery, sortChannelList]);
-  const {
-    allChannels
-  } = channelListStore;
-  const sortedChannels = sortChannelList && typeof sortChannelList === 'function' ? sortChannelList(allChannels) : allChannels;
+  var allChannels = channelListStore.allChannels;
+  var sortedChannels = sortChannelList && typeof sortChannelList === 'function' ? sortChannelList(allChannels) : allChannels;
 
   if (sortedChannels.length !== allChannels.length) {
-    const warning = `ChannelList: You have removed/added extra channels on sortChannelList
-      this could cause unexpected problems`; // eslint-disable-next-line no-console
+    var warning = "ChannelList: You have removed/added extra channels on sortChannelList\n      this could cause unexpected problems"; // eslint-disable-next-line no-console
 
     console.warn(warning, {
       before: allChannels,
@@ -1406,18 +1421,18 @@ function ChannelList(props) {
     });
   }
 
-  useEffect(() => {
+  useEffect(function () {
     channelListDispatcher({
       type: SET_AUTO_SELECT_CHANNEL_ITEM,
       payload: disableAutoSelect
     });
   }, [disableAutoSelect]);
-  useEffect(() => {
+  useEffect(function () {
     if (!sdk || !sdk.GroupChannel || !currentChannel) {
       return;
     }
 
-    sdk.GroupChannel.getChannel(currentChannel, groupChannel => {
+    sdk.GroupChannel.getChannel(currentChannel, function (groupChannel) {
       if (groupChannel) {
         onChannelSelect(groupChannel);
       } else {
@@ -1434,7 +1449,7 @@ function ChannelList(props) {
   }, /*#__PURE__*/React__default.createElement(ChannelHeader, {
     renderHeader: renderHeader,
     user: user,
-    onEdit: () => {
+    onEdit: function onEdit() {
       if (enableEditProfile) {
         setShowProfileEdit(true);
       }
@@ -1452,11 +1467,11 @@ function ChannelList(props) {
   })), showProfileEdit && /*#__PURE__*/React__default.createElement(ConnectedEditUserProfile, {
     onThemeChange: onThemeChange,
     user: user,
-    onCancel: () => {
+    onCancel: function onCancel() {
       setShowProfileEdit(false);
     },
-    onSubmit: (newName, newFile) => {
-      sdk.updateCurrentUserInfoWithProfileImage(newName, newFile, updatedUser => {
+    onSubmit: function onSubmit(newName, newFile) {
+      sdk.updateCurrentUserInfoWithProfileImage(newName, newFile, function (updatedUser) {
         userDispatcher({
           type: UPDATE_USER_INFO,
           payload: updatedUser
@@ -1469,20 +1484,20 @@ function ChannelList(props) {
     }
   }), /*#__PURE__*/React__default.createElement("div", {
     className: "sendbird-channel-list__body",
-    onScroll: e => {
-      const fetchMore = Math.abs(e.target.scrollHeight - e.target.clientHeight - e.target.scrollTop) < 5;
+    onScroll: function onScroll(e) {
+      var fetchMore = Math.abs(e.target.scrollHeight - e.target.clientHeight - e.target.scrollTop) < 5;
 
       if (fetchMore && channelSource.hasNext) {
         logger.info('ChannelList: Fetching more channels');
         channelListDispatcher({
           type: FETCH_CHANNELS_START
         });
-        channelSource.next((response, error) => {
+        channelSource.next(function (response, error) {
           var _sdk$appInfo, _sdk$appInfo$premiumF;
 
-          const swapParams = sdk.getErrorFirstCallback();
-          let channelList = response;
-          let err = error;
+          var swapParams = sdk.getErrorFirstCallback();
+          var channelList = response;
+          var err = error;
 
           if (swapParams) {
             channelList = error;
@@ -1503,16 +1518,18 @@ function ChannelList(props) {
             type: FETCH_CHANNELS_SUCCESS,
             payload: channelList
           });
-          const canSetMarkAsDelivered = sdk === null || sdk === void 0 ? void 0 : (_sdk$appInfo = sdk.appInfo) === null || _sdk$appInfo === void 0 ? void 0 : (_sdk$appInfo$premiumF = _sdk$appInfo.premiumFeatureList) === null || _sdk$appInfo$premiumF === void 0 ? void 0 : _sdk$appInfo$premiumF.find(feature => feature === DELIVERY_RECIPT);
+          var canSetMarkAsDelivered = sdk === null || sdk === void 0 ? void 0 : (_sdk$appInfo = sdk.appInfo) === null || _sdk$appInfo === void 0 ? void 0 : (_sdk$appInfo$premiumF = _sdk$appInfo.premiumFeatureList) === null || _sdk$appInfo$premiumF === void 0 ? void 0 : _sdk$appInfo$premiumF.find(function (feature) {
+            return feature === DELIVERY_RECIPT;
+          });
 
           if (canSetMarkAsDelivered) {
             var _channelList;
 
             logger.info('ChannelList: Marking all channels as read'); // eslint-disable-next-line no-unused-expressions
 
-            (_channelList = channelList) === null || _channelList === void 0 ? void 0 : _channelList.forEach((channel, idx) => {
+            (_channelList = channelList) === null || _channelList === void 0 ? void 0 : _channelList.forEach(function (channel, idx) {
               // Plan-based rate limits - minimum limit is 5 requests per second
-              setTimeout(() => {
+              setTimeout(function () {
                 // eslint-disable-next-line no-unused-expressions
                 channel === null || channel === void 0 ? void 0 : channel.markAsDelivered();
               }, 500 * idx);
@@ -1523,10 +1540,10 @@ function ChannelList(props) {
     }
   }, sdkError && /*#__PURE__*/React__default.createElement(ChannelsPlaceholder, {
     type: PlaceHolderTypes.WRONG
-  }), /*#__PURE__*/React__default.createElement("div", null, sortedChannels && sortedChannels.map((channel, idx) => {
-    const onLeaveChannel = (c, cb) => {
+  }), /*#__PURE__*/React__default.createElement("div", null, sortedChannels && sortedChannels.map(function (channel, idx) {
+    var _onLeaveChannel = function onLeaveChannel(c, cb) {
       logger.info('ChannelList: Leaving channel', c);
-      c.leave().then(res => {
+      c.leave().then(function (res) {
         logger.info('ChannelList: Leaving channel success', res);
 
         if (cb && typeof cb === 'function') {
@@ -1537,7 +1554,7 @@ function ChannelList(props) {
           type: LEAVE_CHANNEL_SUCCESS,
           payload: channel.url
         });
-      }).catch(err => {
+      }).catch(function (err) {
         logger.error('ChannelList: Leaving channel failed', err);
 
         if (cb && typeof cb === 'function') {
@@ -1546,7 +1563,7 @@ function ChannelList(props) {
       });
     };
 
-    const onClick = () => {
+    var onClick = function onClick() {
       if (!isOnline) {
         return;
       }
@@ -1565,8 +1582,8 @@ function ChannelList(props) {
       key: channel.url,
       onClick: onClick
     }, renderChannelPreview({
-      channel,
-      onLeaveChannel
+      channel: channel,
+      onLeaveChannel: _onLeaveChannel
     })) : /*#__PURE__*/React__default.createElement(ChannelPreview, {
       key: channel.url,
       tabIndex: idx,
@@ -1578,7 +1595,9 @@ function ChannelList(props) {
       ,
       ChannelAction: /*#__PURE__*/React__default.createElement(ChannelPreviewAction, {
         disabled: !isOnline,
-        onLeaveChannel: () => onLeaveChannel(channel)
+        onLeaveChannel: function onLeaveChannel() {
+          return _onLeaveChannel(channel);
+        }
       })
     });
   })), (!sdkIntialized || loading) && /*#__PURE__*/React__default.createElement(ChannelsPlaceholder, {

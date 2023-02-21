@@ -1,5 +1,6 @@
 'use strict';
 
+var LocalizationContext = require('./LocalizationContext-aa91c4ff.js');
 var React = require('react');
 var PropTypes = require('prop-types');
 var SendbirdProvider = require('./SendbirdProvider.js');
@@ -7,22 +8,21 @@ var ChannelList = require('./ChannelList.js');
 var Channel = require('./Channel.js');
 var ChannelSettings = require('./ChannelSettings.js');
 var MessageSearch = require('./MessageSearch.js');
-var LocalizationContext = require('./LocalizationContext-12ba41f8.js');
-var index = require('./index-0bc71091.js');
-var index$1 = require('./index-cea4ec67.js');
+var index = require('./index-bb47b529.js');
+var index$1 = require('./index-ba87405c.js');
 require('sendbird');
-require('./actionTypes-addff9e0.js');
-require('./index-3bea5f1c.js');
+require('./actionTypes-8115bc5e.js');
+require('./index-8a6239b5.js');
 require('css-vars-ponyfill');
-require('./index-8dc061fe.js');
-require('./utils-9e449a49.js');
-require('./LeaveChannel-faef7e56.js');
-require('./index-332ab043.js');
-require('./index-ee035d75.js');
-require('./index-0d62dfb8.js');
-require('./index-89a6d536.js');
+require('./index-23bbc017.js');
+require('./utils-07b40c15.js');
+require('./LeaveChannel-94fedbcc.js');
+require('./index-0bbfe651.js');
+require('./index-8adc20af.js');
+require('./index-418284a2.js');
+require('./index-e317aa01.js');
 require('react-dom');
-require('./index-2392994e.js');
+require('./index-9566a205.js');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -62,15 +62,15 @@ function MessageSearchPannel(props) {
     }, 500);
   }, [inputString]);
 
-  var handleOnChangeInputString = function (e) {
+  var handleOnChangeInputString = function handleOnChangeInputString(e) {
     setInputString(e.target.value);
   };
 
-  var handleOnResultLoaded = function () {
+  var handleOnResultLoaded = function handleOnResultLoaded() {
     setLoading(false);
   };
 
-  var handleOnClickResetStringButton = function (e) {
+  var handleOnClickResetStringButton = function handleOnClickResetStringButton(e) {
     e.stopPropagation();
     setInputString('');
     setSearchString('');
@@ -79,13 +79,13 @@ function MessageSearchPannel(props) {
   return /*#__PURE__*/React__default["default"].createElement("div", {
     className: COMPONENT_CLASS_NAME
   }, /*#__PURE__*/React__default["default"].createElement("div", {
-    className: "".concat(COMPONENT_CLASS_NAME, "__header")
+    className: COMPONENT_CLASS_NAME + "__header"
   }, /*#__PURE__*/React__default["default"].createElement(index.Label, {
-    className: "".concat(COMPONENT_CLASS_NAME, "__header__title"),
+    className: COMPONENT_CLASS_NAME + "__header__title",
     type: index.LabelTypography.H_2,
     color: index.LabelColors.ONBACKGROUND_1
   }, stringSet.SEARCH_IN_CHANNEL), /*#__PURE__*/React__default["default"].createElement(index$1.IconButton, {
-    className: "".concat(COMPONENT_CLASS_NAME, "__header__close-button"),
+    className: COMPONENT_CLASS_NAME + "__header__close-button",
     width: "32px",
     height: "32px",
     onClick: onCloseClick
@@ -95,22 +95,22 @@ function MessageSearchPannel(props) {
     width: "22px",
     height: "22px"
   }))), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: "".concat(COMPONENT_CLASS_NAME, "__input")
+    className: COMPONENT_CLASS_NAME + "__input"
   }, /*#__PURE__*/React__default["default"].createElement("div", {
-    className: "".concat(COMPONENT_CLASS_NAME, "__input__container")
+    className: COMPONENT_CLASS_NAME + "__input__container"
   }, /*#__PURE__*/React__default["default"].createElement(index.Icon, {
-    className: "".concat(COMPONENT_CLASS_NAME, "__input__container__search-icon"),
+    className: COMPONENT_CLASS_NAME + "__input__container__search-icon",
     type: index.IconTypes.SEARCH,
     fillColor: index.IconColors.ON_BACKGROUND_3,
     width: "24px",
     height: "24px"
   }), /*#__PURE__*/React__default["default"].createElement("input", {
-    className: "".concat(COMPONENT_CLASS_NAME, "__input__container__input-area"),
+    className: COMPONENT_CLASS_NAME + "__input__container__input-area",
     placeholder: stringSet.SEARCH,
     value: inputString,
     onChange: handleOnChangeInputString
   }), inputString && loading && /*#__PURE__*/React__default["default"].createElement(index.Loader, {
-    className: "".concat(COMPONENT_CLASS_NAME, "__input__container__spinner"),
+    className: COMPONENT_CLASS_NAME + "__input__container__spinner",
     width: "20px",
     height: "20px"
   }, /*#__PURE__*/React__default["default"].createElement(index.Icon, {
@@ -119,14 +119,14 @@ function MessageSearchPannel(props) {
     width: "20px",
     height: "20px"
   })), !loading && inputString && /*#__PURE__*/React__default["default"].createElement(index.Icon, {
-    className: "".concat(COMPONENT_CLASS_NAME, "__input__container__reset-input-button"),
+    className: COMPONENT_CLASS_NAME + "__input__container__reset-input-button",
     type: index.IconTypes.REMOVE,
     fillColor: index.IconColors.ON_BACKGROUND_3,
     width: "20px",
     height: "20px",
     onClick: handleOnClickResetStringButton
   }))), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: "".concat(COMPONENT_CLASS_NAME, "__message-search")
+    className: COMPONENT_CLASS_NAME + "__message-search"
   }, /*#__PURE__*/React__default["default"].createElement(MessageSearch, {
     channelUrl: channelUrl,
     searchString: searchString,
@@ -135,40 +135,55 @@ function MessageSearchPannel(props) {
   })));
 }
 
-/**
- * This is a drop in Chat solution
- * Can also be used as an example for creating
- * default chat apps
- */
 function App(props) {
-  const {
-    appId,
-    userId,
-    accessToken,
-    theme,
-    userListQuery,
-    nickname,
-    profileUrl,
-    config = {},
-    useReaction,
-    replyType,
-    useMessageGrouping,
-    colorSet,
-    stringSet,
-    dateLocale,
-    allowProfileEdit,
-    disableUserProfile,
-    renderUserProfile,
-    showSearchIcon,
-    onProfileEditSuccess,
-    imageCompression,
-    disableAutoSelect
-  } = props;
-  const [currentChannelUrl, setCurrentChannelUrl] = React.useState(null);
-  const [showSettings, setShowSettings] = React.useState(false);
-  const [showSearch, setShowSearch] = React.useState(false);
-  const [highlightedMessage, setHighlightedMessage] = React.useState(null);
-  const [startingPoint, setStartingPoint] = React.useState(null);
+  var appId = props.appId,
+      userId = props.userId,
+      accessToken = props.accessToken,
+      theme = props.theme,
+      userListQuery = props.userListQuery,
+      nickname = props.nickname,
+      profileUrl = props.profileUrl,
+      _props$config = props.config,
+      config = _props$config === void 0 ? {} : _props$config,
+      useReaction = props.useReaction,
+      replyType = props.replyType,
+      useMessageGrouping = props.useMessageGrouping,
+      colorSet = props.colorSet,
+      stringSet = props.stringSet,
+      dateLocale = props.dateLocale,
+      allowProfileEdit = props.allowProfileEdit,
+      disableUserProfile = props.disableUserProfile,
+      renderUserProfile = props.renderUserProfile,
+      showSearchIcon = props.showSearchIcon,
+      onProfileEditSuccess = props.onProfileEditSuccess,
+      imageCompression = props.imageCompression,
+      disableAutoSelect = props.disableAutoSelect;
+
+  var _useState = React.useState(null),
+      _useState2 = LocalizationContext._slicedToArray(_useState, 2),
+      currentChannelUrl = _useState2[0],
+      setCurrentChannelUrl = _useState2[1];
+
+  var _useState3 = React.useState(false),
+      _useState4 = LocalizationContext._slicedToArray(_useState3, 2),
+      showSettings = _useState4[0],
+      setShowSettings = _useState4[1];
+
+  var _useState5 = React.useState(false),
+      _useState6 = LocalizationContext._slicedToArray(_useState5, 2),
+      showSearch = _useState6[0],
+      setShowSearch = _useState6[1];
+
+  var _useState7 = React.useState(null),
+      _useState8 = LocalizationContext._slicedToArray(_useState7, 2),
+      highlightedMessage = _useState8[0],
+      setHighlightedMessage = _useState8[1];
+
+  var _useState9 = React.useState(null),
+      _useState10 = LocalizationContext._slicedToArray(_useState9, 2),
+      startingPoint = _useState10[0],
+      setStartingPoint = _useState10[1];
+
   return /*#__PURE__*/React__default["default"].createElement(SendbirdProvider, {
     stringSet: stringSet,
     dateLocale: dateLocale,
@@ -192,7 +207,7 @@ function App(props) {
   }, /*#__PURE__*/React__default["default"].createElement(ChannelList, {
     allowProfileEdit: allowProfileEdit,
     onProfileEditSuccess: onProfileEditSuccess,
-    onChannelSelect: channel => {
+    onChannelSelect: function onChannelSelect(channel) {
       setStartingPoint(null);
       setHighlightedMessage(null);
 
@@ -204,18 +219,14 @@ function App(props) {
     },
     disableAutoSelect: disableAutoSelect
   })), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: `
-            ${showSettings ? 'sendbird-app__conversation--settings-open' : ''}
-            ${showSearch ? 'sendbird-app__conversation--search-open' : ''}
-            sendbird-app__conversation-wrap
-          `
+    className: "\n            ".concat(showSettings ? 'sendbird-app__conversation--settings-open' : '', "\n            ").concat(showSearch ? 'sendbird-app__conversation--search-open' : '', "\n            sendbird-app__conversation-wrap\n          ")
   }, /*#__PURE__*/React__default["default"].createElement(Channel["default"], {
     channelUrl: currentChannelUrl,
-    onChatHeaderActionClick: () => {
+    onChatHeaderActionClick: function onChatHeaderActionClick() {
       setShowSearch(false);
       setShowSettings(!showSettings);
     },
-    onSearchClick: () => {
+    onSearchClick: function onSearchClick() {
       setShowSettings(false);
       setShowSearch(!showSearch);
     },
@@ -230,17 +241,17 @@ function App(props) {
   }, /*#__PURE__*/React__default["default"].createElement(ChannelSettings, {
     className: "sendbird-channel-settings",
     channelUrl: currentChannelUrl,
-    onCloseClick: () => {
+    onCloseClick: function onCloseClick() {
       setShowSettings(false);
     }
   })), showSearch && /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sendbird-app__searchpanel-wrap"
   }, /*#__PURE__*/React__default["default"].createElement(MessageSearchPannel, {
     channelUrl: currentChannelUrl,
-    onResultClick: message => {
+    onResultClick: function onResultClick(message) {
       if (message.messageId === highlightedMessage) {
         setHighlightedMessage(null);
-        setTimeout(() => {
+        setTimeout(function () {
           setHighlightedMessage(message.messageId);
         });
       } else {
@@ -248,7 +259,7 @@ function App(props) {
         setHighlightedMessage(message.messageId);
       }
     },
-    onCloseClick: () => {
+    onCloseClick: function onCloseClick() {
       setShowSearch(false);
     }
   }))));

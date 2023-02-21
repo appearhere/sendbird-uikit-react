@@ -2,89 +2,88 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
+var LocalizationContext = require('./LocalizationContext-aa91c4ff.js');
 var React = require('react');
 var PropTypes = require('prop-types');
-var index$2 = require('./index-0d62dfb8.js');
-var index$1 = require('./index-cea4ec67.js');
-var index = require('./index-3bea5f1c.js');
-var LocalizationContext = require('./LocalizationContext-12ba41f8.js');
-var index$3 = require('./index-89a6d536.js');
-var index$4 = require('./index-0bc71091.js');
-var index$5 = require('./index-8dc061fe.js');
+var index$2 = require('./index-418284a2.js');
+var index$1 = require('./index-ba87405c.js');
+var index = require('./index-8a6239b5.js');
+var index$3 = require('./index-e317aa01.js');
+var index$4 = require('./index-bb47b529.js');
+var index$5 = require('./index-23bbc017.js');
 require('react-dom');
-require('./utils-9e449a49.js');
+require('./utils-07b40c15.js');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var PropTypes__default = /*#__PURE__*/_interopDefaultLegacy(PropTypes);
 
-const RESET_MESSAGES = 'RESET_MESSAGES';
-const RESET_STATE = 'RESET_STATE';
-const CLEAR_SENT_MESSAGES = 'CLEAR_SENT_MESSAGES';
-const GET_PREV_MESSAGES_START = 'GET_PREV_MESSAGES_START';
-const GET_PREV_MESSAGES_SUCESS = 'GET_PREV_MESSAGES_SUCESS';
-const GET_NEXT_MESSAGES_SUCESS = 'GET_NEXT_MESSAGES_SUCESS';
-const GET_NEXT_MESSAGES_FAILURE = 'GET_NEXT_MESSAGES_FAILURE';
-const SEND_MESSAGEGE_START = 'SEND_MESSAGEGE_START';
-const SEND_MESSAGEGE_SUCESS = 'SEND_MESSAGEGE_SUCESS';
-const SEND_MESSAGEGE_FAILURE = 'SEND_MESSAGEGE_FAILURE';
-const RESEND_MESSAGEGE_START = 'RESEND_MESSAGEGE_START';
-const ON_MESSAGE_RECEIVED = 'ON_MESSAGE_RECEIVED';
-const UPDATE_UNREAD_COUNT = 'UPDATE_UNREAD_COUNT';
-const ON_MESSAGE_UPDATED = 'ON_MESSAGE_UPDATED';
-const ON_MESSAGE_THREAD_INFO_UPDATED = 'ON_MESSAGE_THREAD_INFO_UPDATED';
-const ON_MESSAGE_DELETED = 'ON_MESSAGE_DELETED';
-const ON_MESSAGE_DELETED_BY_REQ_ID = 'ON_MESSAGE_DELETED_BY_REQ_ID';
-const SET_CURRENT_CHANNEL = 'SET_CURRENT_CHANNEL';
-const SET_CHANNEL_INVALID = 'SET_CHANNEL_INVALID';
-const MARK_AS_READ = 'MARK_AS_READ';
-const ON_REACTION_UPDATED = 'ON_REACTION_UPDATED';
-const SET_EMOJI_CONTAINER = 'SET_EMOJI_CONTAINER';
-const MESSAGE_LIST_PARAMS_CHANGED = 'MESSAGE_LIST_PARAMS_CHANGED';
+var RESET_MESSAGES = 'RESET_MESSAGES';
+var RESET_STATE = 'RESET_STATE';
+var CLEAR_SENT_MESSAGES = 'CLEAR_SENT_MESSAGES';
+var GET_PREV_MESSAGES_START = 'GET_PREV_MESSAGES_START';
+var GET_PREV_MESSAGES_SUCESS = 'GET_PREV_MESSAGES_SUCESS';
+var GET_NEXT_MESSAGES_SUCESS = 'GET_NEXT_MESSAGES_SUCESS';
+var GET_NEXT_MESSAGES_FAILURE = 'GET_NEXT_MESSAGES_FAILURE';
+var SEND_MESSAGEGE_START = 'SEND_MESSAGEGE_START';
+var SEND_MESSAGEGE_SUCESS = 'SEND_MESSAGEGE_SUCESS';
+var SEND_MESSAGEGE_FAILURE = 'SEND_MESSAGEGE_FAILURE';
+var RESEND_MESSAGEGE_START = 'RESEND_MESSAGEGE_START';
+var ON_MESSAGE_RECEIVED = 'ON_MESSAGE_RECEIVED';
+var UPDATE_UNREAD_COUNT = 'UPDATE_UNREAD_COUNT';
+var ON_MESSAGE_UPDATED = 'ON_MESSAGE_UPDATED';
+var ON_MESSAGE_THREAD_INFO_UPDATED = 'ON_MESSAGE_THREAD_INFO_UPDATED';
+var ON_MESSAGE_DELETED = 'ON_MESSAGE_DELETED';
+var ON_MESSAGE_DELETED_BY_REQ_ID = 'ON_MESSAGE_DELETED_BY_REQ_ID';
+var SET_CURRENT_CHANNEL = 'SET_CURRENT_CHANNEL';
+var SET_CHANNEL_INVALID = 'SET_CHANNEL_INVALID';
+var MARK_AS_READ = 'MARK_AS_READ';
+var ON_REACTION_UPDATED = 'ON_REACTION_UPDATED';
+var SET_EMOJI_CONTAINER = 'SET_EMOJI_CONTAINER';
+var MESSAGE_LIST_PARAMS_CHANGED = 'MESSAGE_LIST_PARAMS_CHANGED';
 
-const MessageStatusType = index.getOutgoingMessageStates();
-const UNDEFINED = 'undefined';
-const {
-  SUCCEEDED: SUCCEEDED$1,
-  FAILED: FAILED$1,
-  PENDING: PENDING$1
-} = index.getSendingMessageStatus();
-const scrollIntoLast = function () {
-  let intialTry = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-  const MAX_TRIES = 10;
-  const currentTry = intialTry;
+index.getOutgoingMessageStates();
+var UNDEFINED = 'undefined';
+
+var _getSendingMessageSta$1 = index.getSendingMessageStatus(),
+    SUCCEEDED$1 = _getSendingMessageSta$1.SUCCEEDED;
+    _getSendingMessageSta$1.FAILED;
+    var PENDING$1 = _getSendingMessageSta$1.PENDING;
+
+var scrollIntoLast = function scrollIntoLast() {
+  var intialTry = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+  var MAX_TRIES = 10;
+  var currentTry = intialTry;
 
   if (currentTry > MAX_TRIES) {
     return;
   }
 
   try {
-    const scrollDOM = document.querySelector('.sendbird-conversation__messages-padding'); // eslint-disable-next-line no-multi-assign
+    var scrollDOM = document.querySelector('.sendbird-conversation__messages-padding'); // eslint-disable-next-line no-multi-assign
 
     scrollDOM.scrollTop = scrollDOM.scrollHeight;
   } catch (error) {
-    setTimeout(() => {
+    setTimeout(function () {
       scrollIntoLast(currentTry + 1);
     }, 500 * currentTry);
   }
 };
-const pubSubHandleRemover = subscriber => {
-  subscriber.forEach(s => {
+var pubSubHandleRemover = function pubSubHandleRemover(subscriber) {
+  subscriber.forEach(function (s) {
     try {
       s.remove();
     } catch (_unused) {//
     }
   });
 };
-const pubSubHandler = (channelUrl, pubSub, dispatcher) => {
-  const subscriber = new Map();
+var pubSubHandler = function pubSubHandler(channelUrl, pubSub, dispatcher) {
+  var subscriber = new Map();
   if (!pubSub || !pubSub.subscribe) return subscriber;
-  subscriber.set(index$1.SEND_USER_MESSAGE, pubSub.subscribe(index$1.SEND_USER_MESSAGE, msg => {
-    const {
-      channel,
-      message
-    } = msg;
+  subscriber.set(index$1.SEND_USER_MESSAGE, pubSub.subscribe(index$1.SEND_USER_MESSAGE, function (msg) {
+    var channel = msg.channel,
+        message = msg.message;
     scrollIntoLast();
 
     if (channel && channelUrl === channel.url) {
@@ -94,11 +93,9 @@ const pubSubHandler = (channelUrl, pubSub, dispatcher) => {
       });
     }
   }));
-  subscriber.set(index$1.SEND_MESSAGE_START, pubSub.subscribe(index$1.SEND_MESSAGE_START, msg => {
-    const {
-      channel,
-      message
-    } = msg;
+  subscriber.set(index$1.SEND_MESSAGE_START, pubSub.subscribe(index$1.SEND_MESSAGE_START, function (msg) {
+    var channel = msg.channel,
+        message = msg.message;
 
     if (channel && channelUrl === channel.url) {
       dispatcher({
@@ -107,11 +104,9 @@ const pubSubHandler = (channelUrl, pubSub, dispatcher) => {
       });
     }
   }));
-  subscriber.set(index$1.SEND_FILE_MESSAGE, pubSub.subscribe(index$1.SEND_FILE_MESSAGE, msg => {
-    const {
-      channel,
-      message
-    } = msg;
+  subscriber.set(index$1.SEND_FILE_MESSAGE, pubSub.subscribe(index$1.SEND_FILE_MESSAGE, function (msg) {
+    var channel = msg.channel,
+        message = msg.message;
     scrollIntoLast();
 
     if (channel && channelUrl === channel.url) {
@@ -121,28 +116,24 @@ const pubSubHandler = (channelUrl, pubSub, dispatcher) => {
       });
     }
   }));
-  subscriber.set(index$1.UPDATE_USER_MESSAGE, pubSub.subscribe(index$1.UPDATE_USER_MESSAGE, msg => {
-    const {
-      channel,
-      message,
-      fromSelector
-    } = msg;
+  subscriber.set(index$1.UPDATE_USER_MESSAGE, pubSub.subscribe(index$1.UPDATE_USER_MESSAGE, function (msg) {
+    var channel = msg.channel,
+        message = msg.message,
+        fromSelector = msg.fromSelector;
 
     if (fromSelector && channel && channelUrl === channel.url) {
       dispatcher({
         type: ON_MESSAGE_UPDATED,
         payload: {
-          channel,
-          message
+          channel: channel,
+          message: message
         }
       });
     }
   }));
-  subscriber.set(index$1.DELETE_MESSAGE, pubSub.subscribe(index$1.DELETE_MESSAGE, msg => {
-    const {
-      channel,
-      messageId
-    } = msg;
+  subscriber.set(index$1.DELETE_MESSAGE, pubSub.subscribe(index$1.DELETE_MESSAGE, function (msg) {
+    var channel = msg.channel,
+        messageId = msg.messageId;
 
     if (channel && channelUrl === channel.url) {
       dispatcher({
@@ -153,125 +144,84 @@ const pubSubHandler = (channelUrl, pubSub, dispatcher) => {
   }));
   return subscriber;
 };
-const getParsedStatus = (message, currentGroupChannel) => {
-  if (message.requestState === FAILED$1) {
-    return MessageStatusType.FAILED;
-  }
-
-  if (message.requestState === PENDING$1) {
-    return MessageStatusType.PENDING;
-  }
-
-  if (message.requestState === SUCCEEDED$1) {
-    if (!currentGroupChannel) {
-      return MessageStatusType.SENT;
-    }
-
-    const unreadCount = currentGroupChannel.getReadReceipt(message);
-
-    if (unreadCount === 0) {
-      return MessageStatusType.READ;
-    }
-
-    const isDelivered = currentGroupChannel.getDeliveryReceipt(message) === 0;
-
-    if (isDelivered) {
-      return MessageStatusType.DELIVERED;
-    }
-
-    return MessageStatusType.SENT;
-  }
-
-  return null;
-};
-const isOperator = function () {
-  let groupChannel = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  const {
-    myRole
-  } = groupChannel;
+var isOperator = function isOperator() {
+  var groupChannel = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var myRole = groupChannel.myRole;
   return myRole === 'operator';
 };
-const isDisabledBecauseFrozen = function () {
-  let groupChannel = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  const {
-    isFrozen
-  } = groupChannel;
+var isDisabledBecauseFrozen = function isDisabledBecauseFrozen() {
+  var groupChannel = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var isFrozen = groupChannel.isFrozen;
   return isFrozen && !isOperator(groupChannel);
 };
-const isDisabledBecauseMuted = function () {
-  let groupChannel = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  const {
-    myMutedState
-  } = groupChannel;
+var isDisabledBecauseMuted = function isDisabledBecauseMuted() {
+  var groupChannel = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var myMutedState = groupChannel.myMutedState;
   return myMutedState === 'muted';
 };
-const getEmojiCategoriesFromEmojiContainer$1 = function () {
-  let emojiContainer = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+var getEmojiCategoriesFromEmojiContainer$1 = function getEmojiCategoriesFromEmojiContainer() {
+  var emojiContainer = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   return emojiContainer.emojiCategories ? emojiContainer.emojiCategories : [];
 };
-const getAllEmojisFromEmojiContainer$1 = function () {
-  let emojiContainer = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  const {
-    emojiCategories = []
-  } = emojiContainer;
-  const allEmojis = [];
+var getAllEmojisFromEmojiContainer$1 = function getAllEmojisFromEmojiContainer() {
+  var emojiContainer = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var _emojiContainer$emoji = emojiContainer.emojiCategories,
+      emojiCategories = _emojiContainer$emoji === void 0 ? [] : _emojiContainer$emoji;
+  var allEmojis = [];
 
-  for (let categoryIndex = 0; categoryIndex < emojiCategories.length; categoryIndex += 1) {
-    const {
-      emojis
-    } = emojiCategories[categoryIndex];
+  for (var categoryIndex = 0; categoryIndex < emojiCategories.length; categoryIndex += 1) {
+    var emojis = emojiCategories[categoryIndex].emojis;
 
-    for (let emojiIndex = 0; emojiIndex < emojis.length; emojiIndex += 1) {
+    for (var emojiIndex = 0; emojiIndex < emojis.length; emojiIndex += 1) {
       allEmojis.push(emojis[emojiIndex]);
     }
   }
 
   return allEmojis;
 };
-const getEmojisFromEmojiContainer$1 = function () {
-  let emojiContainer = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  let emojiCategoryId = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-  return emojiContainer.emojiCategories ? emojiContainer.emojiCategories.filter(emojiCategory => emojiCategory.id === emojiCategoryId)[0].emojis : [];
+var getEmojisFromEmojiContainer$1 = function getEmojisFromEmojiContainer() {
+  var emojiContainer = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var emojiCategoryId = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+  return emojiContainer.emojiCategories ? emojiContainer.emojiCategories.filter(function (emojiCategory) {
+    return emojiCategory.id === emojiCategoryId;
+  })[0].emojis : [];
 };
-const getAllEmojisMapFromEmojiContainer = function () {
-  let emojiContainer = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  const {
-    emojiCategories = []
-  } = emojiContainer;
-  const allEmojisMap = new Map();
+var getAllEmojisMapFromEmojiContainer = function getAllEmojisMapFromEmojiContainer() {
+  var emojiContainer = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var _emojiContainer$emoji2 = emojiContainer.emojiCategories,
+      emojiCategories = _emojiContainer$emoji2 === void 0 ? [] : _emojiContainer$emoji2;
+  var allEmojisMap = new Map();
 
-  for (let categoryIndex = 0; categoryIndex < emojiCategories.length; categoryIndex += 1) {
-    const {
-      emojis
-    } = emojiCategories[categoryIndex];
+  for (var categoryIndex = 0; categoryIndex < emojiCategories.length; categoryIndex += 1) {
+    var emojis = emojiCategories[categoryIndex].emojis;
 
-    for (let emojiIndex = 0; emojiIndex < emojis.length; emojiIndex += 1) {
-      const {
-        key,
-        url
-      } = emojis[emojiIndex];
+    for (var emojiIndex = 0; emojiIndex < emojis.length; emojiIndex += 1) {
+      var _emojis$emojiIndex = emojis[emojiIndex],
+          key = _emojis$emojiIndex.key,
+          url = _emojis$emojiIndex.url;
       allEmojisMap.set(key, url);
     }
   }
 
   return allEmojisMap;
 };
-const getNicknamesMapFromMembers = function () {
-  let members = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  const nicknamesMap = new Map();
+var getNicknamesMapFromMembers = function getNicknamesMapFromMembers() {
+  var members = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var nicknamesMap = new Map();
 
-  for (let memberIndex = 0; memberIndex < members.length; memberIndex += 1) {
-    const {
-      userId,
-      nickname
-    } = members[memberIndex];
+  for (var memberIndex = 0; memberIndex < members.length; memberIndex += 1) {
+    var _members$memberIndex = members[memberIndex],
+        userId = _members$memberIndex.userId,
+        nickname = _members$memberIndex.nickname;
     nicknamesMap.set(userId, nickname);
   }
 
   return nicknamesMap;
 };
-const getMessageCreatedAt = message => index$2.format(message.createdAt, 'p');
-const isSameGroup = (message, comparingMessage) => {
+var getMessageCreatedAt = function getMessageCreatedAt(message) {
+  return index$2.format(message.createdAt, 'p');
+};
+var isSameGroup = function isSameGroup(message, comparingMessage) {
   var _message$sender, _comparingMessage$sen, _message$sender2, _comparingMessage$sen2;
 
   if (!(message && comparingMessage && (message === null || message === void 0 ? void 0 : message.messageType) !== 'admin' && (comparingMessage === null || comparingMessage === void 0 ? void 0 : comparingMessage.messageType) !== 'admin' && message !== null && message !== void 0 && message.sender && comparingMessage !== null && comparingMessage !== void 0 && comparingMessage.sender && message !== null && message !== void 0 && message.createdAt && comparingMessage !== null && comparingMessage !== void 0 && comparingMessage.createdAt && message !== null && message !== void 0 && (_message$sender = message.sender) !== null && _message$sender !== void 0 && _message$sender.userId && comparingMessage !== null && comparingMessage !== void 0 && (_comparingMessage$sen = comparingMessage.sender) !== null && _comparingMessage$sen !== void 0 && _comparingMessage$sen.userId)) {
@@ -280,43 +230,47 @@ const isSameGroup = (message, comparingMessage) => {
 
   return (message === null || message === void 0 ? void 0 : message.sendingStatus) === (comparingMessage === null || comparingMessage === void 0 ? void 0 : comparingMessage.sendingStatus) && (message === null || message === void 0 ? void 0 : (_message$sender2 = message.sender) === null || _message$sender2 === void 0 ? void 0 : _message$sender2.userId) === (comparingMessage === null || comparingMessage === void 0 ? void 0 : (_comparingMessage$sen2 = comparingMessage.sender) === null || _comparingMessage$sen2 === void 0 ? void 0 : _comparingMessage$sen2.userId) && getMessageCreatedAt(message) === getMessageCreatedAt(comparingMessage);
 };
-const compareMessagesForGrouping = (prevMessage, currMessage, nextMessage) => {
-  const sendingStatus = (currMessage === null || currMessage === void 0 ? void 0 : currMessage.sendingStatus) || '';
-  const isAcceptable = sendingStatus !== 'pending' && sendingStatus !== 'failed';
+var compareMessagesForGrouping = function compareMessagesForGrouping(prevMessage, currMessage, nextMessage) {
+  var sendingStatus = (currMessage === null || currMessage === void 0 ? void 0 : currMessage.sendingStatus) || '';
+  var isAcceptable = sendingStatus !== 'pending' && sendingStatus !== 'failed';
   return [isSameGroup(prevMessage, currMessage) && isAcceptable, isSameGroup(currMessage, nextMessage) && isAcceptable];
 };
-const hasOwnProperty = property => payload => {
-  // eslint-disable-next-line no-prototype-builtins
-  if (payload && payload.hasOwnProperty && payload.hasOwnProperty(property)) {
-    return true;
-  }
+var hasOwnProperty = function hasOwnProperty(property) {
+  return function (payload) {
+    // eslint-disable-next-line no-prototype-builtins
+    if (payload && payload.hasOwnProperty && payload.hasOwnProperty(property)) {
+      return true;
+    }
 
-  return false;
+    return false;
+  };
 };
-const passUnsuccessfullMessages = (allMessages, newMessage) => {
-  const {
-    sendingStatus = UNDEFINED
-  } = newMessage;
+var passUnsuccessfullMessages = function passUnsuccessfullMessages(allMessages, newMessage) {
+  var _newMessage$sendingSt = newMessage.sendingStatus,
+      sendingStatus = _newMessage$sendingSt === void 0 ? UNDEFINED : _newMessage$sendingSt;
 
   if (sendingStatus === SUCCEEDED$1 || sendingStatus === PENDING$1) {
-    const lastIndexOfSucceededMessage = allMessages.map(message => message.sendingStatus || (message.isAdminMessage && message.isAdminMessage() ? SUCCEEDED$1 : UNDEFINED)).lastIndexOf(SUCCEEDED$1);
+    var lastIndexOfSucceededMessage = allMessages.map(function (message) {
+      return message.sendingStatus || (message.isAdminMessage && message.isAdminMessage() ? SUCCEEDED$1 : UNDEFINED);
+    }).lastIndexOf(SUCCEEDED$1);
 
     if (lastIndexOfSucceededMessage + 1 < allMessages.length) {
-      const messages = [...allMessages];
+      var messages = LocalizationContext._toConsumableArray(allMessages);
+
       messages.splice(lastIndexOfSucceededMessage + 1, 0, newMessage);
       return messages;
     }
   }
 
-  return [...allMessages, newMessage];
+  return [].concat(LocalizationContext._toConsumableArray(allMessages), [newMessage]);
 };
-const pxToNumber = px => {
+var pxToNumber = function pxToNumber(px) {
   if (typeof px === 'number') {
     return px;
   }
 
   if (typeof px === 'string') {
-    const parsed = Number.parseFloat(px);
+    var parsed = Number.parseFloat(px);
 
     if (!Number.isNaN(parsed)) {
       return parsed;
@@ -325,29 +279,6 @@ const pxToNumber = px => {
 
   return null;
 };
-
-var utils = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  scrollIntoLast: scrollIntoLast,
-  pubSubHandleRemover: pubSubHandleRemover,
-  pubSubHandler: pubSubHandler,
-  getParsedStatus: getParsedStatus,
-  isOperator: isOperator,
-  isDisabledBecauseFrozen: isDisabledBecauseFrozen,
-  isDisabledBecauseMuted: isDisabledBecauseMuted,
-  getEmojiCategoriesFromEmojiContainer: getEmojiCategoriesFromEmojiContainer$1,
-  getAllEmojisFromEmojiContainer: getAllEmojisFromEmojiContainer$1,
-  getEmojisFromEmojiContainer: getEmojisFromEmojiContainer$1,
-  getAllEmojisMapFromEmojiContainer: getAllEmojisMapFromEmojiContainer,
-  getNicknamesMapFromMembers: getNicknamesMapFromMembers,
-  getMessageCreatedAt: getMessageCreatedAt,
-  isSameGroup: isSameGroup,
-  compareMessagesForGrouping: compareMessagesForGrouping,
-  hasOwnProperty: hasOwnProperty,
-  passUnsuccessfullMessages: passUnsuccessfullMessages,
-  pxToNumber: pxToNumber,
-  'default': getParsedStatus
-});
 
 var messagesInitialState = {
   initialized: false,
@@ -372,11 +303,11 @@ var messagesInitialState = {
   messageListParams: null
 };
 
-const {
-  SUCCEEDED,
-  FAILED,
-  PENDING
-} = index.getSendingMessageStatus();
+var _getSendingMessageSta = index.getSendingMessageStatus(),
+    SUCCEEDED = _getSendingMessageSta.SUCCEEDED,
+    FAILED = _getSendingMessageSta.FAILED,
+    PENDING = _getSendingMessageSta.PENDING;
+
 function reducer(state, action) {
   switch (action.type) {
     case RESET_STATE:
@@ -397,30 +328,29 @@ function reducer(state, action) {
 
     case CLEAR_SENT_MESSAGES:
       return LocalizationContext._objectSpread2(LocalizationContext._objectSpread2({}, state), {}, {
-        allMessages: [...state.allMessages.filter(m => m.sendingStatus !== SUCCEEDED)]
+        allMessages: LocalizationContext._toConsumableArray(state.allMessages.filter(function (m) {
+          return m.sendingStatus !== SUCCEEDED;
+        }))
       });
 
     case GET_PREV_MESSAGES_SUCESS:
       {
-        const receivedMessages = action.payload.messages || [];
-        const {
-          currentGroupChannel = {}
-        } = action.payload;
-        const stateChannel = state.currentGroupChannel || {};
-        const stateChannelUrl = stateChannel.url;
-        const actionChannelUrl = currentGroupChannel.url;
+        var receivedMessages = action.payload.messages || [];
+        var _action$payload$curre = action.payload.currentGroupChannel,
+            currentGroupChannel = _action$payload$curre === void 0 ? {} : _action$payload$curre;
+        var stateChannel = state.currentGroupChannel || {};
+        var stateChannelUrl = stateChannel.url;
+        var actionChannelUrl = currentGroupChannel.url;
 
         if (actionChannelUrl !== stateChannelUrl) {
           return state;
         } // remove duplicate messages
 
 
-        const duplicatedMessageIds = [];
-        const updatedAllMessages = state.allMessages.map(msg => {
-          const duplicatedMessage = receivedMessages.find(_ref => {
-            let {
-              messageId
-            } = _ref;
+        var duplicatedMessageIds = [];
+        var updatedAllMessages = state.allMessages.map(function (msg) {
+          var duplicatedMessage = receivedMessages.find(function (_ref) {
+            var messageId = _ref.messageId;
             return index$3.compareIds(messageId, msg.messageId);
           });
 
@@ -431,9 +361,13 @@ function reducer(state, action) {
           duplicatedMessageIds.push(duplicatedMessage.messageId);
           return duplicatedMessage.updatedAt > msg.updatedAt ? duplicatedMessage : msg;
         });
-        const filteredNewMessages = duplicatedMessageIds.length > 0 ? receivedMessages.filter(msg => !duplicatedMessageIds.find(messageId => index$3.compareIds(messageId, msg.messageId))) : receivedMessages;
-        const hasHasMoreToBottom = hasOwnProperty('hasMoreToBottom')(action.payload);
-        const hasLatestFetchedMessageTimeStamp = hasOwnProperty('latestFetchedMessageTimeStamp')(action.payload);
+        var filteredNewMessages = duplicatedMessageIds.length > 0 ? receivedMessages.filter(function (msg) {
+          return !duplicatedMessageIds.find(function (messageId) {
+            return index$3.compareIds(messageId, msg.messageId);
+          });
+        }) : receivedMessages;
+        var hasHasMoreToBottom = hasOwnProperty('hasMoreToBottom')(action.payload);
+        var hasLatestFetchedMessageTimeStamp = hasOwnProperty('latestFetchedMessageTimeStamp')(action.payload);
         return LocalizationContext._objectSpread2(LocalizationContext._objectSpread2(LocalizationContext._objectSpread2(LocalizationContext._objectSpread2({}, state), {}, {
           loading: false,
           initialized: true,
@@ -444,31 +378,32 @@ function reducer(state, action) {
         }), hasLatestFetchedMessageTimeStamp && {
           latestFetchedMessageTimeStamp: action.payload.latestFetchedMessageTimeStamp
         }), {}, {
-          allMessages: [...filteredNewMessages, ...updatedAllMessages]
+          allMessages: [].concat(LocalizationContext._toConsumableArray(filteredNewMessages), LocalizationContext._toConsumableArray(updatedAllMessages))
         });
       }
 
     case GET_NEXT_MESSAGES_SUCESS:
       {
-        const receivedMessages = action.payload.messages || [];
-        const {
-          currentGroupChannel = {}
-        } = action.payload;
-        const stateChannel = state.currentGroupChannel || {};
-        const stateChannelUrl = stateChannel.url;
-        const actionChannelUrl = currentGroupChannel.url;
+        var _receivedMessages = action.payload.messages || [];
 
-        if (actionChannelUrl !== stateChannelUrl) {
+        var _action$payload$curre2 = action.payload.currentGroupChannel,
+            _currentGroupChannel = _action$payload$curre2 === void 0 ? {} : _action$payload$curre2;
+
+        var _stateChannel = state.currentGroupChannel || {};
+
+        var _stateChannelUrl = _stateChannel.url;
+        var _actionChannelUrl = _currentGroupChannel.url;
+
+        if (_actionChannelUrl !== _stateChannelUrl) {
           return state;
         } // remove duplicate messages
 
 
-        const duplicatedMessageIds = [];
-        const updatedAllMessages = state.allMessages.map(msg => {
-          const duplicatedMessage = receivedMessages.find(_ref2 => {
-            let {
-              messageId
-            } = _ref2;
+        var _duplicatedMessageIds = [];
+
+        var _updatedAllMessages = state.allMessages.map(function (msg) {
+          var duplicatedMessage = _receivedMessages.find(function (_ref2) {
+            var messageId = _ref2.messageId;
             return index$3.compareIds(messageId, msg.messageId);
           });
 
@@ -476,10 +411,17 @@ function reducer(state, action) {
             return msg;
           }
 
-          duplicatedMessageIds.push(duplicatedMessage.messageId);
+          _duplicatedMessageIds.push(duplicatedMessage.messageId);
+
           return duplicatedMessage.updatedAt > msg.updatedAt ? duplicatedMessage : msg;
         });
-        const filteredNewMessages = duplicatedMessageIds.length > 0 ? receivedMessages.filter(msg => !duplicatedMessageIds.find(messageId => index$3.compareIds(messageId, msg.messageId))) : receivedMessages;
+
+        var _filteredNewMessages = _duplicatedMessageIds.length > 0 ? _receivedMessages.filter(function (msg) {
+          return !_duplicatedMessageIds.find(function (messageId) {
+            return index$3.compareIds(messageId, msg.messageId);
+          });
+        }) : _receivedMessages;
+
         return LocalizationContext._objectSpread2(LocalizationContext._objectSpread2({}, state), {}, {
           loading: false,
           initialized: true,
@@ -487,7 +429,7 @@ function reducer(state, action) {
           lastMessageTimeStamp: action.payload.lastMessageTimeStamp,
           hasMoreToBottom: action.payload.hasMoreToBottom,
           latestFetchedMessageTimeStamp: action.payload.latestFetchedMessageTimeStamp,
-          allMessages: [...updatedAllMessages, ...filteredNewMessages]
+          allMessages: [].concat(LocalizationContext._toConsumableArray(_updatedAllMessages), LocalizationContext._toConsumableArray(_filteredNewMessages))
         });
       }
 
@@ -498,13 +440,19 @@ function reducer(state, action) {
 
     case SEND_MESSAGEGE_START:
       return LocalizationContext._objectSpread2(LocalizationContext._objectSpread2({}, state), {}, {
-        allMessages: [...state.allMessages, LocalizationContext._objectSpread2({}, action.payload)]
+        allMessages: [].concat(LocalizationContext._toConsumableArray(state.allMessages), [LocalizationContext._objectSpread2({}, action.payload)])
       });
 
     case SEND_MESSAGEGE_SUCESS:
       {
-        const newMessages = state.allMessages.map(m => index$3.compareIds(m.reqId, action.payload.reqId) ? action.payload : m);
-        [...newMessages].sort((a, b) => a.sendingStatus && b.sendingStatus && a.sendingStatus === SUCCEEDED && (b.sendingStatus === PENDING || b.sendingStatus === FAILED) ? -1 : 1);
+        var newMessages = state.allMessages.map(function (m) {
+          return index$3.compareIds(m.reqId, action.payload.reqId) ? action.payload : m;
+        });
+
+        LocalizationContext._toConsumableArray(newMessages).sort(function (a, b) {
+          return a.sendingStatus && b.sendingStatus && a.sendingStatus === SUCCEEDED && (b.sendingStatus === PENDING || b.sendingStatus === FAILED) ? -1 : 1;
+        });
+
         return LocalizationContext._objectSpread2(LocalizationContext._objectSpread2({}, state), {}, {
           allMessages: newMessages
         });
@@ -515,7 +463,9 @@ function reducer(state, action) {
         // eslint-disable-next-line no-param-reassign
         action.payload.failed = true;
         return LocalizationContext._objectSpread2(LocalizationContext._objectSpread2({}, state), {}, {
-          allMessages: state.allMessages.map(m => index$3.compareIds(m.reqId, action.payload.reqId) ? action.payload : m)
+          allMessages: state.allMessages.map(function (m) {
+            return index$3.compareIds(m.reqId, action.payload.reqId) ? action.payload : m;
+          })
         });
       }
 
@@ -536,14 +486,13 @@ function reducer(state, action) {
 
     case UPDATE_UNREAD_COUNT:
       {
-        const {
-          channel
-        } = action.payload;
-        const {
-          currentGroupChannel = {},
-          unreadCount
-        } = state;
-        const currentGroupChannelUrl = currentGroupChannel.url;
+        var channel = action.payload.channel;
+
+        var _state$currentGroupCh = state.currentGroupChannel,
+            _currentGroupChannel2 = _state$currentGroupCh === void 0 ? {} : _state$currentGroupCh,
+            unreadCount = state.unreadCount;
+
+        var currentGroupChannelUrl = _currentGroupChannel2.url;
 
         if (!index$3.compareIds(channel.url, currentGroupChannelUrl)) {
           return state;
@@ -556,24 +505,26 @@ function reducer(state, action) {
 
     case ON_MESSAGE_RECEIVED:
       {
-        const {
-          channel,
-          message,
-          scrollToEnd
-        } = action.payload;
-        let unreadCount = 0;
-        const {
-          currentGroupChannel = {},
-          unreadSince
-        } = state;
-        const currentGroupChannelUrl = currentGroupChannel.url;
+        var _action$payload = action.payload,
+            _channel = _action$payload.channel,
+            message = _action$payload.message,
+            scrollToEnd = _action$payload.scrollToEnd;
+        var _unreadCount = 0;
 
-        if (!index$3.compareIds(channel.url, currentGroupChannelUrl)) {
+        var _state$currentGroupCh2 = state.currentGroupChannel,
+            _currentGroupChannel3 = _state$currentGroupCh2 === void 0 ? {} : _state$currentGroupCh2,
+            unreadSince = state.unreadSince;
+
+        var _currentGroupChannelUrl = _currentGroupChannel3.url;
+
+        if (!index$3.compareIds(_channel.url, _currentGroupChannelUrl)) {
           return state;
         } // Excluded overlapping messages
 
 
-        if (state.allMessages.some(msg => msg.messageId === message.messageId)) {
+        if (state.allMessages.some(function (msg) {
+          return msg.messageId === message.messageId;
+        })) {
           return state;
         } // Filter by userFilledQuery
 
@@ -582,10 +533,10 @@ function reducer(state, action) {
           return state;
         }
 
-        unreadCount = state.unreadCount + 1; // reset unreadCount if have to scrollToEnd
+        _unreadCount = state.unreadCount + 1; // reset unreadCount if have to scrollToEnd
 
         if (scrollToEnd) {
-          unreadCount = 0;
+          _unreadCount = 0;
         }
 
         if (message.isAdminMessage && message.isAdminMessage()) {
@@ -595,55 +546,57 @@ function reducer(state, action) {
         }
 
         return LocalizationContext._objectSpread2(LocalizationContext._objectSpread2({}, state), {}, {
-          unreadCount,
-          unreadSince: unreadCount === 1 ? index$2.format(new Date(), 'p MMM dd') : unreadSince,
+          unreadCount: _unreadCount,
+          unreadSince: _unreadCount === 1 ? index$2.format(new Date(), 'p MMM dd') : unreadSince,
           allMessages: passUnsuccessfullMessages(state.allMessages, message)
         });
       }
 
     case ON_MESSAGE_UPDATED:
       {
-        const {
-          channel,
-          message
-        } = action.payload;
-        const currentGroupChannelUrl = state.currentGroupChannel && state.currentGroupChannel.url || '';
+        var _action$payload2 = action.payload,
+            _channel2 = _action$payload2.channel,
+            _message = _action$payload2.message;
 
-        if (!index$3.compareIds(channel.url, currentGroupChannelUrl)) {
+        var _currentGroupChannelUrl2 = state.currentGroupChannel && state.currentGroupChannel.url || '';
+
+        if (!index$3.compareIds(_channel2.url, _currentGroupChannelUrl2)) {
           return state; // Ignore event when it is not for the current channel
         }
 
-        if (state.messageListParams && !index.filterMessageListParams(state.messageListParams, message)) {
+        if (state.messageListParams && !index.filterMessageListParams(state.messageListParams, _message)) {
           // Delete the message if it doesn't match to the params anymore
           return LocalizationContext._objectSpread2(LocalizationContext._objectSpread2({}, state), {}, {
-            allMessages: state.allMessages.filter(m => !index$3.compareIds(m.messageId, message === null || message === void 0 ? void 0 : message.messageId))
+            allMessages: state.allMessages.filter(function (m) {
+              return !index$3.compareIds(m.messageId, _message === null || _message === void 0 ? void 0 : _message.messageId);
+            })
           });
         }
 
         return LocalizationContext._objectSpread2(LocalizationContext._objectSpread2({}, state), {}, {
-          allMessages: state.allMessages.map(m => index$3.compareIds(m.messageId, action.payload.message.messageId) ? action.payload.message : m)
+          allMessages: state.allMessages.map(function (m) {
+            return index$3.compareIds(m.messageId, action.payload.message.messageId) ? action.payload.message : m;
+          })
         });
       }
 
     case ON_MESSAGE_THREAD_INFO_UPDATED:
       {
-        const {
-          channel,
-          event
-        } = action.payload;
-        const {
-          channelUrl,
-          threadInfo,
-          targetMessageId
-        } = event;
-        const currentGroupChannelUrl = state.currentGroupChannel && state.currentGroupChannel.url || '';
+        var _action$payload3 = action.payload,
+            _channel3 = _action$payload3.channel,
+            event = _action$payload3.event;
+        var channelUrl = event.channelUrl,
+            threadInfo = event.threadInfo,
+            targetMessageId = event.targetMessageId;
 
-        if (!index$3.compareIds(channel.url, currentGroupChannelUrl) || !index$3.compareIds(channel.url, channelUrl)) {
+        var _currentGroupChannelUrl3 = state.currentGroupChannel && state.currentGroupChannel.url || '';
+
+        if (!index$3.compareIds(_channel3.url, _currentGroupChannelUrl3) || !index$3.compareIds(_channel3.url, channelUrl)) {
           return state; // Ignore event when it is not for the current channel
         }
 
         return LocalizationContext._objectSpread2(LocalizationContext._objectSpread2({}, state), {}, {
-          allMessages: state.allMessages.map(m => {
+          allMessages: state.allMessages.map(function (m) {
             if (index$3.compareIds(m.messageId, targetMessageId)) {
               // eslint-disable-next-line no-param-reassign
               m.threadInfo = threadInfo; // Upsert threadInfo to the target message
@@ -656,7 +609,9 @@ function reducer(state, action) {
 
     case RESEND_MESSAGEGE_START:
       return LocalizationContext._objectSpread2(LocalizationContext._objectSpread2({}, state), {}, {
-        allMessages: state.allMessages.map(m => index$3.compareIds(m.reqId, action.payload.reqId) ? action.payload : m)
+        allMessages: state.allMessages.map(function (m) {
+          return index$3.compareIds(m.reqId, action.payload.reqId) ? action.payload : m;
+        })
       });
 
     case MARK_AS_READ:
@@ -667,12 +622,16 @@ function reducer(state, action) {
 
     case ON_MESSAGE_DELETED:
       return LocalizationContext._objectSpread2(LocalizationContext._objectSpread2({}, state), {}, {
-        allMessages: state.allMessages.filter(m => !index$3.compareIds(m.messageId, action.payload))
+        allMessages: state.allMessages.filter(function (m) {
+          return !index$3.compareIds(m.messageId, action.payload);
+        })
       });
 
     case ON_MESSAGE_DELETED_BY_REQ_ID:
       return LocalizationContext._objectSpread2(LocalizationContext._objectSpread2({}, state), {}, {
-        allMessages: state.allMessages.filter(m => !index$3.compareIds(m.reqId, action.payload))
+        allMessages: state.allMessages.filter(function (m) {
+          return !index$3.compareIds(m.reqId, action.payload);
+        })
       });
 
     case SET_EMOJI_CONTAINER:
@@ -685,7 +644,7 @@ function reducer(state, action) {
     case ON_REACTION_UPDATED:
       {
         return LocalizationContext._objectSpread2(LocalizationContext._objectSpread2({}, state), {}, {
-          allMessages: state.allMessages.map(m => {
+          allMessages: state.allMessages.map(function (m) {
             if (index$3.compareIds(m.messageId, action.payload.messageId)) {
               if (m.applyReactionEvent && typeof m.applyReactionEvent === 'function') {
                 m.applyReactionEvent(action.payload);
@@ -721,35 +680,29 @@ function reducer(state, action) {
  */
 
 function useHandleChannelEvents(_ref, _ref2) {
-  let {
-    currentGroupChannel,
-    sdkInit,
-    hasMoreToBottom
-  } = _ref;
-  let {
-    messagesDispatcher,
-    sdk,
-    logger,
-    scrollRef,
-    setQuoteMessage
-  } = _ref2;
-  const channelUrl = currentGroupChannel && (currentGroupChannel === null || currentGroupChannel === void 0 ? void 0 : currentGroupChannel.url);
-  React.useEffect(() => {
-    const messageReceiverId = LocalizationContext.uuidv4();
+  var currentGroupChannel = _ref.currentGroupChannel,
+      sdkInit = _ref.sdkInit,
+      hasMoreToBottom = _ref.hasMoreToBottom;
+  var messagesDispatcher = _ref2.messagesDispatcher,
+      sdk = _ref2.sdk,
+      logger = _ref2.logger,
+      scrollRef = _ref2.scrollRef,
+      setQuoteMessage = _ref2.setQuoteMessage;
+  var channelUrl = currentGroupChannel && (currentGroupChannel === null || currentGroupChannel === void 0 ? void 0 : currentGroupChannel.url);
+  React.useEffect(function () {
+    var messageReceiverId = LocalizationContext.uuidv4();
 
     if (channelUrl && sdk && sdk.ChannelHandler) {
-      const ChannelHandler = new sdk.ChannelHandler();
+      var ChannelHandler = new sdk.ChannelHandler();
       logger.info('Channel | useHandleChannelEvents: Setup event handler', messageReceiverId);
 
-      ChannelHandler.onMessageReceived = (channel, message) => {
+      ChannelHandler.onMessageReceived = function (channel, message) {
         // donot update if hasMoreToBottom
         if (index$3.compareIds(channel.url, channelUrl) && !hasMoreToBottom) {
-          let scrollToEnd = false;
+          var scrollToEnd = false;
 
           try {
-            const {
-              current
-            } = scrollRef;
+            var current = scrollRef.current;
             scrollToEnd = current.offsetHeight + current.scrollTop >= current.scrollHeight;
           } catch (error) {//
           }
@@ -758,15 +711,15 @@ function useHandleChannelEvents(_ref, _ref2) {
           messagesDispatcher({
             type: ON_MESSAGE_RECEIVED,
             payload: {
-              channel,
-              message,
-              scrollToEnd
+              channel: channel,
+              message: message,
+              scrollToEnd: scrollToEnd
             }
           });
 
           if (scrollToEnd) {
             try {
-              setTimeout(() => {
+              setTimeout(function () {
                 try {
                   currentGroupChannel.markAsRead();
                 } catch (_unused) {//
@@ -784,7 +737,7 @@ function useHandleChannelEvents(_ref, _ref2) {
           messagesDispatcher({
             type: UPDATE_UNREAD_COUNT,
             payload: {
-              channel
+              channel: channel
             }
           });
         }
@@ -796,7 +749,7 @@ function useHandleChannelEvents(_ref, _ref2) {
        */
 
 
-      ChannelHandler.onReadReceiptUpdated = channel => {
+      ChannelHandler.onReadReceiptUpdated = function (channel) {
         if (index$3.compareIds(channel.url, channelUrl)) {
           logger.info('Channel | useHandleChannelEvents: onReadReceiptUpdated', channel);
           messagesDispatcher({
@@ -806,7 +759,7 @@ function useHandleChannelEvents(_ref, _ref2) {
         }
       };
 
-      ChannelHandler.onDeliveryReceiptUpdated = channel => {
+      ChannelHandler.onDeliveryReceiptUpdated = function (channel) {
         if (index$3.compareIds(channel.url, channelUrl)) {
           logger.info('Channel | useHandleChannelEvents: onDeliveryReceiptUpdated', channel);
           messagesDispatcher({
@@ -816,29 +769,29 @@ function useHandleChannelEvents(_ref, _ref2) {
         }
       };
 
-      ChannelHandler.onMessageUpdated = (channel, message) => {
+      ChannelHandler.onMessageUpdated = function (channel, message) {
         logger.info('Channel | useHandleChannelEvents: onMessageUpdated', message);
         messagesDispatcher({
           type: ON_MESSAGE_UPDATED,
           payload: {
-            channel,
-            message
+            channel: channel,
+            message: message
           }
         });
       };
 
-      ChannelHandler.onThreadInfoUpdated = (channel, event) => {
+      ChannelHandler.onThreadInfoUpdated = function (channel, event) {
         logger.info('Channel | useHandleChannelEvents: onThreadInfoUpdated', event);
         messagesDispatcher({
           type: ON_MESSAGE_THREAD_INFO_UPDATED,
           payload: {
-            channel,
-            event
+            channel: channel,
+            event: event
           }
         });
       };
 
-      ChannelHandler.onMessageDeleted = (_, messageId) => {
+      ChannelHandler.onMessageDeleted = function (_, messageId) {
         logger.info('Channel | useHandleChannelEvents: onMessageDeleted', messageId);
         setQuoteMessage(null);
         messagesDispatcher({
@@ -847,7 +800,7 @@ function useHandleChannelEvents(_ref, _ref2) {
         });
       };
 
-      ChannelHandler.onReactionUpdated = (_, reactionEvent) => {
+      ChannelHandler.onReactionUpdated = function (_, reactionEvent) {
         logger.info('Channel | useHandleChannelEvents: onReactionUpdated', reactionEvent);
         messagesDispatcher({
           type: ON_REACTION_UPDATED,
@@ -855,7 +808,7 @@ function useHandleChannelEvents(_ref, _ref2) {
         });
       };
 
-      ChannelHandler.onChannelChanged = groupChannel => {
+      ChannelHandler.onChannelChanged = function (groupChannel) {
         if (index$3.compareIds(groupChannel.url, channelUrl)) {
           logger.info('Channel | useHandleChannelEvents: onChannelChanged', groupChannel);
           messagesDispatcher({
@@ -865,7 +818,7 @@ function useHandleChannelEvents(_ref, _ref2) {
         }
       };
 
-      ChannelHandler.onChannelFrozen = groupChannel => {
+      ChannelHandler.onChannelFrozen = function (groupChannel) {
         if (index$3.compareIds(groupChannel.url, channelUrl)) {
           logger.info('Channel | useHandleChannelEvents: onChannelFrozen', groupChannel);
           messagesDispatcher({
@@ -875,7 +828,7 @@ function useHandleChannelEvents(_ref, _ref2) {
         }
       };
 
-      ChannelHandler.onChannelUnfrozen = groupChannel => {
+      ChannelHandler.onChannelUnfrozen = function (groupChannel) {
         if (index$3.compareIds(groupChannel.url, channelUrl)) {
           logger.info('Channel | useHandleChannelEvents: onChannelUnFrozen', groupChannel);
           messagesDispatcher({
@@ -885,7 +838,7 @@ function useHandleChannelEvents(_ref, _ref2) {
         }
       };
 
-      ChannelHandler.onUserMuted = groupChannel => {
+      ChannelHandler.onUserMuted = function (groupChannel) {
         if (index$3.compareIds(groupChannel.url, channelUrl)) {
           logger.info('Channel | useHandleChannelEvents: onUserMuted', groupChannel);
           messagesDispatcher({
@@ -895,7 +848,7 @@ function useHandleChannelEvents(_ref, _ref2) {
         }
       };
 
-      ChannelHandler.onUserUnmuted = groupChannel => {
+      ChannelHandler.onUserUnmuted = function (groupChannel) {
         if (index$3.compareIds(groupChannel.url, channelUrl)) {
           logger.info('Channel | useHandleChannelEvents: onUserUnmuted', groupChannel);
           messagesDispatcher({
@@ -905,7 +858,7 @@ function useHandleChannelEvents(_ref, _ref2) {
         }
       };
 
-      ChannelHandler.onUserBanned = groupChannel => {
+      ChannelHandler.onUserBanned = function (groupChannel) {
         if (index$3.compareIds(groupChannel.url, channelUrl)) {
           logger.info('Channel | useHandleChannelEvents: onUserBanned', groupChannel);
           messagesDispatcher({
@@ -915,7 +868,7 @@ function useHandleChannelEvents(_ref, _ref2) {
         }
       };
 
-      ChannelHandler.onOperatorUpdated = groupChannel => {
+      ChannelHandler.onOperatorUpdated = function (groupChannel) {
         if (index$3.compareIds(groupChannel.url, channelUrl)) {
           logger.info('Channel | useHandleChannelEvents: onOperatorUpdated', groupChannel);
           messagesDispatcher({
@@ -929,7 +882,7 @@ function useHandleChannelEvents(_ref, _ref2) {
       sdk.addChannelHandler(messageReceiverId, ChannelHandler);
     }
 
-    return () => {
+    return function () {
       if (sdk && sdk.removeChannelHandler) {
         logger.info('Channel | useHandleChannelEvents: Removing message reciver handler', messageReceiverId);
         sdk.removeChannelHandler(messageReceiverId);
@@ -939,19 +892,15 @@ function useHandleChannelEvents(_ref, _ref2) {
 }
 
 function useSetChannel(_ref, _ref2) {
-  let {
-    channelUrl,
-    sdkInit
-  } = _ref;
-  let {
-    messagesDispatcher,
-    sdk,
-    logger
-  } = _ref2;
-  React.useEffect(() => {
+  var channelUrl = _ref.channelUrl,
+      sdkInit = _ref.sdkInit;
+  var messagesDispatcher = _ref2.messagesDispatcher,
+      sdk = _ref2.sdk,
+      logger = _ref2.logger;
+  React.useEffect(function () {
     if (channelUrl && sdkInit && sdk && sdk.GroupChannel) {
       logger.info('Channel | useSetChannel fetching channel', channelUrl);
-      sdk.GroupChannel.getChannel(channelUrl).then(groupChannel => {
+      sdk.GroupChannel.getChannel(channelUrl).then(function (groupChannel) {
         logger.info('Channel | useSetChannel fetched channel', groupChannel);
         messagesDispatcher({
           type: SET_CURRENT_CHANNEL,
@@ -963,16 +912,16 @@ function useSetChannel(_ref, _ref2) {
           groupChannel.markAsRead();
         } catch (_unused) {//
         }
-      }).catch(e => {
+      }).catch(function (e) {
         logger.warning('Channel | useSetChannel fetch channel failed', {
-          channelUrl,
-          e
+          channelUrl: channelUrl,
+          e: e
         });
         messagesDispatcher({
           type: SET_CHANNEL_INVALID
         });
       });
-      sdk.getAllEmoji((emojiContainer_, err) => {
+      sdk.getAllEmoji(function (emojiContainer_, err) {
         if (err) {
           logger.error('Channel: Getting emojis failed', err);
           return;
@@ -988,36 +937,32 @@ function useSetChannel(_ref, _ref2) {
   }, [channelUrl, sdkInit]);
 }
 
-const PREV_RESULT_SIZE = 30;
-const NEXT_RESULT_SIZE = 10;
+var PREV_RESULT_SIZE = 30;
+var NEXT_RESULT_SIZE = 10;
 
-const getLatestMessageTimeStamp = function () {
-  let messages = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  const latestMessage = messages[messages.length - 1];
+var getLatestMessageTimeStamp = function getLatestMessageTimeStamp() {
+  var messages = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var latestMessage = messages[messages.length - 1];
   return latestMessage && latestMessage.createdAt || null;
 };
 
 function useInitialMessagesFetch(_ref, _ref2) {
-  let {
-    currentGroupChannel,
-    userFilledMessageListQuery,
-    intialTimeStamp,
-    replyType
-  } = _ref;
-  let {
-    sdk,
-    logger,
-    messagesDispatcher
-  } = _ref2;
-  const channelUrl = currentGroupChannel && currentGroupChannel.url;
-  React.useEffect(() => {
+  var currentGroupChannel = _ref.currentGroupChannel,
+      userFilledMessageListQuery = _ref.userFilledMessageListQuery,
+      intialTimeStamp = _ref.intialTimeStamp,
+      replyType = _ref.replyType;
+  var sdk = _ref2.sdk,
+      logger = _ref2.logger,
+      messagesDispatcher = _ref2.messagesDispatcher;
+  var channelUrl = currentGroupChannel && currentGroupChannel.url;
+  React.useEffect(function () {
     logger.info('Channel useInitialMessagesFetch: Setup started', currentGroupChannel);
     messagesDispatcher({
       type: RESET_MESSAGES
     });
 
     if (sdk && sdk.MessageListParams && currentGroupChannel && currentGroupChannel.getMessagesByTimestamp) {
-      const messageListParams = new sdk.MessageListParams();
+      var messageListParams = new sdk.MessageListParams();
       messageListParams.prevResultSize = PREV_RESULT_SIZE;
       messageListParams.isInclusive = true;
       messageListParams.includeReplies = false;
@@ -1030,7 +975,7 @@ function useInitialMessagesFetch(_ref, _ref2) {
       }
 
       if (userFilledMessageListQuery) {
-        Object.keys(userFilledMessageListQuery).forEach(key => {
+        Object.keys(userFilledMessageListQuery).forEach(function (key) {
           messageListParams[key] = userFilledMessageListQuery[key];
         });
       }
@@ -1044,8 +989,8 @@ function useInitialMessagesFetch(_ref, _ref2) {
       }
 
       logger.info('Channel: Fetching messages', {
-        currentGroupChannel,
-        userFilledMessageListQuery
+        currentGroupChannel: currentGroupChannel,
+        userFilledMessageListQuery: userFilledMessageListQuery
       });
       messagesDispatcher({
         type: GET_PREV_MESSAGES_START
@@ -1053,12 +998,12 @@ function useInitialMessagesFetch(_ref, _ref2) {
 
       if (intialTimeStamp) {
         messageListParams.nextResultSize = NEXT_RESULT_SIZE;
-        currentGroupChannel.getMessagesByTimestamp(intialTimeStamp, messageListParams).then(messages => {
-          const hasMore = messages && messages.length > 0;
-          const lastMessageTimeStamp = hasMore ? messages[0].createdAt : null;
-          const latestFetchedMessageTimeStamp = getLatestMessageTimeStamp(messages); // to make sure there are no more messages below
+        currentGroupChannel.getMessagesByTimestamp(intialTimeStamp, messageListParams).then(function (messages) {
+          var hasMore = messages && messages.length > 0;
+          var lastMessageTimeStamp = hasMore ? messages[0].createdAt : null;
+          var latestFetchedMessageTimeStamp = getLatestMessageTimeStamp(messages); // to make sure there are no more messages below
 
-          const nextMessageListParams = new sdk.MessageListParams();
+          var nextMessageListParams = new sdk.MessageListParams();
           nextMessageListParams.nextResultSize = NEXT_RESULT_SIZE;
           nextMessageListParams.isInclusive = true;
           nextMessageListParams.includeReplies = false;
@@ -1071,25 +1016,25 @@ function useInitialMessagesFetch(_ref, _ref2) {
           }
 
           if (userFilledMessageListQuery) {
-            Object.keys(userFilledMessageListQuery).forEach(key => {
+            Object.keys(userFilledMessageListQuery).forEach(function (key) {
               nextMessageListParams[key] = userFilledMessageListQuery[key];
             });
           }
 
-          currentGroupChannel.getMessagesByTimestamp(latestFetchedMessageTimeStamp || new Date().getTime(), nextMessageListParams).then(nextMessages => {
+          currentGroupChannel.getMessagesByTimestamp(latestFetchedMessageTimeStamp || new Date().getTime(), nextMessageListParams).then(function (nextMessages) {
             messagesDispatcher({
               type: GET_PREV_MESSAGES_SUCESS,
               payload: {
-                messages,
-                hasMore,
-                lastMessageTimeStamp,
-                currentGroupChannel,
-                latestFetchedMessageTimeStamp,
+                messages: messages,
+                hasMore: hasMore,
+                lastMessageTimeStamp: lastMessageTimeStamp,
+                currentGroupChannel: currentGroupChannel,
+                latestFetchedMessageTimeStamp: latestFetchedMessageTimeStamp,
                 hasMoreToBottom: nextMessages && nextMessages.length > 0
               }
             });
           });
-        }).catch(error => {
+        }).catch(function (error) {
           logger.error('Channel: Fetching messages failed', error);
           messagesDispatcher({
             type: GET_PREV_MESSAGES_SUCESS,
@@ -1097,12 +1042,14 @@ function useInitialMessagesFetch(_ref, _ref2) {
               messages: [],
               hasMore: false,
               lastMessageTimeStamp: 0,
-              currentGroupChannel
+              currentGroupChannel: currentGroupChannel
             }
           });
-        }).finally(() => {
+        }).finally(function () {
           if (!intialTimeStamp) {
-            setTimeout(() => scrollIntoLast());
+            setTimeout(function () {
+              return scrollIntoLast();
+            });
           }
 
           try {
@@ -1111,22 +1058,22 @@ function useInitialMessagesFetch(_ref, _ref2) {
           }
         });
       } else {
-        currentGroupChannel.getMessagesByTimestamp(new Date().getTime(), messageListParams).then(messages => {
-          const hasMore = messages && messages.length > 0;
-          const lastMessageTimeStamp = hasMore ? messages[0].createdAt : null;
-          const latestFetchedMessageTimeStamp = getLatestMessageTimeStamp(messages);
+        currentGroupChannel.getMessagesByTimestamp(new Date().getTime(), messageListParams).then(function (messages) {
+          var hasMore = messages && messages.length > 0;
+          var lastMessageTimeStamp = hasMore ? messages[0].createdAt : null;
+          var latestFetchedMessageTimeStamp = getLatestMessageTimeStamp(messages);
           messagesDispatcher({
             type: GET_PREV_MESSAGES_SUCESS,
             payload: {
-              messages,
-              hasMore,
-              lastMessageTimeStamp,
-              currentGroupChannel,
-              latestFetchedMessageTimeStamp,
+              messages: messages,
+              hasMore: hasMore,
+              lastMessageTimeStamp: lastMessageTimeStamp,
+              currentGroupChannel: currentGroupChannel,
+              latestFetchedMessageTimeStamp: latestFetchedMessageTimeStamp,
               hasMoreToBottom: false
             }
           });
-        }).catch(error => {
+        }).catch(function (error) {
           logger.error('Channel: Fetching messages failed', error);
           messagesDispatcher({
             type: GET_PREV_MESSAGES_SUCESS,
@@ -1134,12 +1081,14 @@ function useInitialMessagesFetch(_ref, _ref2) {
               messages: [],
               hasMore: false,
               lastMessageTimeStamp: 0,
-              currentGroupChannel
+              currentGroupChannel: currentGroupChannel
             }
           });
-        }).finally(() => {
+        }).finally(function () {
           if (!intialTimeStamp) {
-            setTimeout(() => scrollIntoLast());
+            setTimeout(function () {
+              return scrollIntoLast();
+            });
           }
 
           try {
@@ -1241,28 +1190,23 @@ function useHandleReconnect(_a, _b) {
 }
 
 function useScrollCallback(_ref, _ref2) {
-  let {
-    currentGroupChannel,
-    lastMessageTimeStamp,
-    userFilledMessageListQuery,
-    replyType
-  } = _ref;
-  let {
-    hasMore,
-    logger,
-    messagesDispatcher,
-    sdk
-  } = _ref2;
-  return React.useCallback(cb => {
+  var currentGroupChannel = _ref.currentGroupChannel,
+      lastMessageTimeStamp = _ref.lastMessageTimeStamp,
+      userFilledMessageListQuery = _ref.userFilledMessageListQuery,
+      replyType = _ref.replyType;
+  var hasMore = _ref2.hasMore,
+      logger = _ref2.logger,
+      messagesDispatcher = _ref2.messagesDispatcher,
+      sdk = _ref2.sdk;
+  return React.useCallback(function (cb) {
     if (!hasMore) {
       return;
     }
 
-    const {
-      appInfo = {}
-    } = sdk;
-    const useReaction = appInfo.isUsingReaction || false;
-    const messageListParams = new sdk.MessageListParams();
+    var _sdk$appInfo = sdk.appInfo,
+        appInfo = _sdk$appInfo === void 0 ? {} : _sdk$appInfo;
+    var useReaction = appInfo.isUsingReaction || false;
+    var messageListParams = new sdk.MessageListParams();
     messageListParams.prevResultSize = 30;
     messageListParams.isInclusive = true;
     messageListParams.includeReplies = false;
@@ -1275,29 +1219,29 @@ function useScrollCallback(_ref, _ref2) {
     }
 
     if (userFilledMessageListQuery) {
-      Object.keys(userFilledMessageListQuery).forEach(key => {
+      Object.keys(userFilledMessageListQuery).forEach(function (key) {
         messageListParams[key] = userFilledMessageListQuery[key];
       });
     }
 
     logger.info('Channel: Fetching messages', {
-      currentGroupChannel,
-      userFilledMessageListQuery
+      currentGroupChannel: currentGroupChannel,
+      userFilledMessageListQuery: userFilledMessageListQuery
     });
-    currentGroupChannel.getMessagesByTimestamp(lastMessageTimeStamp || new Date().getTime(), messageListParams).then(messages => {
-      const hasMoreMessages = messages && messages.length > 0;
-      const lastMessageTs = hasMoreMessages ? messages[0].createdAt : null;
+    currentGroupChannel.getMessagesByTimestamp(lastMessageTimeStamp || new Date().getTime(), messageListParams).then(function (messages) {
+      var hasMoreMessages = messages && messages.length > 0;
+      var lastMessageTs = hasMoreMessages ? messages[0].createdAt : null;
       messagesDispatcher({
         type: GET_PREV_MESSAGES_SUCESS,
         payload: {
-          messages,
+          messages: messages,
           hasMore: hasMoreMessages,
           lastMessageTimeStamp: lastMessageTs,
-          currentGroupChannel
+          currentGroupChannel: currentGroupChannel
         }
       });
       cb([messages, null]);
-    }).catch(error => {
+    }).catch(function (error) {
       logger.error('Channel: Fetching messages failed', error);
       messagesDispatcher({
         type: GET_PREV_MESSAGES_SUCESS,
@@ -1305,11 +1249,11 @@ function useScrollCallback(_ref, _ref2) {
           messages: [],
           hasMore: false,
           lastMessageTimeStamp: 0,
-          currentGroupChannel
+          currentGroupChannel: currentGroupChannel
         }
       });
       cb([null, error]);
-    }).finally(() => {
+    }).finally(function () {
       try {
         currentGroupChannel.markAsRead();
       } catch (_unused) {//
@@ -1318,31 +1262,26 @@ function useScrollCallback(_ref, _ref2) {
   }, [currentGroupChannel, lastMessageTimeStamp, replyType]);
 }
 
-const RESULT_SIZE = 30;
+var RESULT_SIZE = 30;
 
 function useScrollDownCallback(_ref, _ref2) {
-  let {
-    currentGroupChannel,
-    latestFetchedMessageTimeStamp,
-    userFilledMessageListQuery,
-    hasMoreToBottom,
-    replyType
-  } = _ref;
-  let {
-    logger,
-    messagesDispatcher,
-    sdk
-  } = _ref2;
-  return React.useCallback(cb => {
+  var currentGroupChannel = _ref.currentGroupChannel,
+      latestFetchedMessageTimeStamp = _ref.latestFetchedMessageTimeStamp,
+      userFilledMessageListQuery = _ref.userFilledMessageListQuery,
+      hasMoreToBottom = _ref.hasMoreToBottom,
+      replyType = _ref.replyType;
+  var logger = _ref2.logger,
+      messagesDispatcher = _ref2.messagesDispatcher,
+      sdk = _ref2.sdk;
+  return React.useCallback(function (cb) {
     if (!hasMoreToBottom) {
       return;
     }
 
-    const {
-      appInfo = {}
-    } = sdk;
-    const useReaction = appInfo.isUsingReaction || false;
-    const messageListParams = new sdk.MessageListParams();
+    var _sdk$appInfo = sdk.appInfo,
+        appInfo = _sdk$appInfo === void 0 ? {} : _sdk$appInfo;
+    var useReaction = appInfo.isUsingReaction || false;
+    var messageListParams = new sdk.MessageListParams();
     messageListParams.nextResultSize = RESULT_SIZE;
     messageListParams.isInclusive = true;
     messageListParams.includeReplies = false;
@@ -1355,30 +1294,30 @@ function useScrollDownCallback(_ref, _ref2) {
     }
 
     if (userFilledMessageListQuery) {
-      Object.keys(userFilledMessageListQuery).forEach(key => {
+      Object.keys(userFilledMessageListQuery).forEach(function (key) {
         messageListParams[key] = userFilledMessageListQuery[key];
       });
     }
 
     logger.info('Channel: Fetching later messages', {
-      currentGroupChannel,
-      userFilledMessageListQuery
+      currentGroupChannel: currentGroupChannel,
+      userFilledMessageListQuery: userFilledMessageListQuery
     });
-    currentGroupChannel.getMessagesByTimestamp(latestFetchedMessageTimeStamp || new Date().getTime(), messageListParams).then(messages => {
-      const messagesLength = messages && messages.length || 0;
-      const hasMoreMessages = messagesLength > 0 && messageListParams.nextResultSize === messagesLength;
-      const lastMessageTs = hasMoreMessages ? messages[messages.length - 1].createdAt : null;
+    currentGroupChannel.getMessagesByTimestamp(latestFetchedMessageTimeStamp || new Date().getTime(), messageListParams).then(function (messages) {
+      var messagesLength = messages && messages.length || 0;
+      var hasMoreMessages = messagesLength > 0 && messageListParams.nextResultSize === messagesLength;
+      var lastMessageTs = hasMoreMessages ? messages[messages.length - 1].createdAt : null;
       messagesDispatcher({
         type: GET_NEXT_MESSAGES_SUCESS,
         payload: {
-          messages,
+          messages: messages,
           hasMoreToBottom: hasMoreMessages,
           latestFetchedMessageTimeStamp: lastMessageTs,
-          currentGroupChannel
+          currentGroupChannel: currentGroupChannel
         }
       });
       cb([messages, null]);
-    }).catch(error => {
+    }).catch(function (error) {
       logger.error('Channel: Fetching later messages failed', error);
       messagesDispatcher({
         type: GET_NEXT_MESSAGES_FAILURE,
@@ -1386,11 +1325,11 @@ function useScrollDownCallback(_ref, _ref2) {
           messages: [],
           hasMoreToBottom: false,
           latestFetchedMessageTimeStamp: 0,
-          currentGroupChannel
+          currentGroupChannel: currentGroupChannel
         }
       });
       cb([null, error]);
-    }).finally(() => {
+    }).finally(function () {
       try {
         currentGroupChannel.markAsRead();
       } catch (_unused) {//
@@ -1400,18 +1339,12 @@ function useScrollDownCallback(_ref, _ref2) {
 }
 
 function useDeleteMessageCallback(_ref, _ref2) {
-  let {
-    currentGroupChannel,
-    messagesDispatcher
-  } = _ref;
-  let {
-    logger
-  } = _ref2;
-  return React.useCallback((message, cb) => {
+  var currentGroupChannel = _ref.currentGroupChannel,
+      messagesDispatcher = _ref.messagesDispatcher;
+  var logger = _ref2.logger;
+  return React.useCallback(function (message, cb) {
     logger.info('Channel | useDeleteMessageCallback: Deleting message', message);
-    const {
-      requestState
-    } = message;
+    var requestState = message.requestState;
     logger.info('Channel | useDeleteMessageCallback: Deleting message requestState:', requestState); // Message is only on local
 
     if (requestState === 'failed' || requestState === 'pending') {
@@ -1429,7 +1362,7 @@ function useDeleteMessageCallback(_ref, _ref2) {
     } // Message is on server
 
 
-    currentGroupChannel.deleteMessage(message, err => {
+    currentGroupChannel.deleteMessage(message, function (err) {
       logger.info('Channel | useDeleteMessageCallback: Deleting message from remote:', requestState);
 
       if (cb) {
@@ -1450,35 +1383,31 @@ function useDeleteMessageCallback(_ref, _ref2) {
 }
 
 function useUpdateMessageCallback(_ref, _ref2) {
-  let {
-    currentGroupChannel,
-    messagesDispatcher,
-    onBeforeUpdateUserMessage
-  } = _ref;
-  let {
-    logger,
-    pubSub,
-    sdk
-  } = _ref2;
-  return React.useCallback((messageId, text, cb) => {
-    const createParamsDefault = txt => {
-      const params = new sdk.UserMessageParams();
+  var currentGroupChannel = _ref.currentGroupChannel,
+      messagesDispatcher = _ref.messagesDispatcher,
+      onBeforeUpdateUserMessage = _ref.onBeforeUpdateUserMessage;
+  var logger = _ref2.logger,
+      pubSub = _ref2.pubSub,
+      sdk = _ref2.sdk;
+  return React.useCallback(function (messageId, text, cb) {
+    var createParamsDefault = function createParamsDefault(txt) {
+      var params = new sdk.UserMessageParams();
       params.message = txt;
       return params;
     };
 
-    const createCustomPrams = onBeforeUpdateUserMessage && typeof onBeforeUpdateUserMessage === 'function';
+    var createCustomPrams = onBeforeUpdateUserMessage && typeof onBeforeUpdateUserMessage === 'function';
 
     if (createCustomPrams) {
       logger.info('Channel: creating params using onBeforeUpdateUserMessage', onBeforeUpdateUserMessage);
     }
 
-    const params = onBeforeUpdateUserMessage ? onBeforeUpdateUserMessage(text) : createParamsDefault(text);
-    currentGroupChannel.updateUserMessage(messageId, params, (r, e) => {
+    var params = onBeforeUpdateUserMessage ? onBeforeUpdateUserMessage(text) : createParamsDefault(text);
+    currentGroupChannel.updateUserMessage(messageId, params, function (r, e) {
       logger.info('Channel: Updating message!', params);
-      const swapParams = sdk.getErrorFirstCallback();
-      let message = r;
-      let err = e;
+      var swapParams = sdk.getErrorFirstCallback();
+      var message = r;
+      var err = e;
 
       if (swapParams) {
         message = e;
@@ -1495,11 +1424,11 @@ function useUpdateMessageCallback(_ref, _ref2) {
           type: ON_MESSAGE_UPDATED,
           payload: {
             channel: currentGroupChannel,
-            message
+            message: message
           }
         });
         pubSub.publish(index$1.UPDATE_USER_MESSAGE, {
-          message,
+          message: message,
           channel: currentGroupChannel
         });
       } else {
@@ -1510,19 +1439,13 @@ function useUpdateMessageCallback(_ref, _ref2) {
 }
 
 function useResendMessageCallback(_ref, _ref2) {
-  let {
-    currentGroupChannel,
-    messagesDispatcher
-  } = _ref;
-  let {
-    logger
-  } = _ref2;
-  return React.useCallback(failedMessage => {
+  var currentGroupChannel = _ref.currentGroupChannel,
+      messagesDispatcher = _ref.messagesDispatcher;
+  var logger = _ref2.logger;
+  return React.useCallback(function (failedMessage) {
     logger.info('Channel: Resending message has started', failedMessage);
-    const {
-      messageType,
-      file
-    } = failedMessage;
+    var messageType = failedMessage.messageType,
+        file = failedMessage.file;
 
     if (failedMessage && typeof failedMessage.isResendable === 'function' && failedMessage.isResendable()) {
       // eslint-disable-next-line no-param-reassign
@@ -1533,17 +1456,17 @@ function useResendMessageCallback(_ref, _ref2) {
       }); // userMessage
 
       if (messageType === 'user') {
-        currentGroupChannel.resendUserMessage(failedMessage).then(message => {
+        currentGroupChannel.resendUserMessage(failedMessage).then(function (message) {
           logger.info('Channel: Resending message success!', {
-            message
+            message: message
           });
           messagesDispatcher({
             type: SEND_MESSAGEGE_SUCESS,
             payload: message
           });
-        }).catch(e => {
+        }).catch(function (e) {
           logger.warning('Channel: Resending message failed!', {
-            e
+            e: e
           }); // eslint-disable-next-line no-param-reassign
 
           failedMessage.requestState = 'failed';
@@ -1562,17 +1485,17 @@ function useResendMessageCallback(_ref, _ref2) {
       }
 
       if (messageType === 'file') {
-        currentGroupChannel.resendFileMessage(failedMessage, file).then(message => {
+        currentGroupChannel.resendFileMessage(failedMessage, file).then(function (message) {
           logger.info('Channel: Resending file message success!', {
-            message
+            message: message
           });
           messagesDispatcher({
             type: SEND_MESSAGEGE_SUCESS,
             payload: message
           });
-        }).catch(e => {
+        }).catch(function (e) {
           logger.warning('Channel: Resending file message failed!', {
-            e
+            e: e
           }); // eslint-disable-next-line no-param-reassign
 
           failedMessage.requestState = 'failed';
@@ -1598,24 +1521,20 @@ function useResendMessageCallback(_ref, _ref2) {
 }
 
 function useSendMessageCallback(_ref, _ref2) {
-  let {
-    currentGroupChannel,
-    onBeforeSendUserMessage
-  } = _ref;
-  let {
-    sdk,
-    logger,
-    pubSub,
-    messagesDispatcher
-  } = _ref2;
-  const messageInputRef = React.useRef(null);
-  const sendMessage = React.useCallback(function () {
-    let quoteMessage = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-    const text = messageInputRef.current.value;
+  var currentGroupChannel = _ref.currentGroupChannel,
+      onBeforeSendUserMessage = _ref.onBeforeSendUserMessage;
+  var sdk = _ref2.sdk,
+      logger = _ref2.logger,
+      pubSub = _ref2.pubSub,
+      messagesDispatcher = _ref2.messagesDispatcher;
+  var messageInputRef = React.useRef(null);
+  var sendMessage = React.useCallback(function () {
+    var quoteMessage = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+    var text = messageInputRef.current.value;
 
-    const createParamsDefault = txt => {
-      const message = typeof txt === 'string' ? txt.trim() : txt;
-      const params = new sdk.UserMessageParams();
+    var createParamsDefault = function createParamsDefault(txt) {
+      var message = typeof txt === 'string' ? txt.trim() : txt;
+      var params = new sdk.UserMessageParams();
       params.message = message;
 
       if (quoteMessage) {
@@ -1626,18 +1545,18 @@ function useSendMessageCallback(_ref, _ref2) {
       return params;
     };
 
-    const createCustomPrams = onBeforeSendUserMessage && typeof onBeforeSendUserMessage === 'function';
+    var createCustomPrams = onBeforeSendUserMessage && typeof onBeforeSendUserMessage === 'function';
 
     if (createCustomPrams) {
       logger.info('Channel: creating params using onBeforeSendUserMessage', onBeforeSendUserMessage);
     }
 
-    const params = onBeforeSendUserMessage ? onBeforeSendUserMessage(text, quoteMessage) : createParamsDefault(text);
+    var params = onBeforeSendUserMessage ? onBeforeSendUserMessage(text, quoteMessage) : createParamsDefault(text);
     logger.info('Channel: Sending message has started', params);
-    const pendingMsg = currentGroupChannel.sendUserMessage(params, (res, err) => {
-      const swapParams = sdk.getErrorFirstCallback();
-      let message = res;
-      let error = err;
+    var pendingMsg = currentGroupChannel.sendUserMessage(params, function (res, err) {
+      var swapParams = sdk.getErrorFirstCallback();
+      var message = res;
+      var error = err;
 
       if (swapParams) {
         message = err;
@@ -1648,7 +1567,7 @@ function useSendMessageCallback(_ref, _ref2) {
 
       if (error) {
         logger.warning('Channel: Sending message failed!', {
-          message
+          message: message
         });
         messagesDispatcher({
           type: SEND_MESSAGEGE_FAILURE,
@@ -1669,39 +1588,36 @@ function useSendMessageCallback(_ref, _ref2) {
       message: pendingMsg,
       channel: currentGroupChannel
     });
-    setTimeout(() => scrollIntoLast());
+    setTimeout(function () {
+      return scrollIntoLast();
+    });
   }, [currentGroupChannel, onBeforeSendUserMessage]);
   return [messageInputRef, sendMessage];
 }
 
 function useSendFileMessageCallback(_ref, _ref2) {
-  let {
-    currentGroupChannel,
-    onBeforeSendFileMessage,
-    imageCompression = {}
-  } = _ref;
-  let {
-    sdk,
-    logger,
-    pubSub,
-    messagesDispatcher
-  } = _ref2;
-  const sendMessage = React.useCallback(function (file) {
-    let quoteMessage = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-    const {
-      compressionRate,
-      resizingWidth,
-      resizingHeight
-    } = imageCompression;
-    const createCustomParams = onBeforeSendFileMessage && typeof onBeforeSendFileMessage === 'function';
-    const compressibleFileType = file.type === 'image/jpg' || file.type === 'image/png' || file.type === 'image/jpeg';
-    const compressibleRatio = compressionRate > 0 && compressionRate < 1; // pxToNumber returns null if values are invalid
+  var currentGroupChannel = _ref.currentGroupChannel,
+      onBeforeSendFileMessage = _ref.onBeforeSendFileMessage,
+      _ref$imageCompression = _ref.imageCompression,
+      imageCompression = _ref$imageCompression === void 0 ? {} : _ref$imageCompression;
+  var sdk = _ref2.sdk,
+      logger = _ref2.logger,
+      pubSub = _ref2.pubSub,
+      messagesDispatcher = _ref2.messagesDispatcher;
+  var sendMessage = React.useCallback(function (file) {
+    var quoteMessage = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+    var compressionRate = imageCompression.compressionRate,
+        resizingWidth = imageCompression.resizingWidth,
+        resizingHeight = imageCompression.resizingHeight;
+    var createCustomParams = onBeforeSendFileMessage && typeof onBeforeSendFileMessage === 'function';
+    var compressibleFileType = file.type === 'image/jpg' || file.type === 'image/png' || file.type === 'image/jpeg';
+    var compressibleRatio = compressionRate > 0 && compressionRate < 1; // pxToNumber returns null if values are invalid
 
-    const compressibleDiamensions = pxToNumber(resizingWidth) || pxToNumber(resizingHeight);
-    const canCompressImage = compressibleFileType && (compressibleRatio || compressibleDiamensions);
+    var compressibleDiamensions = pxToNumber(resizingWidth) || pxToNumber(resizingHeight);
+    var canCompressImage = compressibleFileType && (compressibleRatio || compressibleDiamensions);
 
-    const createParamsDefault = file_ => {
-      const params = new sdk.FileMessageParams();
+    var createParamsDefault = function createParamsDefault(file_) {
+      var params = new sdk.FileMessageParams();
       params.file = file_;
 
       if (quoteMessage) {
@@ -1715,16 +1631,16 @@ function useSendFileMessageCallback(_ref, _ref2) {
     if (canCompressImage) {
       // Using image compression
       try {
-        const image = document.createElement('img');
+        var image = document.createElement('img');
         image.src = URL.createObjectURL(file);
 
-        image.onload = () => {
+        image.onload = function () {
           URL.revokeObjectURL(image.src);
-          const canvas = document.createElement('canvas');
-          const imageWdith = image.naturalWidth || image.width;
-          const imageHeight = image.naturalHeight || image.height;
-          let targetWidth = pxToNumber(resizingWidth) || imageWdith;
-          let targetHeight = pxToNumber(resizingHeight) || imageHeight; // In canvas.toBlob(callback, mimeType, qualityArgument)
+          var canvas = document.createElement('canvas');
+          var imageWdith = image.naturalWidth || image.width;
+          var imageHeight = image.naturalHeight || image.height;
+          var targetWidth = pxToNumber(resizingWidth) || imageWdith;
+          var targetHeight = pxToNumber(resizingHeight) || imageHeight; // In canvas.toBlob(callback, mimeType, qualityArgument)
           // qualityArgument doesnt work
           // so in case compressibleDiamensions are not present, we use ratio
 
@@ -1735,10 +1651,10 @@ function useSendFileMessageCallback(_ref, _ref2) {
 
           canvas.width = targetWidth;
           canvas.height = targetHeight;
-          const context = canvas.getContext('2d');
+          var context = canvas.getContext('2d');
           context.drawImage(image, 0, 0, targetWidth, targetHeight);
-          context.canvas.toBlob(newImageBlob => {
-            const compressedFile = new File([newImageBlob], file.name, {
+          context.canvas.toBlob(function (newImageBlob) {
+            var compressedFile = new File([newImageBlob], file.name, {
               type: file.type
             });
 
@@ -1746,18 +1662,22 @@ function useSendFileMessageCallback(_ref, _ref2) {
               logger.info('Channel: Creating params using onBeforeSendFileMessage', onBeforeSendFileMessage);
             }
 
-            const params = createCustomParams ? onBeforeSendFileMessage(compressedFile, quoteMessage) : createParamsDefault(compressedFile);
+            var params = createCustomParams ? onBeforeSendFileMessage(compressedFile, quoteMessage) : createParamsDefault(compressedFile);
             logger.info('Channel: Uploading file message start!', params);
-            const pendingMessage = currentGroupChannel.sendFileMessage(params, (response, err) => {
-              const swapParams = sdk.getErrorFirstCallback();
-              const [message, error] = swapParams ? [err, response] : [response, err];
+            var pendingMessage = currentGroupChannel.sendFileMessage(params, function (response, err) {
+              var swapParams = sdk.getErrorFirstCallback();
+
+              var _ref3 = swapParams ? [err, response] : [response, err],
+                  _ref4 = LocalizationContext._slicedToArray(_ref3, 2),
+                  message = _ref4[0],
+                  error = _ref4[1];
 
               if (error) {
                 // sending params instead of pending message
                 // to make sure that we can resend the message once it fails
                 logger.error('Channel: Sending file message failed!', {
-                  message,
-                  error
+                  message: message,
+                  error: error
                 });
                 message.localUrl = URL.createObjectURL(compressedFile);
                 message.file = compressedFile;
@@ -1784,7 +1704,9 @@ function useSendFileMessageCallback(_ref, _ref2) {
               }),
               channel: currentGroupChannel
             });
-            setTimeout(() => scrollIntoLast(), 1000);
+            setTimeout(function () {
+              return scrollIntoLast();
+            }, 1000);
           }, file.type, compressionRate);
         };
       } catch (error) {
@@ -1796,18 +1718,22 @@ function useSendFileMessageCallback(_ref, _ref2) {
         logger.info('Channel: creating params using onBeforeSendFileMessage', onBeforeSendFileMessage);
       }
 
-      const params = onBeforeSendFileMessage ? onBeforeSendFileMessage(file, quoteMessage) : createParamsDefault(file);
+      var params = onBeforeSendFileMessage ? onBeforeSendFileMessage(file, quoteMessage) : createParamsDefault(file);
       logger.info('Channel: Uploading file message start!', params);
-      const pendingMsg = currentGroupChannel.sendFileMessage(params, (response, err) => {
-        const swapParams = sdk.getErrorFirstCallback();
-        const [message, error] = swapParams ? [err, response] : [response, err];
+      var pendingMsg = currentGroupChannel.sendFileMessage(params, function (response, err) {
+        var swapParams = sdk.getErrorFirstCallback();
+
+        var _ref5 = swapParams ? [err, response] : [response, err],
+            _ref6 = LocalizationContext._slicedToArray(_ref5, 2),
+            message = _ref6[0],
+            error = _ref6[1];
 
         if (error) {
           // sending params instead of pending message
           // to make sure that we can resend the message once it fails
           logger.error('Channel: Sending file message failed!', {
-            message,
-            error
+            message: message,
+            error: error
           });
           message.localUrl = URL.createObjectURL(file);
           message.file = file;
@@ -1834,31 +1760,35 @@ function useSendFileMessageCallback(_ref, _ref2) {
         }),
         channel: currentGroupChannel
       });
-      setTimeout(() => scrollIntoLast(), 1000);
+      setTimeout(function () {
+        return scrollIntoLast();
+      }, 1000);
     }
   }, [currentGroupChannel, onBeforeSendFileMessage, imageCompression]);
   return [sendMessage];
 }
 
-const ReactionButton = /*#__PURE__*/React__default["default"].forwardRef((props, ref) => {
-  const {
-    className,
-    width,
-    height,
-    selected,
-    onClick,
-    children
-  } = props;
+var ReactionButton = /*#__PURE__*/React__default["default"].forwardRef(function (props, ref) {
+  var className = props.className,
+      width = props.width,
+      height = props.height,
+      selected = props.selected,
+      _onClick = props.onClick,
+      children = props.children;
   return /*#__PURE__*/React__default["default"].createElement("div", {
-    className: [...(Array.isArray(className) ? className : [className]), `sendbird-reaction-button${selected ? '--selected' : ''}`].join(' '),
+    className: [].concat(LocalizationContext._toConsumableArray(Array.isArray(className) ? className : [className]), ["sendbird-reaction-button".concat(selected ? '--selected' : '')]).join(' '),
     ref: ref,
     role: "button",
     style: {
-      width: typeof width === 'string' ? `${width.slice(0, -2) - 2}px` : `${width - 2}px`,
-      height: typeof height === 'string' ? `${height.slice(0, -2) - 2}px` : `${height - 2}px`
+      width: typeof width === 'string' ? "".concat(width.slice(0, -2) - 2, "px") : "".concat(width - 2, "px"),
+      height: typeof height === 'string' ? "".concat(height.slice(0, -2) - 2, "px") : "".concat(height - 2, "px")
     },
-    onClick: e => onClick(e),
-    onKeyDown: e => onClick(e),
+    onClick: function onClick(e) {
+      return _onClick(e);
+    },
+    onKeyDown: function onKeyDown(e) {
+      return _onClick(e);
+    },
     tabIndex: 0
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sendbird-reaction-button__inner"
@@ -1877,87 +1807,82 @@ ReactionButton.defaultProps = {
   width: '36px',
   height: '36px',
   selected: false,
-  onClick: () => {}
+  onClick: function onClick() {}
 };
 
 function useMemoizedEmojiListItems(_ref, _ref2) {
-  let {
-    emojiContainer,
-    toggleReaction
-  } = _ref;
-  let {
-    useReaction,
-    logger,
-    userId,
-    emojiAllList
-  } = _ref2;
+  var emojiContainer = _ref.emojiContainer,
+      toggleReaction = _ref.toggleReaction;
+  var useReaction = _ref2.useReaction,
+      logger = _ref2.logger,
+      userId = _ref2.userId,
+      emojiAllList = _ref2.emojiAllList;
 
   /* eslint-disable react/prop-types */
-  return React.useMemo(() => _ref3 => {
-    let {
-      parentRef,
-      parentContainRef,
-      message,
-      closeDropdown,
-      spaceFromTrigger = {}
-    } = _ref3;
+  return React.useMemo(function () {
+    return function (_ref3) {
+      var parentRef = _ref3.parentRef,
+          parentContainRef = _ref3.parentContainRef,
+          message = _ref3.message,
+          closeDropdown = _ref3.closeDropdown,
+          _ref3$spaceFromTrigge = _ref3.spaceFromTrigger,
+          spaceFromTrigger = _ref3$spaceFromTrigge === void 0 ? {} : _ref3$spaceFromTrigge;
 
-    if (!useReaction || !(parentRef || parentContainRef || message || closeDropdown)) {
-      logger.warning('Channel: Invalid Params in memoizedEmojiListItems');
-      return null;
-    }
+      if (!useReaction || !(parentRef || parentContainRef || message || closeDropdown)) {
+        logger.warning('Channel: Invalid Params in memoizedEmojiListItems');
+        return null;
+      }
 
-    return /*#__PURE__*/React__default["default"].createElement(index$1.EmojiListItems, {
-      parentRef: parentRef,
-      parentContainRef: parentContainRef,
-      closeDropdown: closeDropdown,
-      spaceFromTrigger: spaceFromTrigger
-    }, emojiAllList.map(emoji => {
-      const reactedReaction = message.reactions.filter(reaction => reaction.key === emoji.key)[0];
-      const isReacted = reactedReaction ? !(reactedReaction.userIds.indexOf(userId) < 0) : false;
-      return /*#__PURE__*/React__default["default"].createElement(ReactionButton, {
-        key: emoji.key,
-        width: "36px",
-        height: "36px",
-        selected: isReacted,
-        onClick: () => {
-          closeDropdown();
-          toggleReaction(message, emoji.key, isReacted);
-        }
-      }, /*#__PURE__*/React__default["default"].createElement(index$4.ImageRenderer, {
-        url: emoji.url,
-        width: "28px",
-        height: "28px",
-        defaultComponent: /*#__PURE__*/React__default["default"].createElement(index$4.Icon, {
+      return /*#__PURE__*/React__default["default"].createElement(index$1.EmojiListItems, {
+        parentRef: parentRef,
+        parentContainRef: parentContainRef,
+        closeDropdown: closeDropdown,
+        spaceFromTrigger: spaceFromTrigger
+      }, emojiAllList.map(function (emoji) {
+        var reactedReaction = message.reactions.filter(function (reaction) {
+          return reaction.key === emoji.key;
+        })[0];
+        var isReacted = reactedReaction ? !(reactedReaction.userIds.indexOf(userId) < 0) : false;
+        return /*#__PURE__*/React__default["default"].createElement(ReactionButton, {
+          key: emoji.key,
+          width: "36px",
+          height: "36px",
+          selected: isReacted,
+          onClick: function onClick() {
+            closeDropdown();
+            toggleReaction(message, emoji.key, isReacted);
+          }
+        }, /*#__PURE__*/React__default["default"].createElement(index$4.ImageRenderer, {
+          url: emoji.url,
           width: "28px",
           height: "28px",
-          type: index$4.IconTypes.QUESTION
-        })
+          defaultComponent: /*#__PURE__*/React__default["default"].createElement(index$4.Icon, {
+            width: "28px",
+            height: "28px",
+            type: index$4.IconTypes.QUESTION
+          })
+        }));
       }));
-    }));
+    };
   }, [emojiContainer, toggleReaction]);
 }
 
 function useToggleReactionCallback(_ref, _ref2) {
-  let {
-    currentGroupChannel
-  } = _ref;
-  let {
-    logger
-  } = _ref2;
-  return React.useCallback((message, key, isReacted) => {
+  var currentGroupChannel = _ref.currentGroupChannel;
+  var logger = _ref2.logger;
+  return React.useCallback(function (message, key, isReacted) {
     if (isReacted) {
-      currentGroupChannel.deleteReaction(message, key).then(res => {
+      currentGroupChannel.deleteReaction(message, key).then(function (res) {
         logger.info('Delete reaction success', res);
-      }).catch(err => {
+      }).catch(function (err) {
         logger.warning('Delete reaction failed', err);
       });
       return;
     }
 
-    currentGroupChannel.addReaction(message, key).then(res => {
+    currentGroupChannel.addReaction(message, key).then(function (res) {
       logger.info('Add reaction success', res);
-    }).catch(err => {
+    }).catch(function (err) {
       logger.warning('Add reaction failed', err);
     });
   }, [currentGroupChannel]);
@@ -1987,34 +1912,25 @@ function useScrollToMessage(_a, _b) {
   }, [setIntialTimeStamp, setAnimatedMessageId, allMessages]);
 }
 
-const MessageStatusTypes = index.getOutgoingMessageStates();
+var MessageStatusTypes = index.getOutgoingMessageStates();
 function MessageStatus(_ref) {
-  var _channel$getUnreadMem, _channel$getUndeliver;
+  var _iconType, _iconColor, _channel$getUnreadMem, _channel$getUndeliver;
 
-  let {
-    className,
-    message,
-    channel
-  } = _ref;
-  const {
-    dateLocale
-  } = React.useContext(LocalizationContext.LocalizationContext);
-  const showMessageStatusIcon = (channel === null || channel === void 0 ? void 0 : channel.isGroupChannel()) && !(channel !== null && channel !== void 0 && channel.isSuper) && !(channel !== null && channel !== void 0 && channel.isPublic) && !(channel !== null && channel !== void 0 && channel.isBroadcast);
-  const iconType = {
-    [MessageStatusTypes.SENT]: index$4.IconTypes.DONE,
-    [MessageStatusTypes.DELIVERED]: index$4.IconTypes.DONE_ALL,
-    [MessageStatusTypes.READ]: index$4.IconTypes.DONE_ALL,
-    [MessageStatusTypes.FAILED]: index$4.IconTypes.ERROR
-  };
-  const iconColor = {
-    [MessageStatusTypes.SENT]: index$4.IconColors.SENT,
-    [MessageStatusTypes.DELIVERED]: index$4.IconColors.SENT,
-    [MessageStatusTypes.READ]: index$4.IconColors.READ,
-    [MessageStatusTypes.FAILED]: index$4.IconColors.ERROR
-  };
-  const messageStatus = React.useMemo(() => index.getOutgoingMessageState(channel, message), [channel === null || channel === void 0 ? void 0 : (_channel$getUnreadMem = channel.getUnreadMemberCount) === null || _channel$getUnreadMem === void 0 ? void 0 : _channel$getUnreadMem.call(channel, message), channel === null || channel === void 0 ? void 0 : (_channel$getUndeliver = channel.getUndeliveredMemberCount) === null || _channel$getUndeliver === void 0 ? void 0 : _channel$getUndeliver.call(channel, message)]);
+  var className = _ref.className,
+      message = _ref.message,
+      channel = _ref.channel;
+
+  var _useContext = React.useContext(LocalizationContext.LocalizationContext),
+      dateLocale = _useContext.dateLocale;
+
+  var showMessageStatusIcon = (channel === null || channel === void 0 ? void 0 : channel.isGroupChannel()) && !(channel !== null && channel !== void 0 && channel.isSuper) && !(channel !== null && channel !== void 0 && channel.isPublic) && !(channel !== null && channel !== void 0 && channel.isBroadcast);
+  var iconType = (_iconType = {}, LocalizationContext._defineProperty(_iconType, MessageStatusTypes.SENT, index$4.IconTypes.DONE), LocalizationContext._defineProperty(_iconType, MessageStatusTypes.DELIVERED, index$4.IconTypes.DONE_ALL), LocalizationContext._defineProperty(_iconType, MessageStatusTypes.READ, index$4.IconTypes.DONE_ALL), LocalizationContext._defineProperty(_iconType, MessageStatusTypes.FAILED, index$4.IconTypes.ERROR), _iconType);
+  var iconColor = (_iconColor = {}, LocalizationContext._defineProperty(_iconColor, MessageStatusTypes.SENT, index$4.IconColors.SENT), LocalizationContext._defineProperty(_iconColor, MessageStatusTypes.DELIVERED, index$4.IconColors.SENT), LocalizationContext._defineProperty(_iconColor, MessageStatusTypes.READ, index$4.IconColors.READ), LocalizationContext._defineProperty(_iconColor, MessageStatusTypes.FAILED, index$4.IconColors.ERROR), _iconColor);
+  var messageStatus = React.useMemo(function () {
+    return index.getOutgoingMessageState(channel, message);
+  }, [channel === null || channel === void 0 ? void 0 : (_channel$getUnreadMem = channel.getUnreadMemberCount) === null || _channel$getUnreadMem === void 0 ? void 0 : _channel$getUnreadMem.call(channel, message), channel === null || channel === void 0 ? void 0 : (_channel$getUndeliver = channel.getUndeliveredMemberCount) === null || _channel$getUndeliver === void 0 ? void 0 : _channel$getUndeliver.call(channel, message)]);
   return /*#__PURE__*/React__default["default"].createElement("div", {
-    className: [...(Array.isArray(className) ? className : [className]), 'sendbird-message-status'].join(' ')
+    className: [].concat(LocalizationContext._toConsumableArray(Array.isArray(className) ? className : [className]), ['sendbird-message-status']).join(' ')
   }, showMessageStatusIcon && (messageStatus === MessageStatusTypes.PENDING ? /*#__PURE__*/React__default["default"].createElement(index$4.Loader, {
     className: "sendbird-message-status__icon",
     width: "16px",
@@ -2098,17 +2014,17 @@ function MessageItemMenu(_a) {
     className: index.getClassName([className, 'sendbird-message-item-menu']),
     ref: containerRef
   }, /*#__PURE__*/React__default["default"].createElement(index$1.ContextMenu, {
-    menuTrigger: function (toggleDropdown) {
+    menuTrigger: function menuTrigger(toggleDropdown) {
       return /*#__PURE__*/React__default["default"].createElement(index$1.IconButton, {
         className: "sendbird-message-item-menu__trigger",
         ref: triggerRef,
         width: "32px",
         height: "32px",
-        onClick: function () {
+        onClick: function onClick() {
           toggleDropdown();
           setSupposedHover(true);
         },
-        onBlur: function () {
+        onBlur: function onBlur() {
           setSupposedHover(false);
         }
       }, /*#__PURE__*/React__default["default"].createElement(index$4.Icon, {
@@ -2119,10 +2035,10 @@ function MessageItemMenu(_a) {
         height: "24px"
       }));
     },
-    menuItems: function (close) {
+    menuItems: function menuItems(close) {
       var _a;
 
-      var closeDropdown = function () {
+      var closeDropdown = function closeDropdown() {
         close();
         setSupposedHover(false);
       };
@@ -2135,20 +2051,22 @@ function MessageItemMenu(_a) {
         openLeft: isByMe
       }, showMenuItemCopy && /*#__PURE__*/React__default["default"].createElement(index$1.MenuItem, {
         className: "sendbird-message-item-menu__list__menu-item menu-item-copy",
-        onClick: function () {
-          index.copyToClipboard(message === null || message === void 0 ? void 0 : message.message);
+        onClick: function onClick() {
+          var _a;
+
+          index.copyToClipboard((_a = message) === null || _a === void 0 ? void 0 : _a.message);
           closeDropdown();
         }
       }, stringSet.MESSAGE_MENU__COPY), showMenuItemReply && /*#__PURE__*/React__default["default"].createElement(index$1.MenuItem, {
         className: "sendbird-message-item-menu__list__menu-item menu-item-reply",
-        onClick: function () {
+        onClick: function onClick() {
           setQuoteMessage(message);
           closeDropdown();
         },
         disable: (message === null || message === void 0 ? void 0 : message.parentMessageId) > 0
       }, stringSet.MESSAGE_MENU__REPLY), showMenuItemEdit && /*#__PURE__*/React__default["default"].createElement(index$1.MenuItem, {
         className: "sendbird-message-item-menu__list__menu-item menu-item-edit",
-        onClick: function () {
+        onClick: function onClick() {
           if (!disabled) {
             showEdit(true);
             closeDropdown();
@@ -2156,7 +2074,7 @@ function MessageItemMenu(_a) {
         }
       }, stringSet.MESSAGE_MENU__EDIT), showMenuItemResend && /*#__PURE__*/React__default["default"].createElement(index$1.MenuItem, {
         className: "sendbird-message-item-menu__list__menu-item menu-item-resend",
-        onClick: function () {
+        onClick: function onClick() {
           if (!disabled) {
             resendMessage(message);
             closeDropdown();
@@ -2164,7 +2082,7 @@ function MessageItemMenu(_a) {
         }
       }, stringSet.MESSAGE_MENU__RESEND), showMenuItemDelete && /*#__PURE__*/React__default["default"].createElement(index$1.MenuItem, {
         className: "sendbird-message-item-menu__list__menu-item menu-item-delete",
-        onClick: function () {
+        onClick: function onClick() {
           if (!disabled) {
             showRemove(true);
             closeDropdown();
@@ -2197,17 +2115,17 @@ function MessageItemReactionMenu(_a) {
     className: index.getClassName([className, 'sendbird-message-item-reaction-menu']),
     ref: containerRef
   }, /*#__PURE__*/React__default["default"].createElement(index$1.ContextMenu, {
-    menuTrigger: function (toggleDropdown) {
+    menuTrigger: function menuTrigger(toggleDropdown) {
       return /*#__PURE__*/React__default["default"].createElement(index$1.IconButton, {
         className: "sendbird-message-item-reaction-menu__trigger",
         ref: triggerRef,
         width: "32px",
         height: "32px",
-        onClick: function () {
+        onClick: function onClick() {
           toggleDropdown();
           setSupposedHover(true);
         },
-        onBlur: function () {
+        onBlur: function onBlur() {
           setSupposedHover(false);
         }
       }, /*#__PURE__*/React__default["default"].createElement(index$4.Icon, {
@@ -2218,8 +2136,8 @@ function MessageItemReactionMenu(_a) {
         height: "24px"
       }));
     },
-    menuItems: function (close) {
-      var closeDropdown = function () {
+    menuItems: function menuItems(close) {
+      var closeDropdown = function closeDropdown() {
         close();
         setSupposedHover(false);
       };
@@ -2242,7 +2160,7 @@ function MessageItemReactionMenu(_a) {
           width: "36px",
           height: "36px",
           selected: isReacted,
-          onClick: function () {
+          onClick: function onClick() {
             closeDropdown();
             toggleReaction(message, emoji.key, isReacted);
           }
@@ -2250,7 +2168,7 @@ function MessageItemReactionMenu(_a) {
           url: emoji.url,
           width: "28px",
           height: "28px",
-          placeHolder: function (style) {
+          placeHolder: function placeHolder(style) {
             return /*#__PURE__*/React__default["default"].createElement("div", {
               style: style
             }, /*#__PURE__*/React__default["default"].createElement(index$4.Icon, {
@@ -2267,12 +2185,10 @@ function MessageItemReactionMenu(_a) {
 }
 
 function Tooltip(_ref) {
-  let {
-    className,
-    children
-  } = _ref;
+  var className = _ref.className,
+      children = _ref.children;
   return /*#__PURE__*/React__default["default"].createElement("div", {
-    className: [...(Array.isArray(className) ? className : [className]), 'sendbird-tooltip'].join(' ')
+    className: [].concat(LocalizationContext._toConsumableArray(Array.isArray(className) ? className : [className]), ['sendbird-tooltip']).join(' ')
   }, /*#__PURE__*/React__default["default"].createElement(index$4.Label, {
     className: "sendbird-tooltip__text",
     type: index$4.LabelTypography.CAPTION_2,
@@ -2288,28 +2204,30 @@ Tooltip.defaultProps = {
   children: ''
 };
 
-const SPACE_FROM_TRIGGER = 8;
+var SPACE_FROM_TRIGGER = 8;
 function TooltipWrapper(_ref) {
-  let {
-    className,
-    children,
-    hoverTooltip // clickTooltip can be added later
+  var className = _ref.className,
+      children = _ref.children,
+      hoverTooltip = _ref.hoverTooltip;
 
-  } = _ref;
-  const [showHoverTooltip, setShowHoverTooltip] = React.useState(false);
-  const childrenRef = React.useRef(null);
+  var _useState = React.useState(false),
+      _useState2 = LocalizationContext._slicedToArray(_useState, 2),
+      showHoverTooltip = _useState2[0],
+      setShowHoverTooltip = _useState2[1];
+
+  var childrenRef = React.useRef(null);
   return /*#__PURE__*/React__default["default"].createElement("div", {
-    className: [...(Array.isArray(className) ? className : [className]), 'sendbird-tooltip-wrapper'].join(' '),
-    onMouseOver: () => {
+    className: [].concat(LocalizationContext._toConsumableArray(Array.isArray(className) ? className : [className]), ['sendbird-tooltip-wrapper']).join(' '),
+    onMouseOver: function onMouseOver() {
       setShowHoverTooltip(true);
     },
-    onFocus: () => {
+    onFocus: function onFocus() {
       setShowHoverTooltip(true);
     },
-    onMouseOut: () => {
+    onMouseOut: function onMouseOut() {
       setShowHoverTooltip(false);
     },
-    onBlur: () => {
+    onBlur: function onBlur() {
       setShowHoverTooltip(false);
     }
   }, /*#__PURE__*/React__default["default"].createElement("div", {
@@ -2318,14 +2236,14 @@ function TooltipWrapper(_ref) {
   }, children), showHoverTooltip && /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sendbird-tooltip-wrapper__hover-tooltip",
     style: {
-      bottom: `calc(100% + ${SPACE_FROM_TRIGGER}px)`
+      bottom: "calc(100% + ".concat(SPACE_FROM_TRIGGER, "px)")
     }
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sendbird-tooltip-wrapper__hover-tooltip__inner"
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sendbird-tooltip-wrapper__hover-tooltip__inner__tooltip-container",
     style: {
-      left: childrenRef.current && `calc(${childrenRef.current.offsetWidth / 2}px - 50%)`
+      left: childrenRef.current && "calc(".concat(childrenRef.current.offsetWidth / 2, "px - 50%)")
     }
   }, hoverTooltip))));
 }
@@ -2338,17 +2256,15 @@ TooltipWrapper.defaultProps = {
   className: ''
 };
 
-const ReactionBadge = /*#__PURE__*/React__default["default"].forwardRef((props, ref) => {
-  const {
-    className,
-    children,
-    count,
-    selected,
-    isAdd,
-    onClick
-  } = props;
+var ReactionBadge = /*#__PURE__*/React__default["default"].forwardRef(function (props, ref) {
+  var className = props.className,
+      children = props.children,
+      count = props.count,
+      selected = props.selected,
+      isAdd = props.isAdd,
+      onClick = props.onClick;
 
-  const getClassNameTail = () => {
+  var getClassNameTail = function getClassNameTail() {
     if (selected && !isAdd) {
       return '--selected';
     }
@@ -2361,7 +2277,7 @@ const ReactionBadge = /*#__PURE__*/React__default["default"].forwardRef((props, 
   };
 
   return /*#__PURE__*/React__default["default"].createElement("div", {
-    className: [...(Array.isArray(className) ? className : [className]), `sendbird-reaction-badge${getClassNameTail()}`].join(' '),
+    className: [].concat(LocalizationContext._toConsumableArray(Array.isArray(className) ? className : [className]), ["sendbird-reaction-badge".concat(getClassNameTail())]).join(' '),
     role: "button",
     ref: ref,
     onClick: onClick,
@@ -2390,7 +2306,7 @@ ReactionBadge.defaultProps = {
   count: '',
   selected: false,
   isAdd: false,
-  onClick: () => {}
+  onClick: function onClick() {}
 };
 
 function EmojiReactions2(_a) {
@@ -2422,7 +2338,7 @@ function EmojiReactions2(_a) {
     }, /*#__PURE__*/React__default["default"].createElement(ReactionBadge, {
       count: reaction.userIds.length,
       selected: reactedByMe,
-      onClick: function () {
+      onClick: function onClick() {
         return toggleReaction(message, reaction.key, reactedByMe);
       }
     }, /*#__PURE__*/React__default["default"].createElement(index$4.ImageRenderer, {
@@ -2437,7 +2353,7 @@ function EmojiReactions2(_a) {
       })
     })));
   }), ((_c = message === null || message === void 0 ? void 0 : message.reactions) === null || _c === void 0 ? void 0 : _c.length) < emojisMap.size && /*#__PURE__*/React__default["default"].createElement(index$1.ContextMenu, {
-    menuTrigger: function (toggleDropdown) {
+    menuTrigger: function menuTrigger(toggleDropdown) {
       return /*#__PURE__*/React__default["default"].createElement(ReactionBadge, {
         className: "sendbird-emoji-reactions__add-reaction-badge",
         ref: addReactionRef,
@@ -2450,7 +2366,7 @@ function EmojiReactions2(_a) {
         height: "20px"
       }));
     },
-    menuItems: function (closeDropdown) {
+    menuItems: function menuItems(closeDropdown) {
       return /*#__PURE__*/React__default["default"].createElement(index$1.EmojiListItems, {
         parentRef: addReactionRef,
         parentContainRef: addReactionRef,
@@ -2469,7 +2385,7 @@ function EmojiReactions2(_a) {
           width: "36px",
           height: "36px",
           selected: isReacted,
-          onClick: function () {
+          onClick: function onClick() {
             closeDropdown();
             toggleReaction(message, emoji.key, isReacted);
           }
@@ -2477,7 +2393,7 @@ function EmojiReactions2(_a) {
           url: (emoji === null || emoji === void 0 ? void 0 : emoji.url) || '',
           width: "28px",
           height: "28px",
-          placeHolder: function (style) {
+          placeHolder: function placeHolder(style) {
             return /*#__PURE__*/React__default["default"].createElement("div", {
               style: style
             }, /*#__PURE__*/React__default["default"].createElement(index$4.Icon, {
@@ -2494,17 +2410,15 @@ function EmojiReactions2(_a) {
 }
 
 function AdminMessage(_ref) {
-  let {
-    className,
-    message
-  } = _ref;
+  var className = _ref.className,
+      message = _ref.message;
 
   if (!(message.isAdminMessage || message.messageType) || !message.isAdminMessage() || message.messageType !== 'admin') {
     return null;
   }
 
   return /*#__PURE__*/React__default["default"].createElement("div", {
-    className: [...(Array.isArray(className) ? className : [className]), 'sendbird-admin-message'].join(' ')
+    className: [].concat(LocalizationContext._toConsumableArray(Array.isArray(className) ? className : [className]), ['sendbird-admin-message']).join(' ')
   }, /*#__PURE__*/React__default["default"].createElement(index$4.Label, {
     className: "sendbird-admin-message__text",
     type: index$4.LabelTypography.CAPTION_2,
@@ -2543,7 +2457,7 @@ function TextMessageItemBody(_a) {
     className: "sendbird-text-message-item-body__message edited",
     type: index$4.LabelTypography.BODY_1,
     color: isByMe ? index$4.LabelColors.ONCONTENT_2 : index$4.LabelColors.ONBACKGROUND_2
-  }, " ".concat(stringSet.MESSAGE_EDITED, " "))));
+  }, " " + stringSet.MESSAGE_EDITED + " ")));
 }
 
 function FileMessageItemBody(_a) {
@@ -2573,7 +2487,7 @@ function FileMessageItemBody(_a) {
     height: "24px"
   })), /*#__PURE__*/React__default["default"].createElement(index$1.TextButton, {
     className: "sendbird-file-message-item-body__file-name",
-    onClick: function () {
+    onClick: function onClick() {
       window.open(message === null || message === void 0 ? void 0 : message.url);
     },
     color: isByMe ? index$4.LabelColors.ONCONTENT_1 : index$4.LabelColors.ONBACKGROUND_1
@@ -2604,7 +2518,7 @@ function ThumbnailMessageItemBody(_a) {
 
   return /*#__PURE__*/React__default["default"].createElement("div", {
     className: index.getClassName([className, 'sendbird-thumbnail-message-item-body', isByMe ? 'outgoing' : 'incoming', mouseHover ? 'mouse-hover' : '', ((_c = message === null || message === void 0 ? void 0 : message.reactions) === null || _c === void 0 ? void 0 : _c.length) > 0 ? 'reactions' : '']),
-    onClick: function () {
+    onClick: function onClick() {
       if ((message === null || message === void 0 ? void 0 : message.sendingStatus) === 'succeeded') {
         showFileViewer(true);
       }
@@ -2615,10 +2529,10 @@ function ThumbnailMessageItemBody(_a) {
     alt: message === null || message === void 0 ? void 0 : message.type,
     width: "360px",
     height: "270px",
-    onLoad: function () {
+    onLoad: function onLoad() {
       setImageRendered(true);
     },
-    placeHolder: function (style) {
+    placeHolder: function placeHolder(style) {
       return /*#__PURE__*/React__default["default"].createElement("div", {
         className: "sendbird-thumbnail-message-item-body__placeholder",
         style: style
@@ -2661,7 +2575,7 @@ function OGMessageItemBody(_a) {
       mouseHover = _l === void 0 ? false : _l;
   var stringSet = React.useContext(LocalizationContext.LocalizationContext).stringSet;
 
-  var openOGUrl = function () {
+  var openOGUrl = function openOGUrl() {
     var _a, _b;
 
     if ((_a = message === null || message === void 0 ? void 0 : message.ogMetaData) === null || _a === void 0 ? void 0 : _a.url) window.open((_b = message === null || message === void 0 ? void 0 : message.ogMetaData) === null || _b === void 0 ? void 0 : _b.url);
@@ -2716,12 +2630,12 @@ function OGMessageItemBody(_a) {
       src: word,
       type: index$4.LabelTypography.BODY_1,
       color: isByMe ? index$4.LabelColors.ONCONTENT_1 : index$4.LabelColors.ONBACKGROUND_1
-    }, word) : "".concat(word, " ");
+    }, word) : word + " ";
   }), index.isEditedMessage(message) && /*#__PURE__*/React__default["default"].createElement(index$4.Label, {
     className: "sendbird-og-message-item-body__text-bubble__message",
     type: index$4.LabelTypography.BODY_1,
     color: isByMe ? index$4.LabelColors.ONCONTENT_2 : index$4.LabelColors.ONBACKGROUND_2
-  }, " ".concat(stringSet.MESSAGE_EDITED, " ")))), /*#__PURE__*/React__default["default"].createElement("div", {
+  }, " " + stringSet.MESSAGE_EDITED + " "))), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sendbird-og-message-item-body__og-thumbnail",
     onClick: openOGUrl
   }, /*#__PURE__*/React__default["default"].createElement(index$4.ImageRenderer, {
@@ -2785,34 +2699,34 @@ function UnknownMessageItemBody(_a) {
 function QuoteMessage(_a) {
   var _b;
 
-  var _c, _d, _e, _f;
+  var _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
 
   var message = _a.message,
-      _g = _a.userId,
-      userId = _g === void 0 ? '' : _g,
-      _h = _a.isByMe,
-      isByMe = _h === void 0 ? false : _h,
+      _p = _a.userId,
+      userId = _p === void 0 ? '' : _p,
+      _q = _a.isByMe,
+      isByMe = _q === void 0 ? false : _q,
       className = _a.className,
-      onClick = _a.onClick;
+      _onClick = _a.onClick;
   var stringSet = React.useContext(LocalizationContext.LocalizationContext).stringSet;
   var parentMessage = message.parentMessage;
-  var parentMessageSender = parentMessage === null || parentMessage === void 0 ? void 0 : parentMessage.sender;
+  var parentMessageSender = (_c = parentMessage) === null || _c === void 0 ? void 0 : _c.sender;
   var parentMessageSenderNickname = userId === (parentMessageSender === null || parentMessageSender === void 0 ? void 0 : parentMessageSender.userId) ? stringSet.QUOTED_MESSAGE__CURRENT_USER : parentMessageSender === null || parentMessageSender === void 0 ? void 0 : parentMessageSender.nickname;
-  var parentMessageUrl = (parentMessage === null || parentMessage === void 0 ? void 0 : parentMessage.url) || '';
-  var parentMessageType = parentMessage === null || parentMessage === void 0 ? void 0 : parentMessage.type;
-  var currentMessageSenderNickname = userId === ((_c = message === null || message === void 0 ? void 0 : message.sender) === null || _c === void 0 ? void 0 : _c.userId) ? stringSet.QUOTED_MESSAGE__CURRENT_USER : (_d = message === null || message === void 0 ? void 0 : message.sender) === null || _d === void 0 ? void 0 : _d.nickname;
+  var parentMessageUrl = ((_d = parentMessage) === null || _d === void 0 ? void 0 : _d.url) || '';
+  var parentMessageType = (_e = parentMessage) === null || _e === void 0 ? void 0 : _e.type;
+  var currentMessageSenderNickname = userId === ((_f = message === null || message === void 0 ? void 0 : message.sender) === null || _f === void 0 ? void 0 : _f.userId) ? stringSet.QUOTED_MESSAGE__CURRENT_USER : (_g = message === null || message === void 0 ? void 0 : message.sender) === null || _g === void 0 ? void 0 : _g.nickname;
 
-  var _j = React.useState(false),
-      isThumbnailLoaded = _j[0],
-      setThumbnailLoaded = _j[1];
+  var _r = React.useState(false),
+      isThumbnailLoaded = _r[0],
+      setThumbnailLoaded = _r[1];
 
   var uikitFileTypes = index.getUIKitFileTypes();
-  var splitFileName = (parentMessage === null || parentMessage === void 0 ? void 0 : parentMessage.name) ? parentMessage.name.split('/') : parentMessageUrl.split('/');
+  var splitFileName = ((_h = parentMessage) === null || _h === void 0 ? void 0 : _h.name) ? parentMessage.name.split('/') : parentMessageUrl.split('/');
   return /*#__PURE__*/React__default["default"].createElement("div", {
     className: index.getClassName([className, 'sendbird-quote-message', isByMe ? 'outgoing' : 'incoming']),
     key: parentMessage === null || parentMessage === void 0 ? void 0 : parentMessage.messageId,
-    onClick: function () {
-      if (onClick) onClick();
+    onClick: function onClick() {
+      if (_onClick) _onClick();
     }
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sendbird-quote-message__replied-to"
@@ -2826,15 +2740,15 @@ function QuoteMessage(_a) {
     className: "sendbird-quote-message__replied-to__text",
     type: index$4.LabelTypography.CAPTION_2,
     color: index$4.LabelColors.ONBACKGROUND_3
-  }, "".concat(currentMessageSenderNickname, " ").concat(stringSet.QUOTED_MESSAGE__REPLIED_TO, " ").concat(parentMessageSenderNickname))), /*#__PURE__*/React__default["default"].createElement("div", {
+  }, currentMessageSenderNickname + " " + stringSet.QUOTED_MESSAGE__REPLIED_TO + " " + parentMessageSenderNickname)), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sendbird-quote-message__replied-message"
-  }, index.isUserMessage(parentMessage) && ((_e = parentMessage === null || parentMessage === void 0 ? void 0 : parentMessage.message) === null || _e === void 0 ? void 0 : _e.length) > 0 && /*#__PURE__*/React__default["default"].createElement("div", {
+  }, index.isUserMessage(parentMessage) && ((_k = (_j = parentMessage) === null || _j === void 0 ? void 0 : _j.message) === null || _k === void 0 ? void 0 : _k.length) > 0 && /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sendbird-quote-message__replied-message__text-message"
   }, /*#__PURE__*/React__default["default"].createElement(index$4.Label, {
     className: "sendbird-quote-message__replied-message__text-message__word",
     type: index$4.LabelTypography.BODY_2,
     color: index$4.LabelColors.ONBACKGROUND_1
-  }, parentMessage === null || parentMessage === void 0 ? void 0 : parentMessage.message)), index.isThumbnailMessage(parentMessage) && parentMessageUrl && /*#__PURE__*/React__default["default"].createElement("div", {
+  }, (_l = parentMessage) === null || _l === void 0 ? void 0 : _l.message)), index.isThumbnailMessage(parentMessage) && parentMessageUrl && /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sendbird-quote-message__replied-message__thumbnail-message"
   }, /*#__PURE__*/React__default["default"].createElement(index$4.ImageRenderer, {
     className: "sendbird-quote-message__replied-message__thumbnail-message__image",
@@ -2842,7 +2756,7 @@ function QuoteMessage(_a) {
     alt: parentMessageType,
     width: "144px",
     height: "108px",
-    onLoad: function () {
+    onLoad: function onLoad() {
       return setThumbnailLoaded(true);
     },
     defaultComponent: /*#__PURE__*/React__default["default"].createElement("div", {
@@ -2855,7 +2769,7 @@ function QuoteMessage(_a) {
       width: "22px",
       height: "22px"
     })))
-  }), index.isVideo(parentMessageType) && !(((_f = parentMessage === null || parentMessage === void 0 ? void 0 : parentMessage.thumbnails) === null || _f === void 0 ? void 0 : _f.length) > 0) && /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("video", {
+  }), index.isVideo(parentMessageType) && !(((_o = (_m = parentMessage) === null || _m === void 0 ? void 0 : _m.thumbnails) === null || _o === void 0 ? void 0 : _o.length) > 0) && /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("video", {
     className: "sendbird-quote-message__replied-message__thumbnail-message__video"
   }, /*#__PURE__*/React__default["default"].createElement("source", {
     src: parentMessageUrl,
@@ -2894,20 +2808,20 @@ function QuoteMessage(_a) {
 }
 
 function MessageContent(_a) {
-  var _b, _c, _d;
+  var _b, _c, _d, _e;
 
   var className = _a.className,
       userId = _a.userId,
       channel = _a.channel,
       message = _a.message,
-      _e = _a.disabled,
-      disabled = _e === void 0 ? false : _e,
-      _f = _a.chainTop,
-      chainTop = _f === void 0 ? false : _f,
-      _g = _a.chainBottom,
-      chainBottom = _g === void 0 ? false : _g,
-      _h = _a.useReaction,
-      useReaction = _h === void 0 ? false : _h,
+      _f = _a.disabled,
+      disabled = _f === void 0 ? false : _f,
+      _g = _a.chainTop,
+      chainTop = _g === void 0 ? false : _g,
+      _h = _a.chainBottom,
+      chainBottom = _h === void 0 ? false : _h,
+      _j = _a.useReaction,
+      useReaction = _j === void 0 ? false : _j,
       replyType = _a.replyType,
       nicknamesMap = _a.nicknamesMap,
       emojiContainer = _a.emojiContainer,
@@ -2920,22 +2834,22 @@ function MessageContent(_a) {
       setQuoteMessage = _a.setQuoteMessage;
   var messageTypes = index.getUIKitMessageTypes();
 
-  var _j = React.useContext(index$1.UserProfileContext),
-      disableUserProfile = _j.disableUserProfile,
-      renderUserProfile = _j.renderUserProfile;
+  var _k = React.useContext(index$1.UserProfileContext),
+      disableUserProfile = _k.disableUserProfile,
+      renderUserProfile = _k.renderUserProfile;
 
   var dateLocale = React.useContext(LocalizationContext.LocalizationContext).dateLocale;
   var avatarRef = React.useRef(null);
 
-  var _k = React.useState(false),
-      mouseHover = _k[0],
-      setMouseHover = _k[1];
-
   var _l = React.useState(false),
-      supposedHover = _l[0],
-      setSupposedHover = _l[1];
+      mouseHover = _l[0],
+      setMouseHover = _l[1];
 
-  var isByMe = userId === ((_b = message === null || message === void 0 ? void 0 : message.sender) === null || _b === void 0 ? void 0 : _b.userId) || message.sendingStatus === 'pending' || message.sendingStatus === 'failed';
+  var _m = React.useState(false),
+      supposedHover = _m[0],
+      setSupposedHover = _m[1];
+
+  var isByMe = userId === ((_c = (_b = message) === null || _b === void 0 ? void 0 : _b.sender) === null || _c === void 0 ? void 0 : _c.userId) || message.sendingStatus === 'pending' || message.sendingStatus === 'failed';
   var isByMeClassName = isByMe ? 'outgoing' : 'incoming';
   var chainTopClassName = chainTop ? 'chain-top' : '';
   var useReactionClassName = useReaction ? 'use-reactions' : '';
@@ -2943,7 +2857,7 @@ function MessageContent(_a) {
   var useReplying = !!(replyType === 'QUOTE_REPLY' && (message === null || message === void 0 ? void 0 : message.parentMessageId) && (message === null || message === void 0 ? void 0 : message.parentMessage));
   var useReplyingClassName = useReplying ? 'use-quote' : '';
 
-  if (((_c = message === null || message === void 0 ? void 0 : message.isAdminMessage) === null || _c === void 0 ? void 0 : _c.call(message)) || (message === null || message === void 0 ? void 0 : message.messageType) === 'admin') {
+  if (((_d = message === null || message === void 0 ? void 0 : message.isAdminMessage) === null || _d === void 0 ? void 0 : _d.call(message)) || (message === null || message === void 0 ? void 0 : message.messageType) === 'admin') {
     return /*#__PURE__*/React__default["default"].createElement(AdminMessage, {
       message: message
     });
@@ -2951,10 +2865,10 @@ function MessageContent(_a) {
 
   return /*#__PURE__*/React__default["default"].createElement("div", {
     className: index.getClassName([className, 'sendbird-message-content', isByMeClassName]),
-    onMouseOver: function () {
+    onMouseOver: function onMouseOver() {
       return setMouseHover(true);
     },
-    onMouseLeave: function () {
+    onMouseLeave: function onMouseLeave() {
       return setMouseHover(false);
     }
   }, /*#__PURE__*/React__default["default"].createElement("div", {
@@ -2964,7 +2878,7 @@ function MessageContent(_a) {
 
   /** user profile */
   React__default["default"].createElement(index$1.ContextMenu, {
-    menuTrigger: function (toggleDropdown) {
+    menuTrigger: function menuTrigger(toggleDropdown) {
       var _a;
 
       return /*#__PURE__*/React__default["default"].createElement(index$4.Avatar, {
@@ -2973,12 +2887,12 @@ function MessageContent(_a) {
         ref: avatarRef,
         width: "28px",
         height: "28px",
-        onClick: function () {
+        onClick: function onClick() {
           if (!disableUserProfile) toggleDropdown();
         }
       });
     },
-    menuItems: function (closeDropdown) {
+    menuItems: function menuItems(closeDropdown) {
       return /*#__PURE__*/React__default["default"].createElement(index$1.MenuItems
       /**
       * parentRef: For catching location(x, y) of MenuItems
@@ -3035,7 +2949,7 @@ function MessageContent(_a) {
     message: message,
     userId: userId,
     isByMe: isByMe,
-    onClick: function () {
+    onClick: function onClick() {
       var _a;
 
       if (((_a = message === null || message === void 0 ? void 0 : message.parentMessage) === null || _a === void 0 ? void 0 : _a.createdAt) && (message === null || message === void 0 ? void 0 : message.parentMessageId)) {
@@ -3077,7 +2991,7 @@ function MessageContent(_a) {
     message: message,
     isByMe: isByMe,
     mouseHover: mouseHover
-  }), useReaction && ((_d = message === null || message === void 0 ? void 0 : message.reactions) === null || _d === void 0 ? void 0 : _d.length) > 0 && /*#__PURE__*/React__default["default"].createElement("div", {
+  }), useReaction && ((_e = message === null || message === void 0 ? void 0 : message.reactions) === null || _e === void 0 ? void 0 : _e.length) > 0 && /*#__PURE__*/React__default["default"].createElement("div", {
     className: index.getClassName(['sendbird-message-content-reactions', !isByMe || index.isThumbnailMessage(message) || index.isOGMessage(message) ? '' : 'primary', mouseHover ? 'mouse-hover' : ''])
   }, /*#__PURE__*/React__default["default"].createElement(EmojiReactions2, {
     userId: userId,
@@ -3120,17 +3034,16 @@ function MessageContent(_a) {
   }))));
 }
 
-const RemoveMessage = props => {
+var RemoveMessage = function RemoveMessage(props) {
   var _message$threadInfo;
 
-  const {
-    onCloseModal,
-    onDeleteMessage,
-    message
-  } = props;
-  const {
-    stringSet
-  } = React.useContext(LocalizationContext.LocalizationContext);
+  var onCloseModal = props.onCloseModal,
+      onDeleteMessage = props.onDeleteMessage,
+      message = props.message;
+
+  var _useContext = React.useContext(LocalizationContext.LocalizationContext),
+      stringSet = _useContext.stringSet;
+
   return /*#__PURE__*/React__default["default"].createElement(index$1.Modal, {
     type: index$1.ButtonTypes.DANGER,
     disabled: (message === null || message === void 0 ? void 0 : (_message$threadInfo = message.threadInfo) === null || _message$threadInfo === void 0 ? void 0 : _message$threadInfo.replyCount) > 0,
@@ -3154,48 +3067,67 @@ RemoveMessage.propTypes = {
 function MessageHoc(_ref) {
   var _message$reactions;
 
-  let {
-    message,
-    userId,
-    disabled,
-    editDisabled,
-    hasSeparator,
-    deleteMessage,
-    updateMessage,
-    scrollToMessage,
-    resendMessage,
-    useReaction,
-    replyType,
-    chainTop,
-    chainBottom,
-    membersMap,
-    emojiContainer,
-    animatedMessageId,
-    highLightedMessageId,
-    toggleReaction,
-    quoteMessage,
-    setQuoteMessage,
-    renderCustomMessage,
-    currentGroupChannel,
-    handleScroll
-  } = _ref;
-  const {
-    sender = {}
-  } = message;
-  const [showEdit, setShowEdit] = React.useState(false);
-  const [showRemove, setShowRemove] = React.useState(false);
-  const [showFileViewer, setShowFileViewer] = React.useState(false);
-  const [isAnimated, setIsAnimated] = React.useState(false);
-  const [isHighlighted, setIsHighlighted] = React.useState(false);
-  const editMessageInputRef = React.useRef(null);
-  const useMessageScrollRef = React.useRef(null);
-  const {
-    dateLocale
-  } = React.useContext(LocalizationContext.LocalizationContext);
-  React.useLayoutEffect(() => {
+  var message = _ref.message,
+      userId = _ref.userId,
+      disabled = _ref.disabled,
+      editDisabled = _ref.editDisabled,
+      hasSeparator = _ref.hasSeparator,
+      deleteMessage = _ref.deleteMessage,
+      updateMessage = _ref.updateMessage,
+      scrollToMessage = _ref.scrollToMessage,
+      resendMessage = _ref.resendMessage,
+      useReaction = _ref.useReaction,
+      replyType = _ref.replyType,
+      chainTop = _ref.chainTop,
+      chainBottom = _ref.chainBottom,
+      membersMap = _ref.membersMap,
+      emojiContainer = _ref.emojiContainer,
+      animatedMessageId = _ref.animatedMessageId,
+      highLightedMessageId = _ref.highLightedMessageId,
+      toggleReaction = _ref.toggleReaction,
+      quoteMessage = _ref.quoteMessage,
+      setQuoteMessage = _ref.setQuoteMessage,
+      renderCustomMessage = _ref.renderCustomMessage,
+      currentGroupChannel = _ref.currentGroupChannel,
+      handleScroll = _ref.handleScroll;
+  var _message$sender = message.sender,
+      sender = _message$sender === void 0 ? {} : _message$sender;
+
+  var _useState = React.useState(false),
+      _useState2 = LocalizationContext._slicedToArray(_useState, 2),
+      showEdit = _useState2[0],
+      setShowEdit = _useState2[1];
+
+  var _useState3 = React.useState(false),
+      _useState4 = LocalizationContext._slicedToArray(_useState3, 2),
+      showRemove = _useState4[0],
+      setShowRemove = _useState4[1];
+
+  var _useState5 = React.useState(false),
+      _useState6 = LocalizationContext._slicedToArray(_useState5, 2),
+      showFileViewer = _useState6[0],
+      setShowFileViewer = _useState6[1];
+
+  var _useState7 = React.useState(false),
+      _useState8 = LocalizationContext._slicedToArray(_useState7, 2),
+      isAnimated = _useState8[0],
+      setIsAnimated = _useState8[1];
+
+  var _useState9 = React.useState(false),
+      _useState10 = LocalizationContext._slicedToArray(_useState9, 2),
+      isHighlighted = _useState10[0],
+      setIsHighlighted = _useState10[1];
+
+  var editMessageInputRef = React.useRef(null);
+  var useMessageScrollRef = React.useRef(null);
+
+  var _useContext = React.useContext(LocalizationContext.LocalizationContext),
+      dateLocale = _useContext.dateLocale;
+
+  React.useLayoutEffect(function () {
     handleScroll();
   }, [showEdit, message === null || message === void 0 ? void 0 : (_message$reactions = message.reactions) === null || _message$reactions === void 0 ? void 0 : _message$reactions.length]);
-  React.useLayoutEffect(() => {
+  React.useLayoutEffect(function () {
     if (highLightedMessageId === message.messageId) {
       if (useMessageScrollRef && useMessageScrollRef.current) {
         useMessageScrollRef.current.scrollIntoView({
@@ -3203,7 +3135,7 @@ function MessageHoc(_ref) {
           inline: 'center'
         });
         setIsAnimated(false);
-        setTimeout(() => {
+        setTimeout(function () {
           setIsHighlighted(true);
         }, 500);
       }
@@ -3211,7 +3143,7 @@ function MessageHoc(_ref) {
       setIsHighlighted(false);
     }
   }, [highLightedMessageId, useMessageScrollRef.current, message.messageId]);
-  React.useLayoutEffect(() => {
+  React.useLayoutEffect(function () {
     if (animatedMessageId === message.messageId) {
       if (useMessageScrollRef && useMessageScrollRef.current) {
         useMessageScrollRef.current.scrollIntoView({
@@ -3219,7 +3151,7 @@ function MessageHoc(_ref) {
           inline: 'center'
         });
         setIsHighlighted(false);
-        setTimeout(() => {
+        setTimeout(function () {
           setIsAnimated(true);
         }, 500);
       }
@@ -3227,7 +3159,7 @@ function MessageHoc(_ref) {
       setIsAnimated(false);
     }
   }, [animatedMessageId, useMessageScrollRef.current, message.messageId]);
-  const RenderedMessage = React.useMemo(() => {
+  var RenderedMessage = React.useMemo(function () {
     if (renderCustomMessage) {
       return renderCustomMessage(message, currentGroupChannel, chainTop, chainBottom); // TODO: Let's change this to object type on next major version up
       // and add params 'hasSeparator' and 'menuDisabled', scrollToMessage
@@ -3235,7 +3167,7 @@ function MessageHoc(_ref) {
 
     return null;
   }, [message, message.message, renderCustomMessage]);
-  const isByMe = userId === (sender === null || sender === void 0 ? void 0 : sender.userId) || message.requestState === 'pending' || message.requestState === 'failed';
+  var isByMe = userId === (sender === null || sender === void 0 ? void 0 : sender.userId) || message.requestState === 'pending' || message.requestState === 'failed';
 
   if (RenderedMessage) {
     return /*#__PURE__*/React__default["default"].createElement("div", {
@@ -3258,7 +3190,7 @@ function MessageHoc(_ref) {
       ref: editMessageInputRef,
       name: message.messageId,
       onSendMessage: updateMessage,
-      onCancelEdit: () => {
+      onCancelEdit: function onCancelEdit() {
         setShowEdit(false);
       },
       value: message.message
@@ -3298,8 +3230,10 @@ function MessageHoc(_ref) {
     setQuoteMessage: setQuoteMessage
   }), showRemove && /*#__PURE__*/React__default["default"].createElement(RemoveMessage, {
     message: message,
-    onCloseModal: () => setShowRemove(false),
-    onDeleteMessage: () => {
+    onCloseModal: function onCloseModal() {
+      return setShowRemove(false);
+    },
+    onDeleteMessage: function onDeleteMessage() {
       deleteMessage(message);
 
       if ((message === null || message === void 0 ? void 0 : message.messageId) === (quoteMessage === null || quoteMessage === void 0 ? void 0 : quoteMessage.messageId)) {
@@ -3307,10 +3241,12 @@ function MessageHoc(_ref) {
       }
     }
   }), showFileViewer && /*#__PURE__*/React__default["default"].createElement(index$3.FileViewer, {
-    onClose: () => setShowFileViewer(false),
+    onClose: function onClose() {
+      return setShowFileViewer(false);
+    },
     message: message,
-    onDelete: () => {
-      deleteMessage(message, () => {
+    onDelete: function onDelete() {
+      deleteMessage(message, function () {
         setShowFileViewer(false);
       });
     },
@@ -3379,28 +3315,38 @@ MessageHoc.defaultProps = {
   disabled: false,
   animatedMessageId: null,
   highLightedMessageId: null,
-  toggleReaction: () => {},
-  scrollToMessage: () => {},
+  toggleReaction: function toggleReaction() {},
+  scrollToMessage: function scrollToMessage() {},
   emojiContainer: {},
   quoteMessage: null
 };
 
-const SCROLL_REF_CLASS_NAME = '.sendbird-msg--scroll-ref';
-class ConversationScroll extends React.Component {
-  constructor(props) {
-    super(props);
+var SCROLL_REF_CLASS_NAME = '.sendbird-msg--scroll-ref';
 
-    LocalizationContext._defineProperty(this, "handleScroll", () => {
-      const {
-        scrollRef
-      } = this === null || this === void 0 ? void 0 : this.props;
-      const current = scrollRef === null || scrollRef === void 0 ? void 0 : scrollRef.current;
+var ConversationScroll = /*#__PURE__*/function (_Component) {
+  LocalizationContext._inherits(ConversationScroll, _Component);
+
+  var _super = LocalizationContext._createSuper(ConversationScroll);
+
+  function ConversationScroll(props) {
+    var _this;
+
+    LocalizationContext._classCallCheck(this, ConversationScroll);
+
+    _this = _super.call(this, props);
+
+    LocalizationContext._defineProperty(LocalizationContext._assertThisInitialized(_this), "handleScroll", function () {
+      var _assertThisInitialize2;
+
+      var _assertThisInitialize = (_assertThisInitialize2 = LocalizationContext._assertThisInitialized(_this)) === null || _assertThisInitialize2 === void 0 ? void 0 : _assertThisInitialize2.props,
+          scrollRef = _assertThisInitialize.scrollRef;
+
+      var current = scrollRef === null || scrollRef === void 0 ? void 0 : scrollRef.current;
 
       if (current) {
-        const bottom = current.scrollHeight - current.scrollTop - current.offsetHeight;
-        const {
-          scrollBottom = 0
-        } = this.state;
+        var bottom = current.scrollHeight - current.scrollTop - current.offsetHeight;
+        var _this$state$scrollBot = _this.state.scrollBottom,
+            scrollBottom = _this$state$scrollBot === void 0 ? 0 : _this$state$scrollBot;
 
         if (scrollBottom < bottom) {
           current.scrollTop += bottom - scrollBottom;
@@ -3408,31 +3354,29 @@ class ConversationScroll extends React.Component {
       }
     });
 
-    LocalizationContext._defineProperty(this, "onScroll", e => {
-      const {
-        scrollRef,
-        hasMore,
-        messagesDispatcher,
-        onScroll,
-        onScrollDown,
-        currentGroupChannel
-      } = this.props;
-      const element = e.target;
-      const {
-        scrollTop,
-        clientHeight,
-        scrollHeight
-      } = element;
+    LocalizationContext._defineProperty(LocalizationContext._assertThisInitialized(_this), "onScroll", function (e) {
+      var _this$props = _this.props,
+          scrollRef = _this$props.scrollRef,
+          hasMore = _this$props.hasMore,
+          messagesDispatcher = _this$props.messagesDispatcher,
+          onScroll = _this$props.onScroll,
+          onScrollDown = _this$props.onScrollDown,
+          currentGroupChannel = _this$props.currentGroupChannel;
+      var element = e.target;
+      var scrollTop = element.scrollTop,
+          clientHeight = element.clientHeight,
+          scrollHeight = element.scrollHeight;
 
       if (scrollTop === 0) {
         if (!hasMore) {
           return;
         }
 
-        const nodes = scrollRef.current.querySelectorAll(SCROLL_REF_CLASS_NAME);
-        const first = nodes && nodes[0];
-        onScroll(_ref => {
-          let [messages] = _ref;
+        var nodes = scrollRef.current.querySelectorAll(SCROLL_REF_CLASS_NAME);
+        var first = nodes && nodes[0];
+        onScroll(function (_ref) {
+          var _ref2 = LocalizationContext._slicedToArray(_ref, 1),
+              messages = _ref2[0];
 
           if (messages) {
             // https://github.com/scabbiaza/react-scroll-position-on-updating-dom
@@ -3448,10 +3392,12 @@ class ConversationScroll extends React.Component {
       }
 
       if (clientHeight + scrollTop === scrollHeight) {
-        const nodes = scrollRef.current.querySelectorAll(SCROLL_REF_CLASS_NAME);
-        const last = nodes && nodes[nodes.length - 1];
-        onScrollDown(_ref2 => {
-          let [messages] = _ref2;
+        var _nodes = scrollRef.current.querySelectorAll(SCROLL_REF_CLASS_NAME);
+
+        var last = _nodes && _nodes[_nodes.length - 1];
+        onScrollDown(function (_ref3) {
+          var _ref4 = LocalizationContext._slicedToArray(_ref3, 1),
+              messages = _ref4[0];
 
           if (messages) {
             // https://github.com/scabbiaza/react-scroll-position-on-updating-dom
@@ -3466,7 +3412,7 @@ class ConversationScroll extends React.Component {
       } // do this later
 
 
-      setTimeout(() => {
+      setTimeout(function () {
         // mark as read if scroll is at end
         if (clientHeight + scrollTop === scrollHeight) {
           messagesDispatcher({
@@ -3477,138 +3423,152 @@ class ConversationScroll extends React.Component {
 
 
         if (scrollRef !== null && scrollRef !== void 0 && scrollRef.current) {
-          const current = scrollRef === null || scrollRef === void 0 ? void 0 : scrollRef.current;
-          this.setState(state => LocalizationContext._objectSpread2(LocalizationContext._objectSpread2({}, state), {}, {
-            scrollBottom: current.scrollHeight - current.scrollTop - current.offsetHeight
-          }), () => {});
+          var current = scrollRef === null || scrollRef === void 0 ? void 0 : scrollRef.current;
+
+          _this.setState(function (state) {
+            return LocalizationContext._objectSpread2(LocalizationContext._objectSpread2({}, state), {}, {
+              scrollBottom: current.scrollHeight - current.scrollTop - current.offsetHeight
+            });
+          }, function () {});
         }
       }, 500);
     });
 
-    this.state = {};
+    _this.state = {};
+    return _this;
   }
 
-  render() {
-    const {
-      userId,
-      disabled,
-      scrollRef,
-      membersMap,
-      allMessages,
-      scrollToMessage,
-      useReaction,
-      replyType,
-      emojiAllMap,
-      editDisabled,
-      deleteMessage,
-      updateMessage,
-      resendMessage,
-      renderCustomMessage,
-      renderChatItem,
-      animatedMessageId,
-      highLightedMessageId,
-      emojiContainer,
-      toggleReaction,
-      useMessageGrouping,
-      currentGroupChannel,
-      memoizedEmojiListItems,
-      showScrollBot,
-      onClickScrollBot,
-      quoteMessage,
-      setQuoteMessage
-    } = this.props;
+  LocalizationContext._createClass(ConversationScroll, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
 
-    if (allMessages.length < 1) {
-      return /*#__PURE__*/React__default["default"].createElement(index$4.PlaceHolder, {
-        className: "sendbird-conversation__no-messages",
-        type: index$4.PlaceHolderTypes$1.NO_MESSAGES
-      });
-    }
+      var _this$props2 = this.props,
+          userId = _this$props2.userId,
+          disabled = _this$props2.disabled,
+          scrollRef = _this$props2.scrollRef,
+          membersMap = _this$props2.membersMap,
+          allMessages = _this$props2.allMessages,
+          scrollToMessage = _this$props2.scrollToMessage,
+          useReaction = _this$props2.useReaction,
+          replyType = _this$props2.replyType,
+          emojiAllMap = _this$props2.emojiAllMap,
+          editDisabled = _this$props2.editDisabled,
+          deleteMessage = _this$props2.deleteMessage,
+          updateMessage = _this$props2.updateMessage,
+          resendMessage = _this$props2.resendMessage,
+          renderCustomMessage = _this$props2.renderCustomMessage,
+          renderChatItem = _this$props2.renderChatItem,
+          animatedMessageId = _this$props2.animatedMessageId,
+          highLightedMessageId = _this$props2.highLightedMessageId,
+          emojiContainer = _this$props2.emojiContainer,
+          toggleReaction = _this$props2.toggleReaction,
+          useMessageGrouping = _this$props2.useMessageGrouping,
+          currentGroupChannel = _this$props2.currentGroupChannel,
+          memoizedEmojiListItems = _this$props2.memoizedEmojiListItems,
+          showScrollBot = _this$props2.showScrollBot,
+          onClickScrollBot = _this$props2.onClickScrollBot,
+          quoteMessage = _this$props2.quoteMessage,
+          setQuoteMessage = _this$props2.setQuoteMessage;
 
-    return /*#__PURE__*/React__default["default"].createElement("div", {
-      className: "sendbird-conversation__messages"
-    }, /*#__PURE__*/React__default["default"].createElement("div", {
-      className: "sendbird-conversation__scroll-container"
-    }, /*#__PURE__*/React__default["default"].createElement("div", {
-      className: "sendbird-conversation__padding"
-    }), /*#__PURE__*/React__default["default"].createElement("div", {
-      className: "sendbird-conversation__messages-padding",
-      ref: scrollRef,
-      onScroll: this.onScroll
-    }, allMessages.map((m, idx) => {
-      const previousMessage = allMessages[idx - 1];
-      const nextMessage = allMessages[idx + 1];
-      const [chainTop, chainBottom] = useMessageGrouping ? compareMessagesForGrouping(previousMessage, m, nextMessage) : [false, false];
-      const previousMessageCreatedAt = previousMessage && previousMessage.createdAt;
-      const currentCreatedAt = m.createdAt; // https://stackoverflow.com/a/41855608
-
-      const hasSeparator = !(previousMessageCreatedAt && index$2.isSameDay(currentCreatedAt, previousMessageCreatedAt));
-
-      if (renderChatItem) {
-        return /*#__PURE__*/React__default["default"].createElement("div", {
-          key: m.messageId || m.reqId,
-          className: "sendbird-msg--scroll-ref"
-        }, renderChatItem({
-          message: m,
-          animatedMessageId,
-          highLightedMessageId,
-          channel: currentGroupChannel,
-          onDeleteMessage: deleteMessage,
-          onUpdateMessage: updateMessage,
-          onResendMessage: resendMessage,
-          onScrollToMessage: scrollToMessage,
-          onReplyMessage: setQuoteMessage,
-          emojiContainer,
-          chainTop,
-          chainBottom,
-          hasSeparator,
-          menuDisabled: disabled
-        }));
+      if (allMessages.length < 1) {
+        return /*#__PURE__*/React__default["default"].createElement(index$4.PlaceHolder, {
+          className: "sendbird-conversation__no-messages",
+          type: index$4.PlaceHolderTypes$1.NO_MESSAGES
+        });
       }
 
-      return /*#__PURE__*/React__default["default"].createElement(MessageHoc, {
-        animatedMessageId: animatedMessageId,
-        highLightedMessageId: highLightedMessageId,
-        renderCustomMessage: renderCustomMessage,
-        key: m.messageId || m.reqId,
-        userId: userId,
-        handleScroll: this.handleScroll,
-        message: m,
-        quoteMessage: quoteMessage,
-        scrollToMessage: scrollToMessage,
-        currentGroupChannel: currentGroupChannel,
-        disabled: disabled,
-        membersMap: membersMap,
-        chainTop: chainTop,
-        useReaction: useReaction,
-        replyType: replyType,
-        emojiAllMap: emojiAllMap,
-        emojiContainer: emojiContainer,
-        editDisabled: editDisabled,
-        hasSeparator: hasSeparator,
-        chainBottom: chainBottom,
-        updateMessage: updateMessage,
-        deleteMessage: deleteMessage,
-        resendMessage: resendMessage,
-        toggleReaction: toggleReaction,
-        setQuoteMessage: setQuoteMessage,
-        memoizedEmojiListItems: memoizedEmojiListItems
-      });
-    }))), showScrollBot && /*#__PURE__*/React__default["default"].createElement("div", {
-      className: "sendbird-conversation__scroll-bottom-button",
-      onClick: onClickScrollBot,
-      onKeyDown: onClickScrollBot,
-      tabIndex: 0,
-      role: "button"
-    }, /*#__PURE__*/React__default["default"].createElement(index$4.Icon, {
-      width: "24px",
-      height: "24px",
-      type: index$4.IconTypes.CHEVRON_DOWN,
-      fillColor: index$4.IconColors.PRIMARY
-    })));
-  }
+      return /*#__PURE__*/React__default["default"].createElement("div", {
+        className: "sendbird-conversation__messages"
+      }, /*#__PURE__*/React__default["default"].createElement("div", {
+        className: "sendbird-conversation__scroll-container"
+      }, /*#__PURE__*/React__default["default"].createElement("div", {
+        className: "sendbird-conversation__padding"
+      }), /*#__PURE__*/React__default["default"].createElement("div", {
+        className: "sendbird-conversation__messages-padding",
+        ref: scrollRef,
+        onScroll: this.onScroll
+      }, allMessages.map(function (m, idx) {
+        var previousMessage = allMessages[idx - 1];
+        var nextMessage = allMessages[idx + 1];
 
-}
+        var _ref5 = useMessageGrouping ? compareMessagesForGrouping(previousMessage, m, nextMessage) : [false, false],
+            _ref6 = LocalizationContext._slicedToArray(_ref5, 2),
+            chainTop = _ref6[0],
+            chainBottom = _ref6[1];
+
+        var previousMessageCreatedAt = previousMessage && previousMessage.createdAt;
+        var currentCreatedAt = m.createdAt; // https://stackoverflow.com/a/41855608
+
+        var hasSeparator = !(previousMessageCreatedAt && index$2.isSameDay(currentCreatedAt, previousMessageCreatedAt));
+
+        if (renderChatItem) {
+          return /*#__PURE__*/React__default["default"].createElement("div", {
+            key: m.messageId || m.reqId,
+            className: "sendbird-msg--scroll-ref"
+          }, renderChatItem({
+            message: m,
+            animatedMessageId: animatedMessageId,
+            highLightedMessageId: highLightedMessageId,
+            channel: currentGroupChannel,
+            onDeleteMessage: deleteMessage,
+            onUpdateMessage: updateMessage,
+            onResendMessage: resendMessage,
+            onScrollToMessage: scrollToMessage,
+            onReplyMessage: setQuoteMessage,
+            emojiContainer: emojiContainer,
+            chainTop: chainTop,
+            chainBottom: chainBottom,
+            hasSeparator: hasSeparator,
+            menuDisabled: disabled
+          }));
+        }
+
+        return /*#__PURE__*/React__default["default"].createElement(MessageHoc, {
+          animatedMessageId: animatedMessageId,
+          highLightedMessageId: highLightedMessageId,
+          renderCustomMessage: renderCustomMessage,
+          key: m.messageId || m.reqId,
+          userId: userId,
+          handleScroll: _this2.handleScroll,
+          message: m,
+          quoteMessage: quoteMessage,
+          scrollToMessage: scrollToMessage,
+          currentGroupChannel: currentGroupChannel,
+          disabled: disabled,
+          membersMap: membersMap,
+          chainTop: chainTop,
+          useReaction: useReaction,
+          replyType: replyType,
+          emojiAllMap: emojiAllMap,
+          emojiContainer: emojiContainer,
+          editDisabled: editDisabled,
+          hasSeparator: hasSeparator,
+          chainBottom: chainBottom,
+          updateMessage: updateMessage,
+          deleteMessage: deleteMessage,
+          resendMessage: resendMessage,
+          toggleReaction: toggleReaction,
+          setQuoteMessage: setQuoteMessage,
+          memoizedEmojiListItems: memoizedEmojiListItems
+        });
+      }))), showScrollBot && /*#__PURE__*/React__default["default"].createElement("div", {
+        className: "sendbird-conversation__scroll-bottom-button",
+        onClick: onClickScrollBot,
+        onKeyDown: onClickScrollBot,
+        tabIndex: 0,
+        role: "button"
+      }, /*#__PURE__*/React__default["default"].createElement(index$4.Icon, {
+        width: "24px",
+        height: "24px",
+        type: index$4.IconTypes.CHEVRON_DOWN,
+        fillColor: index$4.IconColors.PRIMARY
+      })));
+    }
+  }]);
+
+  return ConversationScroll;
+}(React.Component);
 ConversationScroll.propTypes = {
   // https://stackoverflow.com/a/52646941
   scrollRef: PropTypes__default["default"].shape({
@@ -3664,26 +3624,27 @@ ConversationScroll.defaultProps = {
   replyType: 'NONE',
   emojiContainer: {},
   showScrollBot: false,
-  onClickScrollBot: () => {},
-  scrollToMessage: () => {},
+  onClickScrollBot: function onClickScrollBot() {},
+  scrollToMessage: function scrollToMessage() {},
   emojiAllMap: new Map(),
   membersMap: new Map(),
   useMessageGrouping: true,
-  toggleReaction: () => {},
-  memoizedEmojiListItems: () => '',
+  toggleReaction: function toggleReaction() {},
+  memoizedEmojiListItems: function memoizedEmojiListItems() {
+    return '';
+  },
   quoteMessage: null
 };
 
 function Notification(_ref) {
-  let {
-    count,
-    time,
-    onClick
-  } = _ref;
-  const {
-    stringSet
-  } = React.useContext(LocalizationContext.LocalizationContext);
-  const timeArray = time.split(' ');
+  var count = _ref.count,
+      time = _ref.time,
+      onClick = _ref.onClick;
+
+  var _useContext = React.useContext(LocalizationContext.LocalizationContext),
+      stringSet = _useContext.stringSet;
+
+  var timeArray = time.split(' ');
   timeArray.splice(-2, 0, stringSet.CHANNEL__MESSAGE_LIST__NOTIFICATION__ON);
   return (
     /*#__PURE__*/
@@ -3695,7 +3656,7 @@ function Notification(_ref) {
       className: "sendbird-notification__text",
       color: index$4.LabelColors.ONCONTENT_1,
       type: index$4.LabelTypography.CAPTION_2
-    }, `${count} `, stringSet.CHANNEL__MESSAGE_LIST__NOTIFICATION__NEW_MESSAGE, ` ${timeArray.join(' ')}`), /*#__PURE__*/React__default["default"].createElement(index$4.Icon, {
+    }, "".concat(count, " "), stringSet.CHANNEL__MESSAGE_LIST__NOTIFICATION__NEW_MESSAGE, " ".concat(timeArray.join(' '))), /*#__PURE__*/React__default["default"].createElement(index$4.Icon, {
       width: "24px",
       height: "24px",
       type: index$4.IconTypes.CHEVRON_DOWN,
@@ -3713,7 +3674,7 @@ Notification.defaultProps = {
   time: ''
 };
 
-var FrozenNotification = function () {
+var FrozenNotification = function FrozenNotification() {
   var stringSet = React.useContext(LocalizationContext.LocalizationContext).stringSet;
   return /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sendbird-notification sendbird-notification--frozen"
@@ -3723,47 +3684,52 @@ var FrozenNotification = function () {
   }, stringSet.CHANNEL_FROZEN));
 };
 
-const TypingIndicatorText = _ref => {
-  let {
-    members
-  } = _ref;
-  const {
-    stringSet
-  } = React.useContext(LocalizationContext.LocalizationContext);
+var TypingIndicatorText = function TypingIndicatorText(_ref) {
+  var members = _ref.members;
+
+  var _useContext = React.useContext(LocalizationContext.LocalizationContext),
+      stringSet = _useContext.stringSet;
 
   if (!members || members.length === 0) {
     return '';
   }
 
   if (members && members.length === 1) {
-    return `${members[0].nickname} ${stringSet.TYPING_INDICATOR__IS_TYPING}`;
+    return "".concat(members[0].nickname, " ").concat(stringSet.TYPING_INDICATOR__IS_TYPING);
   }
 
   if (members && members.length === 2) {
-    return `${members[0].nickname} ${stringSet.TYPING_INDICATOR__AND} ${members[1].nickname} ${stringSet.TYPING_INDICATOR__ARE_TYPING}`;
+    return "".concat(members[0].nickname, " ").concat(stringSet.TYPING_INDICATOR__AND, " ").concat(members[1].nickname, " ").concat(stringSet.TYPING_INDICATOR__ARE_TYPING);
   }
 
   return stringSet.TYPING_INDICATOR__MULTIPLE_TYPING;
 };
 
 function TypingIndicator(props) {
-  const {
-    className,
-    channelUrl,
-    sb,
-    logger
-  } = props;
-  const [handlerId, setHandlerId] = React.useState(LocalizationContext.uuidv4());
-  const [typingMembers, setTypingMembers] = React.useState([]);
-  React.useEffect(() => {
+  var className = props.className,
+      channelUrl = props.channelUrl,
+      sb = props.sb,
+      logger = props.logger;
+
+  var _useState = React.useState(LocalizationContext.uuidv4()),
+      _useState2 = LocalizationContext._slicedToArray(_useState, 2),
+      handlerId = _useState2[0],
+      setHandlerId = _useState2[1];
+
+  var _useState3 = React.useState([]),
+      _useState4 = LocalizationContext._slicedToArray(_useState3, 2),
+      typingMembers = _useState4[0],
+      setTypingMembers = _useState4[1];
+
+  React.useEffect(function () {
     if (sb && sb.ChannelHandler) {
       sb.removeChannelHandler(handlerId);
-      const newHandlerId = LocalizationContext.uuidv4();
-      const handler = new sb.ChannelHandler(); // there is a possible warning in here - setState called after unmount
+      var newHandlerId = LocalizationContext.uuidv4();
+      var handler = new sb.ChannelHandler(); // there is a possible warning in here - setState called after unmount
 
-      handler.onTypingStatusUpdated = groupChannel => {
+      handler.onTypingStatusUpdated = function (groupChannel) {
         logger.info('Channel > Typing Indicator: onTypingStatusUpdated', groupChannel);
-        const members = groupChannel.getTypingMembers();
+        var members = groupChannel.getTypingMembers();
 
         if (groupChannel.url === channelUrl) {
           setTypingMembers(members);
@@ -3774,7 +3740,7 @@ function TypingIndicator(props) {
       setHandlerId(newHandlerId);
     }
 
-    return () => {
+    return function () {
       setTypingMembers([]);
 
       if (sb && sb.removeChannelHandler) {
@@ -3848,12 +3814,14 @@ function QuoteMessageThumbnail(_a) {
 }
 
 function QuoteMessageInput(_a) {
+  var _b;
+
   var className = _a.className,
       replyingMessage = _a.replyingMessage,
       onClose = _a.onClose;
   var stringSet = React.useContext(LocalizationContext.LocalizationContext).stringSet;
   var fileMessage = replyingMessage;
-  var sender = replyingMessage === null || replyingMessage === void 0 ? void 0 : replyingMessage.sender;
+  var sender = (_b = replyingMessage) === null || _b === void 0 ? void 0 : _b.sender;
   return /*#__PURE__*/React__default["default"].createElement("div", {
     className: index.getClassName(['sendbird-quote_message_input', className])
   }, /*#__PURE__*/React__default["default"].createElement(QuoteMessageThumbnail, {
@@ -3861,14 +3829,14 @@ function QuoteMessageInput(_a) {
   }), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sendbird-quote_message_input__body",
     style: {
-      width: "calc(100% - ".concat(fileMessage.isFileMessage() ? '164px' : '120px', ")"),
+      width: "calc(100% - " + (fileMessage.isFileMessage() ? '164px' : '120px') + ")",
       left: fileMessage.isFileMessage() ? '92px' : '40px'
     }
   }, /*#__PURE__*/React__default["default"].createElement(index$4.Label, {
     className: "sendbird-quote_message_input__body__sender-name",
     type: index$4.LabelTypography.CAPTION_1,
     color: index$4.LabelColors.ONBACKGROUND_1
-  }, "".concat(stringSet.QUOTE_MESSAGE_INPUT__REPLY_TO, " ").concat(sender && sender.nickname ? sender.nickname : stringSet.NO_NAME)), /*#__PURE__*/React__default["default"].createElement(index$4.Label, {
+  }, stringSet.QUOTE_MESSAGE_INPUT__REPLY_TO + " " + (sender && sender.nickname ? sender.nickname : stringSet.NO_NAME)), /*#__PURE__*/React__default["default"].createElement(index$4.Label, {
     className: "sendbird-quote_message_input__body__message-content",
     type: index$4.LabelTypography.BODY_2,
     color: index$4.LabelColors.ONBACKGROUND_3
@@ -3878,7 +3846,7 @@ function QuoteMessageInput(_a) {
     fillColor: index$4.IconColors.ON_BACKGROUND_2,
     width: "24px",
     height: "24px",
-    onClick: function () {
+    onClick: function onClick() {
       return onClose(replyingMessage);
     }
   }));
@@ -3886,14 +3854,14 @@ function QuoteMessageInput(_a) {
 
 // Logic required to handle message input rendering
 
-var MessageInputWrapper = function (_a, ref) {
+var MessageInputWrapper = function MessageInputWrapper(_a, ref) {
   var channel = _a.channel,
       user = _a.user,
       isOnline = _a.isOnline,
       initialized = _a.initialized,
       quoteMessage = _a.quoteMessage,
-      onSendMessage = _a.onSendMessage,
-      onFileUpload = _a.onFileUpload,
+      _onSendMessage = _a.onSendMessage,
+      _onFileUpload = _a.onFileUpload,
       setQuoteMessage = _a.setQuoteMessage,
       renderMessageInput = _a.renderMessageInput;
   var stringSet = React.useContext(LocalizationContext.LocalizationContext).stringSet;
@@ -3922,7 +3890,7 @@ var MessageInputWrapper = function (_a, ref) {
     className: "sendbird-message-input-wrapper__quote-message-input"
   }, /*#__PURE__*/React__default["default"].createElement(QuoteMessageInput, {
     replyingMessage: quoteMessage,
-    onClose: function () {
+    onClose: function onClose() {
       return setQuoteMessage(null);
     }
   })), /*#__PURE__*/React__default["default"].createElement(index$3.MessageInput, {
@@ -3931,15 +3899,17 @@ var MessageInputWrapper = function (_a, ref) {
     placeholder: quoteMessage && stringSet.MESSAGE_INPUT__QUOTE_REPLY__PLACE_HOLDER || isDisabledBecauseFrozen(channel) && stringSet.MESSAGE_INPUT__PLACE_HOLDER__DISABLED || isDisabledBecauseMuted(channel) && stringSet.MESSAGE_INPUT__PLACE_HOLDER__MUTED,
     ref: ref,
     disabled: disabled,
-    onStartTyping: function () {
+    onStartTyping: function onStartTyping() {
       channel.startTyping();
     },
-    onSendMessage: function () {
-      onSendMessage(quoteMessage);
+    onSendMessage: function onSendMessage() {
+      _onSendMessage(quoteMessage);
+
       setQuoteMessage(null);
     },
-    onFileUpload: function (file) {
-      onFileUpload(file, quoteMessage);
+    onFileUpload: function onFileUpload(file) {
+      _onFileUpload(file, quoteMessage);
+
       setQuoteMessage(null);
     }
   }));
@@ -3948,9 +3918,9 @@ var MessageInputWrapper = function (_a, ref) {
 var MessageInputWrapper$1 = /*#__PURE__*/React__default["default"].forwardRef(MessageInputWrapper);
 
 function ConnectionStatus() {
-  const {
-    stringSet
-  } = React.useContext(LocalizationContext.LocalizationContext);
+  var _useContext = React.useContext(LocalizationContext.LocalizationContext),
+      stringSet = _useContext.stringSet;
+
   return /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sendbird-connection-status"
   }, /*#__PURE__*/React__default["default"].createElement(index$4.Label, {
@@ -3964,10 +3934,10 @@ function ConnectionStatus() {
   }));
 }
 
-const getChannelTitle = function () {
-  let channel = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  let currentUserId = arguments.length > 1 ? arguments[1] : undefined;
-  let stringSet = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : index$4.LabelStringSet;
+var getChannelTitle = function getChannelTitle() {
+  var channel = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var currentUserId = arguments.length > 1 ? arguments[1] : undefined;
+  var stringSet = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : index$4.LabelStringSet;
 
   if (!channel || !channel.name && !channel.members) {
     return stringSet.NO_TITLE;
@@ -3981,39 +3951,32 @@ const getChannelTitle = function () {
     return stringSet.NO_MEMBERS;
   }
 
-  return channel.members.filter(_ref => {
-    let {
-      userId
-    } = _ref;
+  return channel.members.filter(function (_ref) {
+    var userId = _ref.userId;
     return userId !== currentUserId;
-  }).map(_ref2 => {
-    let {
-      nickname
-    } = _ref2;
+  }).map(function (_ref2) {
+    var nickname = _ref2.nickname;
     return nickname || stringSet.NO_NAME;
   }).join(', ');
 };
 
-const noop$1 = () => {};
+var noop$1 = function noop() {};
 
 function ChatHeader(props) {
-  const {
-    currentGroupChannel,
-    currentUser,
-    title,
-    subTitle,
-    isMuted,
-    theme,
-    showSearchIcon,
-    onSearchClick,
-    onActionClick
-  } = props;
-  const {
-    userId
-  } = currentUser;
-  const {
-    stringSet
-  } = React.useContext(LocalizationContext.LocalizationContext);
+  var currentGroupChannel = props.currentGroupChannel,
+      currentUser = props.currentUser,
+      title = props.title,
+      subTitle = props.subTitle,
+      isMuted = props.isMuted,
+      theme = props.theme,
+      showSearchIcon = props.showSearchIcon,
+      onSearchClick = props.onSearchClick,
+      onActionClick = props.onActionClick;
+  var userId = currentUser.userId;
+
+  var _useContext = React.useContext(LocalizationContext.LocalizationContext),
+      stringSet = _useContext.stringSet;
+
   return /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sendbird-chat-header"
   }, /*#__PURE__*/React__default["default"].createElement("div", {
@@ -4089,258 +4052,279 @@ ChatHeader.defaultProps = {
   onActionClick: noop$1
 };
 
-const noop = () => {};
+var noop = function noop() {};
 
-const ConversationPanel = props => {
-  const {
-    channelUrl,
-    stores: {
-      sdkStore,
-      userStore
-    },
-    config: {
-      userId,
-      logger,
-      pubSub,
-      isOnline,
-      theme,
-      imageCompression
-    },
-    dispatchers: {
-      reconnect
-    },
-    queries = {},
-    startingPoint,
-    highlightedMessage,
-    useReaction,
-    replyType,
-    showSearchIcon,
-    onSearchClick,
-    renderChatItem,
-    renderChatHeader,
-    renderCustomMessage,
-    renderUserProfile,
-    disableUserProfile,
-    renderMessageInput,
-    useMessageGrouping,
-    onChatHeaderActionClick,
-    onBeforeSendUserMessage,
-    onBeforeSendFileMessage,
-    onBeforeUpdateUserMessage
-  } = props;
-  const {
-    sdk
-  } = sdkStore;
-  const {
-    config
-  } = props;
-  const sdkError = sdkStore.error;
-  const sdkInit = sdkStore.initialized;
-  const {
-    user
-  } = userStore;
+var ConversationPanel = function ConversationPanel(props) {
+  var channelUrl = props.channelUrl,
+      _props$stores = props.stores,
+      sdkStore = _props$stores.sdkStore,
+      userStore = _props$stores.userStore,
+      _props$config = props.config,
+      userId = _props$config.userId,
+      logger = _props$config.logger,
+      pubSub = _props$config.pubSub,
+      isOnline = _props$config.isOnline,
+      theme = _props$config.theme,
+      imageCompression = _props$config.imageCompression,
+      reconnect = props.dispatchers.reconnect,
+      _props$queries = props.queries,
+      queries = _props$queries === void 0 ? {} : _props$queries,
+      startingPoint = props.startingPoint,
+      highlightedMessage = props.highlightedMessage,
+      useReaction = props.useReaction,
+      replyType = props.replyType,
+      showSearchIcon = props.showSearchIcon,
+      onSearchClick = props.onSearchClick,
+      renderChatItem = props.renderChatItem,
+      renderChatHeader = props.renderChatHeader,
+      renderCustomMessage = props.renderCustomMessage,
+      renderUserProfile = props.renderUserProfile,
+      disableUserProfile = props.disableUserProfile,
+      renderMessageInput = props.renderMessageInput,
+      useMessageGrouping = props.useMessageGrouping,
+      onChatHeaderActionClick = props.onChatHeaderActionClick,
+      onBeforeSendUserMessage = props.onBeforeSendUserMessage,
+      onBeforeSendFileMessage = props.onBeforeSendFileMessage,
+      onBeforeUpdateUserMessage = props.onBeforeUpdateUserMessage;
+  var sdk = sdkStore.sdk;
+  var config = props.config;
+  var sdkError = sdkStore.error;
+  var sdkInit = sdkStore.initialized;
+  var user = userStore.user;
 
   if (queries.messageListQuery) {
     // eslint-disable-next-line no-console
     console.warn('messageListQuery has been deprecated, please use messageListParams instead');
   }
 
-  React.useEffect(() => {
+  React.useEffect(function () {
     if (renderCustomMessage) {
       // eslint-disable-next-line no-console
       console.info('The parameter type of renderCustomMessage will be changed to the object in the next minor update.');
     }
   }, []);
-  const [intialTimeStamp, setIntialTimeStamp] = React.useState(startingPoint);
-  React.useEffect(() => {
+
+  var _useState = React.useState(startingPoint),
+      _useState2 = LocalizationContext._slicedToArray(_useState, 2),
+      intialTimeStamp = _useState2[0],
+      setIntialTimeStamp = _useState2[1];
+
+  React.useEffect(function () {
     setIntialTimeStamp(startingPoint);
   }, [startingPoint, channelUrl]);
-  const [animatedMessageId, setAnimatedMessageId] = React.useState('');
-  const [highLightedMessageId, setHighLightedMessageId] = React.useState(highlightedMessage);
-  React.useEffect(() => {
+
+  var _useState3 = React.useState(''),
+      _useState4 = LocalizationContext._slicedToArray(_useState3, 2),
+      animatedMessageId = _useState4[0],
+      setAnimatedMessageId = _useState4[1];
+
+  var _useState5 = React.useState(highlightedMessage),
+      _useState6 = LocalizationContext._slicedToArray(_useState5, 2),
+      highLightedMessageId = _useState6[0],
+      setHighLightedMessageId = _useState6[1];
+
+  React.useEffect(function () {
     setHighLightedMessageId(highlightedMessage);
   }, [highlightedMessage]);
-  const userFilledMessageListQuery = queries.messageListParams;
-  const [quoteMessage, setQuoteMessage] = React.useState(null);
-  const [messagesStore, messagesDispatcher] = React.useReducer(reducer, messagesInitialState);
-  const scrollRef = React.useRef(null);
-  const {
-    allMessages,
-    loading,
-    initialized,
-    unreadCount,
-    unreadSince,
-    isInvalid,
-    currentGroupChannel = {},
-    hasMore,
-    lastMessageTimeStamp,
-    hasMoreToBottom,
-    latestFetchedMessageTimeStamp,
-    emojiContainer,
-    readStatus
-  } = messagesStore;
-  const {
-    isFrozen,
-    isBroadcast,
-    isSuper
-  } = currentGroupChannel;
-  const {
-    appInfo = {}
-  } = sdk;
-  const usingReaction = appInfo.isUsingReaction && !isBroadcast && !isSuper && useReaction // TODO: Make useReaction independent from appInfo.isUsingReaction
+  var userFilledMessageListQuery = queries.messageListParams;
+
+  var _useState7 = React.useState(null),
+      _useState8 = LocalizationContext._slicedToArray(_useState7, 2),
+      quoteMessage = _useState8[0],
+      setQuoteMessage = _useState8[1];
+
+  var _useReducer = React.useReducer(reducer, messagesInitialState),
+      _useReducer2 = LocalizationContext._slicedToArray(_useReducer, 2),
+      messagesStore = _useReducer2[0],
+      messagesDispatcher = _useReducer2[1];
+
+  var scrollRef = React.useRef(null);
+  var allMessages = messagesStore.allMessages,
+      loading = messagesStore.loading,
+      initialized = messagesStore.initialized,
+      unreadCount = messagesStore.unreadCount,
+      unreadSince = messagesStore.unreadSince,
+      isInvalid = messagesStore.isInvalid,
+      _messagesStore$curren = messagesStore.currentGroupChannel,
+      currentGroupChannel = _messagesStore$curren === void 0 ? {} : _messagesStore$curren,
+      hasMore = messagesStore.hasMore,
+      lastMessageTimeStamp = messagesStore.lastMessageTimeStamp,
+      hasMoreToBottom = messagesStore.hasMoreToBottom,
+      latestFetchedMessageTimeStamp = messagesStore.latestFetchedMessageTimeStamp,
+      emojiContainer = messagesStore.emojiContainer,
+      readStatus = messagesStore.readStatus;
+  var isFrozen = currentGroupChannel.isFrozen,
+      isBroadcast = currentGroupChannel.isBroadcast,
+      isSuper = currentGroupChannel.isSuper;
+  var _sdk$appInfo = sdk.appInfo,
+      appInfo = _sdk$appInfo === void 0 ? {} : _sdk$appInfo;
+  var usingReaction = appInfo.isUsingReaction && !isBroadcast && !isSuper && useReaction // TODO: Make useReaction independent from appInfo.isUsingReaction
   ;
-  const userDefinedDisableUserProfile = disableUserProfile || config.disableUserProfile;
-  const userDefinedRenderProfile = renderUserProfile || config.renderUserProfile;
-  const showScrollBot = hasMoreToBottom; // TODO: emojiAllMap, emoijAllList, nicknamesMap => should be moved to messagesStore
+  var userDefinedDisableUserProfile = disableUserProfile || config.disableUserProfile;
+  var userDefinedRenderProfile = renderUserProfile || config.renderUserProfile;
+  var showScrollBot = hasMoreToBottom; // TODO: emojiAllMap, emoijAllList, nicknamesMap => should be moved to messagesStore
 
-  const emojiAllMap = React.useMemo(() => usingReaction ? getAllEmojisMapFromEmojiContainer(emojiContainer) : new Map(), [emojiContainer]);
-  const emojiAllList = React.useMemo(() => usingReaction ? getAllEmojisFromEmojiContainer$1(emojiContainer) : [], [emojiContainer]);
-  const nicknamesMap = React.useMemo(() => usingReaction ? getNicknamesMapFromMembers(currentGroupChannel.members) : new Map(), [currentGroupChannel.members]); // Scrollup is default scroll for channel
+  var emojiAllMap = React.useMemo(function () {
+    return usingReaction ? getAllEmojisMapFromEmojiContainer(emojiContainer) : new Map();
+  }, [emojiContainer]);
+  var emojiAllList = React.useMemo(function () {
+    return usingReaction ? getAllEmojisFromEmojiContainer$1(emojiContainer) : [];
+  }, [emojiContainer]);
+  var nicknamesMap = React.useMemo(function () {
+    return usingReaction ? getNicknamesMapFromMembers(currentGroupChannel.members) : new Map();
+  }, [currentGroupChannel.members]); // Scrollup is default scroll for channel
 
-  const onScrollCallback = useScrollCallback({
-    currentGroupChannel,
-    lastMessageTimeStamp,
-    userFilledMessageListQuery,
-    replyType
+  var onScrollCallback = useScrollCallback({
+    currentGroupChannel: currentGroupChannel,
+    lastMessageTimeStamp: lastMessageTimeStamp,
+    userFilledMessageListQuery: userFilledMessageListQuery,
+    replyType: replyType
   }, {
-    hasMore,
-    logger,
-    messagesDispatcher,
-    sdk
+    hasMore: hasMore,
+    logger: logger,
+    messagesDispatcher: messagesDispatcher,
+    sdk: sdk
   });
-  const scrollToMessage = useScrollToMessage({
-    setIntialTimeStamp,
-    setAnimatedMessageId,
-    allMessages
+  var scrollToMessage = useScrollToMessage({
+    setIntialTimeStamp: setIntialTimeStamp,
+    setAnimatedMessageId: setAnimatedMessageId,
+    allMessages: allMessages
   }, {
-    logger
+    logger: logger
   }); // onScrollDownCallback is added for navigation to different timestamps on messageSearch
   // hasMoreToBottom, onScrollDownCallback -> scroll down
   // hasMore, onScrollCallback -> scroll up(default behavior)
 
-  const onScrollDownCallback = useScrollDownCallback({
-    currentGroupChannel,
-    latestFetchedMessageTimeStamp,
-    userFilledMessageListQuery,
-    hasMoreToBottom,
-    replyType
+  var onScrollDownCallback = useScrollDownCallback({
+    currentGroupChannel: currentGroupChannel,
+    latestFetchedMessageTimeStamp: latestFetchedMessageTimeStamp,
+    userFilledMessageListQuery: userFilledMessageListQuery,
+    hasMoreToBottom: hasMoreToBottom,
+    replyType: replyType
   }, {
-    logger,
-    messagesDispatcher,
-    sdk
+    logger: logger,
+    messagesDispatcher: messagesDispatcher,
+    sdk: sdk
   });
-  const toggleReaction = useToggleReactionCallback({
-    currentGroupChannel
+  var toggleReaction = useToggleReactionCallback({
+    currentGroupChannel: currentGroupChannel
   }, {
-    logger
+    logger: logger
   });
-  const memoizedEmojiListItems = useMemoizedEmojiListItems({
-    emojiContainer,
-    toggleReaction
+  var memoizedEmojiListItems = useMemoizedEmojiListItems({
+    emojiContainer: emojiContainer,
+    toggleReaction: toggleReaction
   }, {
     useReaction: usingReaction,
-    logger,
-    userId,
-    emojiAllList
+    logger: logger,
+    userId: userId,
+    emojiAllList: emojiAllList
   }); // to create message-datasource
   // this hook sets currentGroupChannel asynchronously
 
   useSetChannel({
-    channelUrl,
-    sdkInit
+    channelUrl: channelUrl,
+    sdkInit: sdkInit
   }, {
-    messagesDispatcher,
-    sdk,
-    logger
+    messagesDispatcher: messagesDispatcher,
+    sdk: sdk,
+    logger: logger
   });
-  React.useEffect(() => {
+  React.useEffect(function () {
     setQuoteMessage(null);
   }, [channelUrl]); // Hook to handle ChannelEvents and send values to useReducer using messagesDispatcher
 
   useHandleChannelEvents({
-    currentGroupChannel,
-    sdkInit,
-    hasMoreToBottom
+    currentGroupChannel: currentGroupChannel,
+    sdkInit: sdkInit,
+    hasMoreToBottom: hasMoreToBottom
   }, {
-    messagesDispatcher,
-    sdk,
-    logger,
-    scrollRef,
-    setQuoteMessage
+    messagesDispatcher: messagesDispatcher,
+    sdk: sdk,
+    logger: logger,
+    scrollRef: scrollRef,
+    setQuoteMessage: setQuoteMessage
   }); // hook that fetches messages when channel changes
   // to be clear here useGetChannel sets currentGroupChannel
   // and useInitialMessagesFetch executes when currentGroupChannel changes
   // p.s This one executes on intialTimeStamp change too
 
   useInitialMessagesFetch({
-    currentGroupChannel,
-    userFilledMessageListQuery,
-    intialTimeStamp,
-    replyType
+    currentGroupChannel: currentGroupChannel,
+    userFilledMessageListQuery: userFilledMessageListQuery,
+    intialTimeStamp: intialTimeStamp,
+    replyType: replyType
   }, {
-    sdk,
-    logger,
-    messagesDispatcher
+    sdk: sdk,
+    logger: logger,
+    messagesDispatcher: messagesDispatcher
   }); // handles API calls from withSendbird
 
-  React.useEffect(() => {
-    const subScriber = pubSubHandler(channelUrl, pubSub, messagesDispatcher);
-    return () => {
+  React.useEffect(function () {
+    var subScriber = pubSubHandler(channelUrl, pubSub, messagesDispatcher);
+    return function () {
       pubSubHandleRemover(subScriber);
     };
   }, [channelUrl, sdkInit]); // handling connection breaks
 
   useHandleReconnect({
-    isOnline,
-    replyType
+    isOnline: isOnline,
+    replyType: replyType
   }, {
-    logger,
-    sdk,
-    currentGroupChannel,
-    messagesDispatcher,
-    userFilledMessageListQuery
+    logger: logger,
+    sdk: sdk,
+    currentGroupChannel: currentGroupChannel,
+    messagesDispatcher: messagesDispatcher,
+    userFilledMessageListQuery: userFilledMessageListQuery
   }); // callbacks for Message CURD actions
 
-  const deleteMessage = useDeleteMessageCallback({
-    currentGroupChannel,
-    messagesDispatcher
+  var deleteMessage = useDeleteMessageCallback({
+    currentGroupChannel: currentGroupChannel,
+    messagesDispatcher: messagesDispatcher
   }, {
-    logger
+    logger: logger
   });
-  const updateMessage = useUpdateMessageCallback({
-    currentGroupChannel,
-    messagesDispatcher,
-    onBeforeUpdateUserMessage
+  var updateMessage = useUpdateMessageCallback({
+    currentGroupChannel: currentGroupChannel,
+    messagesDispatcher: messagesDispatcher,
+    onBeforeUpdateUserMessage: onBeforeUpdateUserMessage
   }, {
-    logger,
-    sdk,
-    pubSub
+    logger: logger,
+    sdk: sdk,
+    pubSub: pubSub
   });
-  const resendMessage = useResendMessageCallback({
-    currentGroupChannel,
-    messagesDispatcher
+  var resendMessage = useResendMessageCallback({
+    currentGroupChannel: currentGroupChannel,
+    messagesDispatcher: messagesDispatcher
   }, {
-    logger
+    logger: logger
   });
-  const [messageInputRef, onSendMessage] = useSendMessageCallback({
-    currentGroupChannel,
-    onBeforeSendUserMessage
+
+  var _useSendMessageCallba = useSendMessageCallback({
+    currentGroupChannel: currentGroupChannel,
+    onBeforeSendUserMessage: onBeforeSendUserMessage
   }, {
-    sdk,
-    logger,
-    pubSub,
-    messagesDispatcher
-  });
-  const [onSendFileMessage] = useSendFileMessageCallback({
-    currentGroupChannel,
-    onBeforeSendFileMessage,
-    imageCompression
+    sdk: sdk,
+    logger: logger,
+    pubSub: pubSub,
+    messagesDispatcher: messagesDispatcher
+  }),
+      _useSendMessageCallba2 = LocalizationContext._slicedToArray(_useSendMessageCallba, 2),
+      messageInputRef = _useSendMessageCallba2[0],
+      onSendMessage = _useSendMessageCallba2[1];
+
+  var _useSendFileMessageCa = useSendFileMessageCallback({
+    currentGroupChannel: currentGroupChannel,
+    onBeforeSendFileMessage: onBeforeSendFileMessage,
+    imageCompression: imageCompression
   }, {
-    sdk,
-    logger,
-    pubSub,
-    messagesDispatcher
-  });
+    sdk: sdk,
+    logger: logger,
+    pubSub: pubSub,
+    messagesDispatcher: messagesDispatcher
+  }),
+      _useSendFileMessageCa2 = LocalizationContext._slicedToArray(_useSendFileMessageCa, 1),
+      onSendFileMessage = _useSendFileMessageCa2[0];
 
   if (!channelUrl) {
     return /*#__PURE__*/React__default["default"].createElement("div", {
@@ -4363,7 +4347,7 @@ const ConversationPanel = props => {
       className: "sendbird-conversation"
     }, /*#__PURE__*/React__default["default"].createElement(index$4.PlaceHolder, {
       type: index$4.PlaceHolderTypes$1.WRONG,
-      retryToConnect: () => {
+      retryToConnect: function retryToConnect() {
         logger.info('Channel: reconnecting');
         reconnect();
       }
@@ -4376,7 +4360,7 @@ const ConversationPanel = props => {
     renderUserProfile: userDefinedRenderProfile
   }, renderChatHeader ? renderChatHeader({
     channel: currentGroupChannel,
-    user
+    user: user
   }) : /*#__PURE__*/React__default["default"].createElement(ChatHeader, {
     theme: theme,
     currentGroupChannel: currentGroupChannel,
@@ -4388,7 +4372,7 @@ const ConversationPanel = props => {
     isMuted: false
   }), isFrozen && /*#__PURE__*/React__default["default"].createElement(FrozenNotification, null), unreadCount > 0 && /*#__PURE__*/React__default["default"].createElement(Notification, {
     count: unreadCount,
-    onClick: () => {
+    onClick: function onClick() {
       if (intialTimeStamp) {
         setIntialTimeStamp(null);
         setAnimatedMessageId(null);
@@ -4440,7 +4424,7 @@ const ConversationPanel = props => {
     quoteMessage: quoteMessage,
     setQuoteMessage: setQuoteMessage,
     showScrollBot: showScrollBot,
-    onClickScrollBot: () => {
+    onClickScrollBot: function onClickScrollBot() {
       setIntialTimeStamp(null);
       setAnimatedMessageId(null);
       setHighLightedMessageId(null);
@@ -4575,11 +4559,9 @@ ConversationPanel.defaultProps = {
   useMessageGrouping: true,
   onChatHeaderActionClick: noop
 };
-const {
-  getEmojiCategoriesFromEmojiContainer,
-  getAllEmojisFromEmojiContainer,
-  getEmojisFromEmojiContainer
-} = utils;
+var getEmojiCategoriesFromEmojiContainer = getEmojiCategoriesFromEmojiContainer$1,
+    getAllEmojisFromEmojiContainer = getAllEmojisFromEmojiContainer$1,
+    getEmojisFromEmojiContainer = getEmojisFromEmojiContainer$1;
 var Conversation = LocalizationContext.withSendbirdContext(ConversationPanel);
 
 exports.ConversationPanel = ConversationPanel;
